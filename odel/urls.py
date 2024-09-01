@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from account import views
 from main import urls as main_url
 
 urlpatterns = [
-    path('', include(main_url)),
+    path('', include(main_url)), # link for main app request
+    path('registration', views.register_one, name='registration_page'),
     path('admin/', admin.site.urls),
 ]
