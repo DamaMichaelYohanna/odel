@@ -1,0 +1,41 @@
+{% extends 'main/navbar.html' %} {%load static%} {%block content %}
+
+<div class="registration-container">
+  <h3 style="text-align: left">Login</h3>
+  <form method="POST" action="/members.reg_data">
+    {% csrf_token %}
+
+    <div class="col">
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        placeholder="Email/Applicant ID"
+      />
+    </div>
+
+    <div class="col">
+      <input
+        type="password"
+        id="password"
+        name="password"
+        required
+        placeholder="Password"
+      />
+    </div>
+    <div class="col">
+      <p style="text-align: left">
+        Forgot password?
+        <span style="color: #007bff; cursor: pointer"
+          ><a href="{% url 'registration_page'%}">Click here</a></span
+        >
+      </p>
+    </div>
+
+    <div class="col">
+      <input type="submit" class="btn-submit" value="LOGIN" />
+    </div>
+  </form>
+</div>
+{% endblock content %}
