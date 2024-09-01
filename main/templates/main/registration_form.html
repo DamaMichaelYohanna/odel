@@ -2,11 +2,21 @@
 
 <div class="registration-container">
   <h3 style="text-align: left">New Application</h3>
-  <form method="POST" action="/members.reg_data">
-    {% csrf_token %}
+  <form method="POST" action="/registration">
+    {% if messages %} {% for message in messages %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      {{message}}
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+    {% endfor %} {% endif %} {% csrf_token %}
 
     <div class="col">
-      <select id="entrymode" name="entrymode" required>
+      <select id="entrymode" name="entry_mode" required>
         <option value="">Mode of Entry</option>
         <optgroup>
           <option value="100">100</option>
@@ -44,7 +54,10 @@
     </div>
     <div class="col">
       <p style="text-align: left">
-        Already Registered? <span style="color: #007bff; cursor: pointer;"><a href="{% url 'login_page'%}">login</a></span>
+        Already Registered?
+        <span style="color: #007bff; cursor: pointer"
+          ><a href="{% url 'login_page'%}">login</a></span
+        >
       </p>
     </div>
     <div class="col">
