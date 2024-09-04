@@ -13,6 +13,7 @@ urlpatterns = [
     path('invoices', views.dashboard_generate_invoice_pdf, name='invoices_form'),
     path('profile', views.dashboard_profile_settings, name='profile_setting_page'),
     path('document', views.dashboard_documents, name='documents_page'),
+    path('payment', views.dashboard_payments, name='payments_page'),
     path('about', views.about, name='about-page'),
     path('contact', views.contact, name='contact-page'),
 ]

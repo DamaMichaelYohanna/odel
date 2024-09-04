@@ -24,7 +24,7 @@
                 <b> <span class="text-success">INFORMATION UPDATE</span></b>
               </div>
               <div class="">
-                <button type="button" class="btn btn-success">Download</button>
+                <button type="button" class="btn btn-success">ENABLE EDITING</button>
               </div>
             </div>
             <hr/>
@@ -43,8 +43,7 @@
               <!--  -->
               <div class="col-sm-8">
                 <div class="container-fluid">
-                  <div class="mb-3"><h5>Basic</h5></div>
-                  <hr />
+                  <div class="mb-3"></div>
                   <form action="/action_page.php">
                     <div class="row">
                       <div class="col-sm-3 col-md-6">
@@ -61,6 +60,23 @@
                         />
                       </div>
                       <div class="col-sm-9 col-md-6">
+                        <label for="phone" class="form-label text-primary"
+                          >Phone:</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="phone"
+                          placeholder="Date of Birth"
+                          name="phone"
+                          required
+                        />
+                      </div>
+                      
+                    </div>
+                    <div class="mb-3"></div>
+                    <div class="row">
+                        <div class="col-sm-9 col-md-6">
                         <label for="email" class="form-label text-primary"
                           >Email:</label
                         >
@@ -73,11 +89,8 @@
                           required
                         />
                       </div>
-                    </div>
-                    <div class="mb-3"></div>
-                    <div class="row">
                       <div class="col-sm-3 col-md-6">
-                        <label for="email" class="form-label text-primary"
+                        <label for="reg_no" class="form-label text-primary"
                           >Reg No:</label
                         >
                         <input
@@ -89,19 +102,6 @@
                           required
                         />
                       </div>
-                      <div class="col-sm-9 col-md-6">
-                        <label for="email" class="form-label text-primary"
-                          >DOB:</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="dob"
-                          placeholder="Date of Birth"
-                          name="dob"
-                          required
-                        />
-                      </div>
                     </div>
                     <!-- ########################### -->
                    
@@ -109,179 +109,72 @@
                     <div class="mb-3">
                         
                     </div>
-                    <div class="mb-3"><h5>Health</h5></div>
+                    <div class="form-check form-switch col-4">
+                    <input class="form-check-input" type="checkbox" id="mySwitch" name="darkmode" value="yes" checked>
+                    <label class="form-check-label" for="mySwitch">Edit Password</label>
+                    </div>
                     <hr />
                     <div class="row">
-                      <div class="col-sm-4">
-                        <label for="Blood Group" class="form-label text-primary"
-                          >Blood Group:</label
+                      <div class="col-sm-9 col-md-6">
+                        <label for="Old Password" class="form-label text-primary"
+                          >Old Password:</label
                         >
                         <input
                           type="text"
                           class="form-control"
-                          id="blood_group"
+                          id="old_password"
                           placeholder="Blood Group"
-                          name="blood_group"
+                          name="old_password"
                           required
                         />
                       </div>
-                      <div class="col-sm-4">
-                        <label for="Genotype" class="form-label text-primary"
-                          >Genotype:</label
+                      <div class="col-sm-9 col-md-6">
+                        <label for="New Password" class="form-label text-primary"
+                          >New Password:</label
                         >
                         <input
                           type="text"
                           class="form-control"
-                          id="genotype"
-                          placeholder="Genotype"
-                          name="genotype"
+                          id="new_password"
+                          placeholder="New Password"
+                          name="new_password"
                           required
                         />
                       </div>
-                      <div class="col-sm-4">
-                        <label for="Disability" class="form-label text-primary"
-                          >Disability:</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="disability"
-                          placeholder="Disability"
-                          name="disability"
-                          required
-                        />
-                      </div>
+                      
                     </div>
                     <!-- ################### -->
-                    <div class="mb-3"></div>
-                    <div class="mb-3"><h5>Next of Kin</h5></div>
-                    <hr />
                     <div class="row">
                       <div class="col-sm-12">
                         <label
-                          for="Next of Kin Name"
+                          for="Confirm Password"
                           class="form-label text-primary"
-                          >Next of Kin Name:</label
+                          >Confirm Password:</label
                         >
                         <input
                           type="text"
                           class="form-control"
-                          id="nokn"
-                          placeholder="Next of Kin Name"
-                          name="nokn"
+                          id="confirm_password"
+                          placeholder="Confirm Password"
+                          name="confirm_password"
                           required
                         />
                       </div>
-                      <div class="col-sm-12">
-                        <label
-                          for="Next of Kin Phone"
-                          class="form-label text-primary"
-                          >Next of Kin Phone:</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="nokp"
-                          placeholder="Next of Kin Phone"
-                          name="nokp"
-                          required
-                        />
-                      </div>
-
-                      <div class="col-sm-12">
-                        <label
-                          for="Next of Kin Address"
-                          class="form-label text-primary"
-                          >Next of Kin Address:</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="noka"
-                          placeholder="Next of Kin Address"
-                          name="noka"
-                          required
-                        />
-                      </div>
-                      <div class="col-sm-12">
-                        <label
-                          for="Relationship"
-                          class="form-label text-primary"
-                          >Relationship:</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="relationship"
-                          placeholder="Relationship"
-                          name="relationship"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div class="mb-3"></div>
-                    <div class="mb-3"><h5>Sponsor/Sport</h5></div>
-                    <hr />
-                    <div class="row">
-                      <div class="col-sm-4">
-                        <label
-                          for="Sponsor Name"
-                          class="form-label text-primary"
-                          >Sponsor Name:</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="sponsor_name"
-                          placeholder="Sponsor Name"
-                          name="sponsor_name"
-                          required
-                        />
-                      </div>
-                      <div class="col-sm-4">
-                        <label
-                          for="Other Sponsor"
-                          class="form-label text-primary"
-                          >Other Sponsor:</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="other_sponsor"
-                          placeholder="Other Sponsor"
-                          name="other_sponsor"
-                          required
-                        />
-                      </div>
-                      <div class="col-sm-4">
-                        <label
-                          for="Other Sponsor"
-                          class="form-label text-primary"
-                          >Sport:</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="other_sponsor"
-                          placeholder="Other Sponsor"
-                          name="other_sponsor"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <hr />
-                    <div class="row">
-                      <div class="col-sm-4"></div>
-                      <div class="col-sm-4"></div>
-                      <div class="col-sm-4">
-                        <div style="float: right">
-                          <button type="submit" class="btn btn-success">
-                            Submit
-                          </button>
+                      <div class="mb-3"></div>
+                      <hr />
+                      <div class="row">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4">
+                          <div style="float: right">
+                            <button type="submit" class="btn btn-success">
+                              Submit
+                            </button>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="mb-4"></div>
+                      <div class="mb-4"></div>
+                      </div>
                   </form>
                 </div>
                 <!-- End Custom template -->

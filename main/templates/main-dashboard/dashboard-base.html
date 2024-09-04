@@ -57,9 +57,9 @@
   </head>
   <html>
   <body>
-    <div class="wrapper" style="color: white;">
+    <div class="wrapper" style="color: #000;">
   <!-- Sidebar -->
-  <div class="sidebar" style="color:white; background-color: #007343; color: #fff;">
+  <div class="sidebar" style="background-color: #007343; color: #000;">
     <div class="sidebar-logo">
       <!-- Logo Header -->
       <div class="logo-header" data-background-color="light" style="background-color: #007343; color: #fff;">
@@ -89,7 +89,7 @@
     <div class="sidebar-wrapper scrollbar scrollbar-inner">
       <div class="sidebar-content">
         <ul class="nav nav-secondary">
-          <li class="nav-item btn btn-success">
+          <li class="nav-item btn-success">
                   <a href="{% url 'dashboard_page'%}">
                     <span class="sub-item text-light">Dashboard</span>
                   </a>
@@ -116,7 +116,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{% url 'documents_page'%}">
+            <a href="{% url 'payments_page'%}">
               <span class="sub-item text-light">My Document</span>
             </a>
           </li>
@@ -126,11 +126,41 @@
             </a>
           </li>
         </ul>
+ 
       </div>
+        <ul class="nav nav-secondary">
+<li class="nav-item">
+ <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal"> Logout</button>
+</li>
+</ul>
     </div>
-    
+    </div>
+
+    <!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Confirmation</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+      Your are login out..
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-mute" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Continue</button>
+      </div>
+
+    </div>
   </div>
-  <!-- End Sidebar -->
+</div>
 
   <div class="main-panel">
     <div class="main-header">

@@ -46,6 +46,10 @@ def dashboard_documents(request):
     return render(request, 'main-dashboard/documents.html')
 
 
+def dashboard_payments(request):
+    return render(request, 'main-dashboard/payment.html')
+
+
 
 
 def about(request):
