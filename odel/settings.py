@@ -119,6 +119,12 @@ USE_TZ = True
 # custome user model
 AUTH_USER_MODEL = "account.CustomUser"
 
+AUTHENTICATION_BACKENDS = [
+    'account.custom_auth.IDBackend',
+    'account.custom_auth.MatricBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 

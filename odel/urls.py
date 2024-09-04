@@ -22,5 +22,6 @@ from main import urls as main_url
 urlpatterns = [
     path('', include(main_url)), # link for main app request
     path('registration', views.register_one, name='registration_page'),
+    path('login', views.student_login, name='login_page'),
     path('admin/', admin.site.urls),
 ]

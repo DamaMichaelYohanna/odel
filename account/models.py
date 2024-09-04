@@ -47,3 +47,5 @@ class Student(models.Model):
     phone = models.TextField(null=True, blank=True)
     relation = models.TextField(null=True, blank=True)
 
+    def __str__(self):
+        return self.app_id

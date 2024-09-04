@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.contrib.auth import authenticate
 from django.db.utils import IntegrityError
 from django.shortcuts import render, redirect
 
@@ -26,3 +27,32 @@ def register_one(request):
 
     else:
         return render(request, 'main/registration_form.html')
+
+
+def student_login (request):
+    if request.method == 'POST':
+        student_id = request.POST.get("student_id")
+        password = request.POST.get("password")
+        if not student_id or not password:
+            messages.error(request, "Fields can't be empty!")
+            return render(request, 'main/login_form.html')
+        try:
+            print("trying here")
+            user = authenticate(request, username=student_id, password=password)
+            if not user:
+                messages.error(request, "Invalid Credentials!")
+                return render(request, 'main/login_form.html')
+
+            if user.student.mat_number and student_id != user.student.mat_number:
+                messages.error(request, f"Use {user.student.mat_number} as your matric number")
+                return render(request, 'main/login_form.html')
+            # user.set_password(password1)
+            messages.success(request, "Login Sucessfully.")
+            return redirect("/dashboard")
+        except IntegrityError:
+            messages.error(request, "Email address already used!")
+            return render(request, 'main/login_form.html')
+
+
+    else:
+        return render(request, 'main/login_form.html')
