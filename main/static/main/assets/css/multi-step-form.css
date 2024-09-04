@@ -130,6 +130,11 @@ input {
   }
 }
 
+.adjust_head{
+  margin-left: 13px;
+  color: #fff;
+}
+
 /* Button */
 .btns-group {
   display: grid;
@@ -172,6 +177,7 @@ input {
   border-radius: 0.35rem;
   padding: 1.5rem;
 }
+
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */

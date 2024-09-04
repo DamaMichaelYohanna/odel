@@ -3,14 +3,14 @@
 <html lang="en">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Kaiadmin - Bootstrap 5 Admin Dashboard</title>
+    <title>Nsuk Odel</title>
     <meta
     content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
       name="viewport"
     />
     <link
       rel="icon"
-      href="{% static '/main/assets/img/kaiadmin/favicon.ico'%}"
+      href="{% static '/main/assets/img/nsuk-logo.png'%}"
       type="image/x-icon"
       />
       
@@ -59,18 +59,19 @@
   <body>
     <div class="wrapper" style="color: white;">
   <!-- Sidebar -->
-  <div class="sidebar" data-background-color="success" style="color:white; background-color: #00cc77; color: #fff;">
+  <div class="sidebar" style="color:white; background-color: #007343; color: #fff;">
     <div class="sidebar-logo">
       <!-- Logo Header -->
       <div class="logo-header" data-background-color="light" style="background-color: #007343; color: #fff;">
-        <a href="index.html" class="logo">
+        <a href="{% url 'index_page'%}" class="logo">
           <img
-            src="assets/img/kaiadmin/logo_light.svg"
+            src="{% static '/main/assets/img/nsuk-logo.png'%}"
             alt="navbar brand"
             class="navbar-brand"
-            height="20"
+            height="30"
           />
         </a>
+        <h3 class="text-light"> NSUK ODel</h3>
         <div class="nav-toggle">
           <button class="btn btn-toggle toggle-sidebar">
             <i class="gg-menu-right"></i>
@@ -88,9 +89,9 @@
     <div class="sidebar-wrapper scrollbar scrollbar-inner">
       <div class="sidebar-content">
         <ul class="nav nav-secondary">
-          <li class="nav-item active">
-                  <a href="../demo1/index.html">
-                    <span class="sub-item">Dashboard</span>
+          <li class="nav-item active link-success">
+                  <a href="{% url 'dashboard_page'%}">
+                    <span class="sub-item text-light">Dashboard</span>
                   </a>
           </li>
           <li class="nav-section">
@@ -99,14 +100,40 @@
             </span>
             <!-- <h4 class="text-section">Components</h4> -->
           </li>
+          <li class="nav-item btn btn-success">
+            <a href="{% url 'bio-data_form'%}">
+              <span class="sub-item text-light">Bio Data</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'fee_payment_form'%}">
+              <span class="sub-item text-light">Fee</span>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="{% url 'dashboard_form'%}">
-              <span class="sub-item">Bio Data</span>
+              <span class="sub-item text-light">Other payment</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'documents_page'%}">
+              <span class="sub-item text-light">My Document</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'profile_setting_page'%}">
+              <span class="sub-item text-light">Profile Settings</span>
             </a>
           </li>
         </ul>
       </div>
+      <div class="d-flex flex-md-column justify-content-between mb-3">
+    <div class="p-2 bg-info">Flex item 1</div>
+    <div class="p-2 bg-warning">Flex item 2</div>
+    <div class="p-2 bg-primary">Flex item 3</div>
+  </div>
     </div>
+    
   </div>
   <!-- End Sidebar -->
 

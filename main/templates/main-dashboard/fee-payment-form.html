@@ -1,0 +1,35 @@
+{% extends 'main-dashboard/dashboard-base.html'%}
+<!-- Static file loader -->
+{% load static %}
+
+<!-- the content block-->
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="row">
+      <div class="col-md-12">
+        <div
+          class="card"
+          style="border-top: 2px solid rgb(41, 187, 48); color: #000"
+        >
+          <div
+            class="card-header"
+            style="border-bottom: 3px solid #007343; color: #fff"
+          >
+            <div class="card-title" style="color: rgb(41, 187, 48)">
+              Fee
+            </div>
+          </div>
+          <div>Fee payment Gateway</div>
+          <!-- End of muli step form -->
+
+          <div class="card-action">
+            <!-- <button class="btn btn-success">Submit</button>
+                      <button class="btn btn-danger">Cancel</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

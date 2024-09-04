@@ -1,0 +1,201 @@
+{% extends 'main-dashboard/url-link-base.html'%}
+<!--  -->
+{% load static %}
+<!-- block -->
+{% block content %}
+<style>
+  .flex-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    /* background-color: DodgerBlue; */
+  }
+  .flex-container3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    /* background-color: DodgerBlue; */
+  }
+  .flex-container2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    /* background-color: DodgerBlue; */
+  }
+
+  /* .bb {
+    flex-grow: 70;
+  } */
+
+  .tables {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .tables td,
+  .tables th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  .tables tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  .tables tr:hover {
+    background-color: #ddd;
+  }
+
+  .tables th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #ccc;
+    color: white;
+  }
+
+  table,
+  td,
+  th {
+    border: 1px solid black;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th {
+    height: 50px;
+  }
+</style>
+<div class="row">
+  <!-- <div class="flex-container">
+    <img
+      src="{% static '/main/assets/img/nsuk-logo.png'%}"
+      alt="navbar brand"
+      class="navbar-brand"
+      height="100"
+    />
+    <div class="bb"><h4>NASARAWA STATE UNIVERSITY, KEFFI</h4></div>
+
+    <img
+      src="{% static '/main/assets/img/nsuk-logo.png'%}"
+      alt="navbar brand"
+      class="navbar-brand"
+      height="90"
+    />
+  </div>
+</div> -->
+
+ <div class="d-flex bg-light justify-content-center" style="height:150px">
+    <div class="p-2 border">
+    <img
+      src="{% static '/main/assets/img/nsuk-logo.png'%}"
+      alt="navbar brand"
+      class="navbar-brand"
+      height="90"
+    /></div>
+    <div class="p-4 border align-self-lg-stretch"><h1 style="font-size: 35px;">NASARAWA STATE UNIVERSITY, KEFFI</h1>
+    
+    <div class="d-flex justify-content-center flex-column" style="text-align: center;">
+      <h1 style="font-size: 35px;">KEFFI</h1>
+      <h4>PMB 1022, KEFFI</h4>
+      <h4>UNDERGRADUATE</h4>
+      <h4>SCREENING FEE PAYMENT RECEIPT</h4>
+    </div>
+    </div>
+    <div class="p-2 border">
+    <img
+      src="{% static '/main/assets/img/nsuk-logo.png'%}"
+      alt="navbar brand"
+      class="navbar-brand"
+      height="90"
+    /></div>
+  </div></div>
+<!-- <div style="text-align: center; font-size: 15px; padding: 0px">
+  <div class=""><h4>PMB 1022, KEFFI</h4></div>
+  <div class="bb"><h4>UNDERGRADUATE</h4></div>
+  <div class="bb"><h4>SCREENING FEE PAYMENT RECEIPT</h4></div>
+</div> -->
+
+            <!-- <div class="row form-control"> -->
+              <!--  -->
+              <br>
+<br>
+<br>
+<br>
+<br>
+              <div class="container mt-3">
+                <table class="table table-bordered flex-container">
+                  <tbody>
+                    <tr>
+                      <td><b>Matric/Reg No:</b></td>
+                      <td>FT23353555</td>
+                      <td><b>Name:</b></td>
+                      <td>Josiah</td>
+                    </tr>
+                    <!--  -->
+                    <tr>
+                      <td><b>Faculty:</b></td>
+                      <td>Public Admin</td>
+                      <td><b>Department:</b></td>
+                      <td>Psychology</td>
+                    </tr>
+                    <tr>
+                      <td><b>Level:</b></td>
+                      <td>100</td>
+                      <td><b>Programme:</b></td>
+                      <td>BSc</td>
+                    </tr>
+                    <!--  -->
+                    <tr>
+                      <td><b>Session:</b></td>
+                      <td>2024/2025</td>
+                      <td><b>Trans. Id:</b></td>
+                      <td>124253412bg</td>
+                    </tr>
+                    <tr>
+                      <td><b>Date:</b></td>
+                      <td>2024-08-13</td>
+                      <td><b>Invoice:</b></td>
+                      <td>100045364</td>
+                    </tr>
+                    <!--  -->
+                    <tr>
+                      <td><b>Status:</b></td>
+                      <td>Paid</td>
+                      <td><b>State:</b></td>
+                      <td>Nasarawa</td>
+                    </tr>
+                    <!--  -->
+                    <tr>
+                      <th><b>S/N</b></th>
+                      <th><b>Fee Item</b></th>
+                      <th><b>Amount</b></th>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>Screening fee</td>
+                      <td><b>Total for Invoice: 2,135</b></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!--  -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

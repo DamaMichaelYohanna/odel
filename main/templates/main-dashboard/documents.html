@@ -1,0 +1,42 @@
+{% extends 'main-dashboard/dashboard-base.html'%}
+<!-- Static file loader -->
+{% load static %}
+
+<!-- the content block-->
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="row">
+      <div class="col-md-12">
+        <div
+          class="card"
+          style="border-top: 2px solid rgb(41, 187, 48); color: #000"
+        >
+          <div
+            class="card-header"
+            style="border-bottom: 3px solid #007343; color: #fff"
+          >
+            <div class="card-title" style="color: rgb(41, 187, 48)">
+              <h4>Document</h4>
+            </div>
+          </div>
+          <div class="container mt-3">
+            <h2>Download List</h2>
+            <ul class="list-group">
+              <li class="list-group-item bg-success">Active item</li>
+              <li class="list-group-item">Second item</li>
+              <li class="list-group-item">Third item</li>
+            </ul>
+          </div>
+
+            <div class="card-action">
+              <!-- <button class="btn btn-success">Submit</button>
+                      <button class="btn btn-danger">Cancel</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock content %}
+</div>
