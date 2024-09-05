@@ -10,15 +10,15 @@
         <div
           class="card"
           style="border-top: 2px solid rgb(41, 187, 48); color: #000"
-          >
+        >
           <div
-          class="card-header"
+            class="card-header"
             style="border-bottom: 3px solid #007343; color: #000"
-            >
+          >
             <div
               class="card-title"
               style="color: rgb(41, 187, 48); float: left"
-              ></div>
+            ></div>
             <div class="d-flex justify-content-between">
               <div class="p-3 p-2">
                 <b> <span class="text-success">INFORMATION UPDATE</span></b>
@@ -27,8 +27,8 @@
                 <button type="button" class="btn btn-success">Download</button>
               </div>
             </div>
-            <hr/>
-            
+            <hr />
+
             <div class="row">
               <div class="d-none d-lg-block col-sm-2">
                 <div class="avatar-sm">
@@ -46,8 +46,9 @@
                 <div class="container-fluid">
                   <div class="mb-3 text-muted"><h5>Basic</h5></div>
                   <hr />
-                  <form action="/action_page.php">
-                    <div class="row">
+                  <form action="/biodata" method="POST">
+                    {% csrf_token%}
+                    <!-- <div class="row">
                       <div class="col-sm-3 col-md-6">
                         <label for="email" class="form-label text-primary"
                           >Name:</label
@@ -76,17 +77,18 @@
                       </div>
                     </div>
                     <div class="mb-3"></div>
+                     -->
                     <div class="row">
                       <div class="col-sm-3 col-md-6">
                         <label for="email" class="form-label text-primary"
-                          >Reg No:</label
+                          >Place of Birth:</label
                         >
                         <input
                           type="text"
                           class="form-control"
                           id="reg_no"
-                          placeholder="Registration Number"
-                          name="reg_no"
+                          placeholder="Place of Birth"
+                          name="pob"
                           required
                         />
                       </div>
@@ -95,7 +97,7 @@
                           >DOB:</label
                         >
                         <input
-                          type="text"
+                          type="date"
                           class="form-control"
                           id="dob"
                           placeholder="Date of Birth"
@@ -110,33 +112,17 @@
                     <div class="row">
                       <div class="col-sm-3 col-md-6">
                         <label for="email" class="form-label text-primary"
-                          >Home Town:</label
+                          >Marital Status:</label
                         >
                         <input
                           type="text"
                           class="form-control"
                           id="home_town"
-                          placeholder="Home Town"
-                          name="home_town"
+                          placeholder="Marital Status"
+                          name="marital_status"
                           required
                         />
                       </div>
-                      <div class="col-sm-9 col-md-6">
-                        <label for="email" class="form-label text-primary"
-                          >Home Addess:</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="home address"
-                          placeholder="Enter username"
-                          name="home address"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div class="mb-3"></div>
-                    <div class="row">
                       <div class="col-sm-3 col-md-6">
                         <label for="country" class="form-label text-primary"
                           >Country:</label
@@ -150,6 +136,9 @@
                           required
                         />
                       </div>
+                    </div>
+                    <div class="mb-3"></div>
+                    <div class="row">
                       <div class="col-sm-9 col-md-6">
                         <label for="State" class="form-label text-primary"
                           >State:</label
@@ -163,80 +152,54 @@
                           required
                         />
                       </div>
-                    </div>
-                    <!-- ########################### -->
-                    <div class="mb-3"></div>
-
-                    <div class="row">
                       <div class="col-sm-3 col-md-6">
                         <label for="LGA/City" class="form-label text-primary"
-                          >LGA/City:</label
+                          >LGA:</label
                         >
                         <input
                           type="text"
                           class="form-control"
                           id="lga_city"
-                          placeholder="LGA/City"
-                          name="lga_city"
+                          placeholder="LGA"
+                          name="lga"
                           required
                         />
                       </div>
+                    </div>
+                    <!-- ########################### -->
+                    <div class="mb-3"></div>
+                    <div class="mb-3"><h5>Contact Info</h5></div>
+                    <hr />
+
+                    <div class="mb-3"></div>
+                    <div class="row">
                       <div class="col-sm-9 col-md-6">
                         <label
-                          for="Contact Address"
+                          for="place of Birth Address"
                           class="form-label text-primary"
                           >Contact Address:</label
                         >
                         <input
                           type="text"
                           class="form-control"
-                          id="contact_address"
+                          id="poba"
                           placeholder="Contact Address"
                           name="contact_address"
                           required
                         />
                       </div>
-                    </div>
-                    <div class="mb-3"></div>
-                    <div class="row">
-                      <div class="col-sm-4">
+                      <div class="col-sm-9 col-md-6">
                         <label
-                          for="place of Birth Address"
+                          for="contact-country"
                           class="form-label text-primary"
-                          >place of Birth Address:</label
+                          >Country:</label
                         >
                         <input
                           type="text"
                           class="form-control"
-                          id="poba"
-                          placeholder="Place of Birth Address"
-                          name="poba"
-                          required
-                        />
-                      </div>
-                      <div class="col-sm-4">
-                        <label for="Gender" class="form-label text-primary"
-                          >Gender:</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="gender"
-                          placeholder="Gender"
-                          name="gender"
-                          required
-                        />
-                      </div>
-                      <div class="col-sm-4">
-                        <label for="Tribe" class="form-label text-primary"
-                          >Tribe:</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="tribe"
-                          placeholder="Tribe"
-                          name="tribe"
+                          id="contact-country"
+                          placeholder="Country"
+                          name="contact_country"
                           required
                         />
                       </div>
@@ -246,37 +209,37 @@
 
                     <div class="row">
                       <div class="col-sm-9 col-md-6">
-                        <label for="Religion" class="form-label text-primary"
-                          >Religion:</label
+                        <label
+                          for="contact-state"
+                          class="form-label text-primary"
+                          >State:</label
                         >
                         <input
                           type="text"
                           class="form-control"
-                          id="religion"
-                          placeholder="Religion"
-                          name="religion"
+                          id="contact-state"
+                          placeholder="state"
+                          name="contact_state"
                           required
                         />
                       </div>
                       <!--  -->
                       <div class="col-sm-3 col-md-6">
-                        <label
-                          for="Marital Status"
-                          class="form-label text-primary"
-                          >Marital Status:</label
+                        <label for="contact-lga" class="form-label text-primary"
+                          >LGA:</label
                         >
                         <input
                           type="text"
                           class="form-control"
-                          id="marital_status"
-                          placeholder="Marital Status"
-                          name="marital_status"
+                          id="contact-lga"
+                          placeholder="LGA"
+                          name="contact_lga"
                           required
                         />
                       </div>
                     </div>
                     <!-- ########################### -->
-                    <div class="mb-3"></div>
+                    <!-- <div class="mb-3"></div>
                     <div class="mb-3"><h5>Health</h5></div>
                     <hr />
                     <div class="row">
@@ -319,7 +282,7 @@
                           required
                         />
                       </div>
-                    </div>
+                    </div> -->
                     <!-- ################### -->
                     <div class="mb-3"></div>
                     <div class="mb-3"><h5>Next of Kin</h5></div>
@@ -387,7 +350,7 @@
                         />
                       </div>
                     </div>
-                    <div class="mb-3"></div>
+                    <!-- <div class="mb-3"></div>
                     <div class="mb-3"><h5>Sponsor/Sport</h5></div>
                     <hr />
                     <div class="row">
@@ -436,7 +399,7 @@
                           required
                         />
                       </div>
-                    </div>
+                    </div> -->
                     <hr />
                     <div class="row">
                       <div class="col-sm-4"></div>

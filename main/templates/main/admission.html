@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Admission Letter</title>
+    <style>
+      .heading {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      .heading-text {
+        text-align: center;
+      }
+      .heading-text h3 {
+        font-size: 4rem;
+        text-align: center;
+      }
+      table {
+        text-align: left;
+        width: 100%;
+        border-collapse: collapse;
+      }
+      table,
+      tr,
+      th,
+      td {
+        border: 1px solid grey;
+      }
+      td,
+      th {
+        padding: 1%;
+      }
+      .content {
+        line-height: 25px;
+      }
+      @media only print {
+        .heading-text h3 {
+          font-size: 2rem;
+        }
+        .heading-logo img {
+          width: 100px;
+        }
+      }
+      @media screen {
+        body {
+          padding: 5%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="heading">
+      <div class="heading-logo">
+        <img
+          src="{% static 'main/img/nsuk-logo.png' %}"
+          alt="NSUK LOGO"
+          width="150px"
+        />
+      </div>
+      <div class="heading-text">
+        <h3>
+          NASARAWA STATE UNIVERSITY,<br />
+          KEFFI
+        </h3>
+        <p>P.M.B 2024</p>
+      </div>
+      <div class="heading-logo">
+        <img
+          src="{% static 'main/img/nsuk-logo.png' %}"
+          alt="NSUK LOGO"
+          width="150px"
+        />
+      </div>
+    </div>
+    <!-- <hr /> -->
+    <div style="text-align: center">
+      <h3>UNDERGRADUATE</h3>
+      <h1>PROVISIONAL ADMISSION LETTER</h1>
+    </div>
+    <div class="content">
+      <ol>
+        <li>
+          I am pleased to inform you that you have been offered provisional
+          admission into the Degree Programme of Nasarawa State University,
+          Keffi for the 2022/2023 Academic Session Stream A as detailed below.
+        </li>
+        <table>
+          <tr>
+            <th>Full Name:</th>
+            <td>Yohanna Dama Michael</td>
+            <th>Applicant ID:</th>
+            <td>ODeL1234</td>
+          </tr>
+          <tr>
+            <th>State of Origin</th>
+            <td>Nasarawa</td>
+            <th>Mode of Entry:</th>
+            <td>Direct Entry</td>
+          </tr>
+          <tr>
+            <th>Mode of Studey:</th>
+            <td>Part Time</td>
+            <th>Faculty:</th>
+            <td>Administration</td>
+          </tr>
+          <tr>
+            <th>Department</th>
+            <td>Public Administration</td>
+          </tr>
+          <tr>
+            <th>Programme</th>
+            <td>B.Sc Public Administration</td>
+          </tr>
+        </table>
+        <li>
+          Please note that the duration of this programme in the university is 3
+          years
+        </li>
+        <li>
+          Registration commences from 7th March, 2024 to 31st December, 2024.
+          And you are required to come along with the following:
+        </li>
+        <ol>
+          <li>. Original copies of all your certificates.</li>
+          <li>
+            Original copies of JAMB Admission Letter, (Candidate and
+            Institutional)
+          </li>
+          <li>The sum of 97,415.00 as registration fee.</li>
+          <li>
+            A medical certificate of fitness from Nasarawa State University,
+            Keffi Clinic
+          </li>
+          <li>Four recent passport-sized photographs.</li>
+        </ol>
+        <h3>Congratulations</h3>
+      </ol>
+    </div>
+  </body>
+</html>

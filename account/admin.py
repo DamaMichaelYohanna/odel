@@ -8,18 +8,18 @@ from .models import CustomUser, Student
 class CustomUserAdmin(UserAdmin):
     add_form = CustomUserCreationForm
     form = CustomUserChangeForm
-    model = CustomUser
-    list_display = ("email", "is_staff", "is_active",)
+    # model = CustomUser
+    list_display = ("email", "first_name", "middle_name", "surname", "is_staff", "is_active",)
     list_filter = ("email", "is_staff", "is_active",)
     fieldsets = (
-        (None, {"fields": ("email", "password")}),
+        (None, {"fields": ("email","first_name", "middle_name", "surname", "password")}),
         ("Permissions", {"fields": ("is_staff", "is_active", "groups", "user_permissions")}),
     )
     add_fieldsets = (
         (None, {
             "classes": ("wide",),
             "fields": (
-                "email", "password1", "password2", "is_staff",
+                "email","first_name", "middle_name", "surname", "password1", "password2", "is_staff",
                 "is_active", "groups", "user_permissions"
             )}
         ),

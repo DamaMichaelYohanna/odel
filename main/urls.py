@@ -16,4 +16,6 @@ urlpatterns = [
     path('payment', views.dashboard_payments, name='payments_page'),
     path('about', views.about, name='about-page'),
     path('contact', views.contact, name='contact-page'),
+    path('admission', views.render_admission, name='contact-page'),
+    path('gen-invoice', views.render_pdf, name='render pdf'),
 ]
