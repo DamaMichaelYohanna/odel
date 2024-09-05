@@ -145,3 +145,13 @@ def render_pdf(request, *args, **kwargs):
     if pisa_status.err:
         return HttpResponse('We had some errors <pre>' + html + '</pre>')
     return response
+
+
+@login_required
+def accept_admission(request):
+    if request.method == "POST":
+        student = Student.objects.get(user=request.user.id)
+        student.has_accepted = True
+        student.save()
+        return redirect('/dashboard')
+    return render(request, 'main-dashboard/accept_admission.html')

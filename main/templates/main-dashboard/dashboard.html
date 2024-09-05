@@ -61,23 +61,23 @@
                 </tr>
                 <tr>
                 <td>Year of admission</td>
-                <td>{{ user.year }}</td>
+                <td>{{ user.year }}2024</td>
                 </tr>
                 <tr>
                 <td>Program Type</td>
-                <td>{{ user.programme_type }}</td>
+                <td>{{ user.student.programme_type }}</td>
                 </tr>
                 <tr>
                 <td>Faculty</td>
-                <td>{{ user.student.faculty }}</td>
+                <td>{{ user.student.faculty }}Administration</td>
                 </tr>
                 <tr>
                 <td>Department</td>
-                <td>{{ user.student.faculty }}</td>
+                <td>{{ user.student.faculty }}Public Administration</td>
                 </tr>
                 <tr>
                 <td>Programme</td>
-                <td>{{ user.student.programme }}</td>
+                <td>{{ user.student.programme }}B.Sc Public Administration</td>
                 </tr>
             </tbody>
             </table>
@@ -104,7 +104,7 @@
                   <div class="card" style="width: 18rem;">
                   <div class="card-body">
                       <h5 class="card-title">Action Required</h5>
-                      <p class="card-text btn">Proceed to Accept Admission</p>
+                      <a href="/accept-admission" class="card-text btn">Proceed to Accept Admission</a>
                   </div>
                   </div>
                 </div>
