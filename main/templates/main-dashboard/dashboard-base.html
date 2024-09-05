@@ -13,7 +13,7 @@
       href="{% static '/main/assets/img/nsuk-logo.png'%}"
       type="image/x-icon"
       />
-      
+
       <!-- Fonts and icons -->
       <script src="{% static '/main/assets/js/plugin/webfont/webfont.min.js'%}"></script>
       <script>
@@ -55,7 +55,6 @@
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link rel="stylesheet" href="{% static '/main/assets/css/demo.css'%}" />
   </head>
-  <html>
   <body>
     <div class="wrapper" style="color: #000;">
   <!-- Sidebar -->
@@ -100,33 +99,46 @@
             </span>
             <!-- <h4 class="text-section">Components</h4> -->
           </li>
-          <li class="nav-item ">
+        {% if user.student.done_biodata %}
+            {% if user.student.has_accepted %}
+                  <li class="nav-item">
+                    <a href="{% url 'fee_payment_form'%}">
+                      <span class="sub-item text-light">Fee</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'dashboard_form'%}">
+                      <span class="sub-item text-light">Other payment</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'payments_page'%}">
+                      <span class="sub-item text-light">My Document</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'profile_setting_page'%}">
+                      <span class="sub-item text-light">Profile Settings</span>
+                    </a>
+                  </li>
+                {% else %}
+                  <li class="nav-item ">
+                    <a href="{% url 'bio-data_form'%}">
+                      <span class="sub-item text-light">Accept Admission</span>
+                    </a>
+                  </li>
+            {% endif %}
+
+        {% else %}
+            <li class="nav-item ">
             <a href="{% url 'bio-data_form'%}">
               <span class="sub-item text-light">Bio Data</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="{% url 'fee_payment_form'%}">
-              <span class="sub-item text-light">Fee</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{% url 'dashboard_form'%}">
-              <span class="sub-item text-light">Other payment</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{% url 'payments_page'%}">
-              <span class="sub-item text-light">My Document</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{% url 'profile_setting_page'%}">
-              <span class="sub-item text-light">Profile Settings</span>
-            </a>
-          </li>
+        {% endif %}
+
         </ul>
- 
+
       </div>
         <ul class="nav nav-secondary">
 <li class="nav-item">
@@ -502,7 +514,7 @@
                     </div>
                     <span class="profile-username">
                       <span class="op-7">Hi,</span>
-                      <span class="fw-bold">Username</span>
+                      <span class="fw-bold">{{ user.student.app_id }}</span>
                     </span>
                   </a>
                   <ul class="dropdown-menu dropdown-user animated fadeIn">
@@ -545,7 +557,7 @@
           </nav>
           <!-- End Navbar -->
         </div>
-     
+
       {% block content %} {% endblock content %}
     <!--   Core JS Files   -->
     <script src="{% static '/main/assets/js/core/jquery-3.7.1.min.js'%}"></script>
