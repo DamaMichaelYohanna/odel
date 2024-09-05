@@ -24,7 +24,7 @@
             <div class="col-sm-2">
               <div class="avatar-sm">
                       <img
-                        src="{% static '/main/assets/img/POST22.png'%}"
+                        src="{% static '/main/assets/img/avatar.png'%}"
                         alt="..."
                         class="avatar-img rounded-circle"
                         style="width:130px; height:130px"
@@ -37,65 +37,89 @@
             <tbody>
                 <tr>
                 <td>Name</td>
-                <td>....</td>
+                <td>{{ user.first_name }} {{ user.middle_name }} {{ user.surname }}</td>
                 </tr>
                 <tr>
                 <td>Matric</td>
-                <td>....</td>
+                <td>{{ user.student.mat_number }}</td>
                 </tr>
                 <tr>
                 <td>Application ID:</td>
-                <td>...</td>
+                <td>{{ user.student.app_id }}</td>
                 </tr>
                 <tr>
                 <td>phone</td>
-                <td>...</td>
+                <td>{{ user.phone }}</td>
                 </tr>
                 <tr>
                 <td>Email</td>
-                <td>...</td>
+                <td>{{ user.email }}</td>
                 </tr>
                 <tr>
                 <td>Level</td>
-                <td>...</td>
+                <td>{{ user.student.level }}</td>
                 </tr>
                 <tr>
                 <td>Year of admission</td>
-                <td>...</td>
+                <td>{{ user.year }}</td>
                 </tr>
                 <tr>
                 <td>Program Type</td>
-                <td>...</td>
+                <td>{{ user.programme_type }}</td>
                 </tr>
                 <tr>
                 <td>Faculty</td>
-                <td>...</td>
+                <td>{{ user.student.faculty }}</td>
                 </tr>
                 <tr>
                 <td>Department</td>
-                <td>...</td>
+                <td>{{ user.student.faculty }}</td>
                 </tr>
                 <tr>
                 <td>Programme</td>
-                <td>...</td>
+                <td>{{ user.student.programme }}</td>
                 </tr>
             </tbody>
             </table>
             </div>
+          <!-- check if user has accepted admission then show session and fee -->
+              {% if user.student.has_accepted %}
             <div class="col-2">
                 <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <h5 class="card-title">Sessions</h5>
+                    <p class="card-text btn">2024/2025</p>
                 </div>
                 </div>
                 <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <h5 class="card-title">School Fees</h5>
+                    <p class="card-text btn">2024/2025 ... 0%</p>
                 </div>
                 </div>
               </div>
+              {% else %}
+                {% if user.student.done_biodata %}
+                <div class="col-2">
+                  <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                      <h5 class="card-title">Action Required</h5>
+                      <p class="card-text btn">Proceed to Accept Admission</p>
+                  </div>
+                  </div>
+                </div>
+                {% else %}
+                <div class="col-2">
+                  <div class="card" style="width: 18rem;background-color: orange;">
+                  <div class="card-body">
+                      <h5 class="card-title">Bio-Data Required</h5>
+                      <a href="/biodata" class="card-text btn" style="background-color: white;color:black">Proceed To Update Your Bio-Data</a>
+                  </div>
+                  </div>
+                </div>
+                {% endif %}
+              {% endif %}
+
               <!--  -->
             </div>
           </div>
