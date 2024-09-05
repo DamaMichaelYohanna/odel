@@ -57,12 +57,12 @@
   </head>
   <html>
   <body>
-    <div class="wrapper" style="color: #000;">
+    <div class="wrapper">
   <!-- Sidebar -->
   <div class="sidebar" style="background-color: #007343; color: #000;">
     <div class="sidebar-logo">
       <!-- Logo Header -->
-      <div class="logo-header" data-background-color="light" style="background-color: #007343; color: #fff;">
+      <div class="logo-header" style="background-color: #007343; color: #fff;">
         <a href="{% url 'index_page'%}" class="logo">
           <img
             src="{% static '/main/assets/img/nsuk-logo.png'%}"
@@ -86,56 +86,69 @@
       </div>
       <!-- End Logo Header -->
     </div>
+    <style>
+      .sub-item{
+      font-weight: 300;
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: larger;
+}
+      .nav-item:hover{
+      background-color: #85b8a2;
+      font-weight: 300;
+}
+
+    </style>
     <div class="sidebar-wrapper scrollbar scrollbar-inner">
       <div class="sidebar-content">
-        <ul class="nav nav-secondary">
-          <li class="nav-item btn-success">
-                  <a href="{% url 'dashboard_page'%}">
-                    <span class="sub-item text-light">Dashboard</span>
-                  </a>
-          </li>
-          <li class="nav-section">
-            <span class="sidebar-mini-icon">
-              <i class="fa fa-ellipsis-h"></i>
-            </span>
-            <!-- <h4 class="text-section">Components</h4> -->
-          </li>
-          <li class="nav-item ">
-            <a href="{% url 'bio-data_form'%}">
-              <span class="sub-item text-light">Bio Data</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{% url 'fee_payment_form'%}">
-              <span class="sub-item text-light">Fee</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{% url 'dashboard_form'%}">
+        <div class="container-fluid">
+
+          <ul class="nav nav-secondary">
+            <li class="nav-item btn-success">
+              <a href="{% url 'dashboard_page'%}">
+                <span class="sub-item text-light">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-section">
+              <span class="sidebar-mini-icon">
+                <i class="fa fa-ellipsis-h"></i>
+              </span>
+              <!-- <h4 class="text-section">Components</h4> -->
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'bio-data_form'%}" >
+                <span class="sub-item text-light">Bio Data</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'fee_payment_form'%}">
+                <span class="sub-item text-light">Fee</span>
+              </a>
+            </li>
+            <li class="nav-item">
+            <a href="{% url 'payments_page'%}">
               <span class="sub-item text-light">Other payment</span>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{% url 'payments_page'%}">
+            <a href="{% url 'documents_page'%}">
               <span class="sub-item text-light">My Document</span>
             </a>
           </li>
           <li class="nav-item">
             <a href="{% url 'profile_setting_page'%}">
-              <span class="sub-item text-light">Profile Settings</span>
+              <span class="sub-item text-light  list-group-item list-group-item-action">Profile Settings</span>
             </a>
           </li>
         </ul>
- 
       </div>
-        <ul class="nav nav-secondary">
-<li class="nav-item">
- <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal"> Logout</button>
-</li>
-</ul>
+      <ul class="nav nav-secondary">
+        <li class="nav">
+          <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal"> Logout-></button>
+        </li>
+      </ul>
     </div>
-    </div>
-
+  </div>
+</div>
     <!-- The Modal -->
 <div class="modal" id="myModal">
   <div class="modal-dialog modal-sm">
@@ -505,40 +518,7 @@
                       <span class="fw-bold">Username</span>
                     </span>
                   </a>
-                  <ul class="dropdown-menu dropdown-user animated fadeIn">
-                    <div class="dropdown-user-scroll scrollbar-outer">
-                      <li>
-                        <div class="user-box">
-                          <div class="avatar-lg">
-                            <img
-                              src="assets/img/profile.jpg"
-                              alt="image profile"
-                              class="avatar-img rounded"
-                            />
-                          </div>
-                          <div class="u-text">
-                            <h4>Hizrian</h4>
-                            <p class="text-muted">hello@example.com</p>
-                            <a
-                              href="profile.html"
-                              class="btn btn-xs btn-secondary btn-sm"
-                              >View Profile</a
-                            >
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">My Profile</a>
-                        <a class="dropdown-item" href="#">My Balance</a>
-                        <a class="dropdown-item" href="#">Inbox</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Account Setting</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Logout</a>
-                      </li>
-                    </div>
-                  </ul>
+                 
                 </li>
               </ul>
             </div>
