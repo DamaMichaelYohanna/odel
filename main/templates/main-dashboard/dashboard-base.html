@@ -56,12 +56,12 @@
     <link rel="stylesheet" href="{% static '/main/assets/css/demo.css'%}" />
   </head>
   <body>
-    <div class="wrapper" style="color: #000;">
+    <div class="wrapper">
   <!-- Sidebar -->
   <div class="sidebar" style="background-color: #007343; color: #000;">
     <div class="sidebar-logo">
       <!-- Logo Header -->
-      <div class="logo-header" data-background-color="light" style="background-color: #007343; color: #fff;">
+      <div class="logo-header" style="background-color: #007343; color: #fff;">
         <a href="{% url 'index_page'%}" class="logo">
           <img
             src="{% static '/main/assets/img/nsuk-logo.png'%}"
@@ -85,6 +85,18 @@
       </div>
       <!-- End Logo Header -->
     </div>
+    <style>
+      .sub-item{
+      font-weight: 300;
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: larger;
+}
+      .nav-item:hover{
+      background-color: #85b8a2;
+      font-weight: 300;
+}
+
+    </style>
     <div class="sidebar-wrapper scrollbar scrollbar-inner">
       <div class="sidebar-content">
         <ul class="nav nav-secondary">
@@ -123,7 +135,11 @@
                   </li>
                 {% else %}
                   <li class="nav-item ">
+<<<<<<< HEAD
                     <a href="{% url 'bio-data_form'%}">
+=======
+                    <a href="{% url 'accept-admission'%}">
+>>>>>>> 5ae4942a11a0ce5f50b1d31428c0ef29244a6b4a
                       <span class="sub-item text-light">Accept Admission</span>
                     </a>
                   </li>
@@ -136,18 +152,21 @@
             </a>
           </li>
         {% endif %}
+<<<<<<< HEAD
 
         </ul>
 
+=======
+        </ul>
+>>>>>>> 5ae4942a11a0ce5f50b1d31428c0ef29244a6b4a
       </div>
-        <ul class="nav nav-secondary">
-<li class="nav-item">
- <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal"> Logout</button>
-</li>
-</ul>
+      <ul class="nav nav-secondary">
+        <li class="nav">
+          <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal"> Logout-></button>
+        </li>
+      </ul>
     </div>
-    </div>
-
+  </div>
     <!-- The Modal -->
 <div class="modal" id="myModal">
   <div class="modal-dialog modal-sm">
@@ -517,40 +536,7 @@
                       <span class="fw-bold">{{ user.student.app_id }}</span>
                     </span>
                   </a>
-                  <ul class="dropdown-menu dropdown-user animated fadeIn">
-                    <div class="dropdown-user-scroll scrollbar-outer">
-                      <li>
-                        <div class="user-box">
-                          <div class="avatar-lg">
-                            <img
-                              src="assets/img/profile.jpg"
-                              alt="image profile"
-                              class="avatar-img rounded"
-                            />
-                          </div>
-                          <div class="u-text">
-                            <h4>Hizrian</h4>
-                            <p class="text-muted">hello@example.com</p>
-                            <a
-                              href="profile.html"
-                              class="btn btn-xs btn-secondary btn-sm"
-                              >View Profile</a
-                            >
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">My Profile</a>
-                        <a class="dropdown-item" href="#">My Balance</a>
-                        <a class="dropdown-item" href="#">Inbox</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Account Setting</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Logout</a>
-                      </li>
-                    </div>
-                  </ul>
+                 
                 </li>
               </ul>
             </div>

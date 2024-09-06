@@ -17,36 +17,16 @@
             style="border-bottom: 3px solid #007343; color: #fff"
           >
             <div class="card-title" style="color: rgb(41, 187, 48)">
-              Payment
+              Acceptance Fee
             </div>
           </div>
-                      <div class="table-responsive">
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>S/N</th>
-          <th>Title</th>
-          <th>Amount</th>
-          <th>Invoice</th>
-          <th>Status</th>
-          <th>Action</th>
-          
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>--</td>
-          <td>--</td>
-          <td>--</td>
-          <td>--</td>
-          <td>--</td>
-          <td>--</td>
-          
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+          <div>Congratulations you have been offered admission.<form action="/accept-admission" method="POST">
+              <input type="hidden" value="=paid" name="admission">
+              <button class="btn btn-success">Pay And Accept</button>
+              {% csrf_token %}
+
+          </form> </div>
+          <!-- End of muli step form -->
 
           <div class="card-action">
             <!-- <button class="btn btn-success">Submit</button>
