@@ -25,6 +25,7 @@ urlpatterns = [
     path('', include(main_url)), # link for main app request
     path('registration', views.register_one, name='registration_page'),
     path('login', views.student_login, name='login_page'),
+    path('logout', views.logout_view, name='logout_page'),
     path('admin/', admin.site.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

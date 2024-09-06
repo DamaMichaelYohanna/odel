@@ -17,15 +17,33 @@
             style="border-bottom: 3px solid #007343; color: #fff"
           >
             <div class="card-title" style="color: rgb(41, 187, 48)">
-              Acceptance Fee
+              Admission Acceptance
             </div>
           </div>
-          <div>Congratulations you have been offered admission.<form action="/accept-admission" method="POST">
-              <input type="hidden" value="=paid" name="admission">
+          {% if user.student.has_accepted %}
+          <div style="padding: 3%">
+            <p>You have already accepted your admission.</p>
+          </div>
+
+          {% else %}
+          <div style="padding: 3%">
+            <p>
+              Congratulations dear <b>{{user.student.get_fullname}}</b>, You
+              have been offered admission.
+            </p>
+            <form action="/accept-admission" method="POST">
+              <input type="hidden" value="=paid" name="admission" />
               <button class="btn btn-success">Pay And Accept</button>
               {% csrf_token %}
-
-          </form> </div>
+            </form>
+            <div class="row pt-3">
+              <div class="col-sm-6">
+                <a href="" class="btn">Generate Invoice</a>
+              </div>
+              <div class="col-sm-6"><a href="" class="btn">Pay Now</a></div>
+            </div>
+          </div>
+          {% endif %}
           <!-- End of muli step form -->
 
           <div class="card-action">
