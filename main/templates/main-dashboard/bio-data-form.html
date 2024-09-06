@@ -47,49 +47,22 @@
                   <div class="mb-3 text-muted"><h5>Basic</h5></div>
                   <hr />
                   <form action="/biodata" method="POST">
-                    {% csrf_token%}
-                    <!-- <div class="row">
-                      <div class="col-sm-3 col-md-6">
-                        <label for="email" class="form-label text-primary"
-                          >Name:</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="uname"
-                          placeholder="Name"
-                          name="name"
-                          required
-                        />
-                      </div>
-                      <div class="col-sm-9 col-md-6">
-                        <label for="email" class="form-label text-primary"
-                          >Email:</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="uname"
-                          placeholder="Email"
-                          name="email"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div class="mb-3"></div>
-                     -->
+                    {% csrf_token %}
                     <div class="row">
+                      {% if user.student.done_biodata %}
                       <div class="col-sm-3 col-md-6">
                         <label for="email" class="form-label text-primary"
                           >Place of Birth:</label
                         >
                         <input
-                          type="text"
+                          type=""
                           class="form-control"
                           id="reg_no"
                           placeholder="Place of Birth"
                           name="pob"
                           required
+                          disabled
+                          value="{{user.student.place_of_birth}}"
                         />
                       </div>
                       <div class="col-sm-9 col-md-6">
@@ -97,12 +70,14 @@
                           >DOB:</label
                         >
                         <input
-                          type="date"
+                          type="text"
                           class="form-control"
                           id="dob"
                           placeholder="Date of Birth"
                           name="dob"
                           required
+                          disabled
+                          value="{{user.student.date_of_birth}}"
                         />
                       </div>
                     </div>
@@ -120,6 +95,8 @@
                           id="home_town"
                           placeholder="Marital Status"
                           name="marital_status"
+                          value="{{user.student.marital_status}}"
+                          disabled
                           required
                         />
                       </div>
@@ -134,6 +111,8 @@
                           placeholder="Country"
                           name="country"
                           required
+                          disabled
+                          value="{{user.student.country}}"
                         />
                       </div>
                     </div>
@@ -150,6 +129,8 @@
                           placeholder="State"
                           name="state"
                           required
+                          disabled
+                          value="{{user.student.state}}"
                         />
                       </div>
                       <div class="col-sm-3 col-md-6">
@@ -163,6 +144,8 @@
                           placeholder="LGA"
                           name="lga"
                           required
+                          disabled
+                          value="{{user.student.lga}}"
                         />
                       </div>
                     </div>
@@ -186,6 +169,8 @@
                           placeholder="Contact Address"
                           name="contact_address"
                           required
+                          disabled
+                          value="{{user.student.contact_address}}"
                         />
                       </div>
                       <div class="col-sm-9 col-md-6">
@@ -201,6 +186,8 @@
                           placeholder="Country"
                           name="contact_country"
                           required
+                          disabled
+                          value="{{user.student.contact_country}}"
                         />
                       </div>
                     </div>
@@ -221,6 +208,8 @@
                           placeholder="state"
                           name="contact_state"
                           required
+                          disabled
+                          value="{{user.student.contact_state}}"
                         />
                       </div>
                       <!--  -->
@@ -235,6 +224,8 @@
                           placeholder="LGA"
                           name="contact_lga"
                           required
+                          disabled
+                          value="{{user.student.contact_lga}}"
                         />
                       </div>
                     </div>
@@ -301,6 +292,8 @@
                           placeholder="Next of Kin Name"
                           name="nokn"
                           required
+                          disabled
+                          value="{{user.student.kin_name}}"
                         />
                       </div>
                       <div class="col-sm-12">
@@ -316,6 +309,8 @@
                           placeholder="Next of Kin Phone"
                           name="nokp"
                           required
+                          disabled
+                          value="{{user.student.kin_phone}}"
                         />
                       </div>
 
@@ -332,6 +327,8 @@
                           placeholder="Next of Kin Address"
                           name="noka"
                           required
+                          disabled
+                          value="{{user.student.kin_address}}"
                         />
                       </div>
                       <div class="col-sm-12">
@@ -347,9 +344,288 @@
                           placeholder="Relationship"
                           name="relationship"
                           required
+                          disabled
+                          value="{{user.student.kin_relation}}"
                         />
                       </div>
                     </div>
+                    <!-- Begin of section for no biodata -->
+                     <!-- =========================================== -->
+                    {% else %}
+
+                    <div class="col-sm-3 col-md-6">
+                      <label for="email" class="form-label text-primary"
+                        >Place of Birth:</label
+                      >
+                      <input
+                        type=""
+                        class="form-control"
+                        id="reg_no"
+                        placeholder="Place of Birth"
+                        name="pob"
+                        required
+                      />
+                    </div>
+                    <div class="col-sm-9 col-md-6">
+                      <label for="email" class="form-label text-primary"
+                        >DOB:</label
+                      >
+                      <input
+                        type="date"
+                        class="form-control"
+                        id="dob"
+                        placeholder="Date of Birth"
+                        name="dob"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <!-- ########################### -->
+                  <div class="mb-3"></div>
+
+                  <div class="row">
+                    <div class="col-sm-3 col-md-6">
+                      <label for="email" class="form-label text-primary"
+                        >Marital Status:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="home_town"
+                        placeholder="Marital Status"
+                        name="marital_status"
+                        value="{{user.student.marital_status}}"
+                        required
+                      />
+                    </div>
+                    <div class="col-sm-3 col-md-6">
+                      <label for="country" class="form-label text-primary"
+                        >Country:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="country"
+                        placeholder="Country"
+                        name="country"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="mb-3"></div>
+                  <div class="row">
+                    <div class="col-sm-9 col-md-6">
+                      <label for="State" class="form-label text-primary"
+                        >State:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="state"
+                        placeholder="State"
+                        name="state"
+                        required
+                      />
+                    </div>
+                    <div class="col-sm-3 col-md-6">
+                      <label for="LGA/City" class="form-label text-primary"
+                        >LGA:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="lga_city"
+                        placeholder="LGA"
+                        name="lga"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <!-- ########################### -->
+                  <div class="mb-3"></div>
+                  <div class="mb-3"><h5>Contact Info</h5></div>
+                  <hr />
+
+                  <div class="mb-3"></div>
+                  <div class="row">
+                    <div class="col-sm-9 col-md-6">
+                      <label
+                        for="place of Birth Address"
+                        class="form-label text-primary"
+                        >Contact Address:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="poba"
+                        placeholder="Contact Address"
+                        name="contact_address"
+                        required
+                      />
+                    </div>
+                    <div class="col-sm-9 col-md-6">
+                      <label
+                        for="contact-country"
+                        class="form-label text-primary"
+                        >Country:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="contact-country"
+                        placeholder="Country"
+                        name="contact_country"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <!-- ########################### -->
+                  <div class="mb-3"></div>
+
+                  <div class="row">
+                    <div class="col-sm-9 col-md-6">
+                      <label
+                        for="contact-state"
+                        class="form-label text-primary"
+                        >State:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="contact-state"
+                        placeholder="state"
+                        name="contact_state"
+                        required
+                      />
+                    </div>
+                    <!--  -->
+                    <div class="col-sm-3 col-md-6">
+                      <label for="contact-lga" class="form-label text-primary"
+                        >LGA:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="contact-lga"
+                        placeholder="LGA"
+                        name="contact_lga"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <!-- ########################### -->
+                  <!-- <div class="mb-3"></div>
+                  <div class="mb-3"><h5>Health</h5></div>
+                  <hr />
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <label for="Blood Group" class="form-label text-primary"
+                        >Blood Group:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="blood_group"
+                        placeholder="Blood Group"
+                        name="blood_group"
+                        required
+                      />
+                    </div>
+                    <div class="col-sm-4">
+                      <label for="Genotype" class="form-label text-primary"
+                        >Genotype:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="genotype"
+                        placeholder="Genotype"
+                        name="genotype"
+                        required
+                      />
+                    </div>
+                    <div class="col-sm-4">
+                      <label for="Disability" class="form-label text-primary"
+                        >Disability:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="disability"
+                        placeholder="Disability"
+                        name="disability"
+                        required
+                      />
+                    </div>
+                  </div> -->
+                  <!-- ################### -->
+                  <div class="mb-3"></div>
+                  <div class="mb-3"><h5>Next of Kin</h5></div>
+                  <hr />
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <label
+                        for="Next of Kin Name"
+                        class="form-label text-primary"
+                        >Next of Kin Name:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="nokn"
+                        placeholder="Next of Kin Name"
+                        name="nokn"
+                        required
+                      />
+                    </div>
+                    <div class="col-sm-12">
+                      <label
+                        for="Next of Kin Phone"
+                        class="form-label text-primary"
+                        >Next of Kin Phone:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="nokp"
+                        placeholder="Next of Kin Phone"
+                        name="nokp"
+                        required
+                      />
+                    </div>
+
+                    <div class="col-sm-12">
+                      <label
+                        for="Next of Kin Address"
+                        class="form-label text-primary"
+                        >Next of Kin Address:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="noka"
+                        placeholder="Next of Kin Address"
+                        name="noka"
+                        required
+                      />
+                    </div>
+                    <div class="col-sm-12">
+                      <label
+                        for="Relationship"
+                        class="form-label text-primary"
+                        >Relationship:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="relationship"
+                        placeholder="Relationship"
+                        name="relationship"
+                        required
+                      />
+                    </div>
+                  </div>
+                    {% endif %}
                     <!-- <div class="mb-3"></div>
                     <div class="mb-3"><h5>Sponsor/Sport</h5></div>
                     <hr />
@@ -405,11 +681,14 @@
                       <div class="col-sm-4"></div>
                       <div class="col-sm-4"></div>
                       <div class="col-sm-4">
+                        {% if user.student.done_biodata %}
+                        {%else%}
                         <div style="float: right">
                           <button type="submit" class="btn btn-success">
                             UPDATE
                           </button>
                         </div>
+                        {% endif %}
                       </div>
                     </div>
                     <div class="mb-4"></div>
