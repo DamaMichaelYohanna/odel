@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login, logout
 from django.db.utils import IntegrityError
 from django.shortcuts import render, redirect
 
@@ -29,7 +29,7 @@ def register_one(request):
         return render(request, 'main/registration_form.html')
 
 
-def student_login (request):
+def student_login(request):
     if request.method == 'POST':
         student_id = request.POST.get("student_id")
         password = request.POST.get("password")
@@ -37,7 +37,6 @@ def student_login (request):
             messages.error(request, "Fields can't be empty!")
             return render(request, 'main/login_form.html')
         try:
-            print("trying here")
             user = authenticate(request, username=student_id, password=password)
             if not user:
                 messages.error(request, "Invalid Credentials!")
@@ -48,6 +47,7 @@ def student_login (request):
                 return render(request, 'main/login_form.html')
             # user.set_password(password1)
             messages.success(request, "Login Sucessfully.")
+            login(request, user)
             return redirect("/dashboard")
         except IntegrityError:
             messages.error(request, "Email address already used!")
@@ -56,3 +56,8 @@ def student_login (request):
 
     else:
         return render(request, 'main/login_form.html')
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('/login')

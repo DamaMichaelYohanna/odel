@@ -63,5 +63,8 @@ class Student(models.Model):
         else:
             return False
 
+    def get_fullname(self):
+        return f"{self.user.first_name}   {self.user.middle_name}  {self.user.surname}"
+
     def __str__(self):
         return self.app_id

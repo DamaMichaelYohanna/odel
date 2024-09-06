@@ -14,6 +14,7 @@
       type="image/x-icon"
       />
 
+
       <!-- Fonts and icons -->
       <script src="{% static '/main/assets/js/plugin/webfont/webfont.min.js'%}"></script>
       <script>
@@ -119,12 +120,12 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="{% url 'dashboard_form'%}">
+                    <a href="{% url 'payments_page'%}">
                       <span class="sub-item text-light">Other payment</span>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="{% url 'payments_page'%}">
+                    <a href="">
                       <span class="sub-item text-light">My Document</span>
                     </a>
                   </li>
@@ -152,17 +153,12 @@
             </a>
           </li>
         {% endif %}
-<<<<<<< HEAD
-
-        </ul>
-
-=======
         </ul>
 >>>>>>> 5ae4942a11a0ce5f50b1d31428c0ef29244a6b4a
       </div>
       <ul class="nav nav-secondary">
         <li class="nav">
-          <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal"> Logout-></button>
+            <a class="btn btn-success" href="/logout">Logout-></a>
         </li>
       </ul>
     </div>
