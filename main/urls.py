@@ -9,6 +9,7 @@ urlpatterns = [
     path('form', views.dashboard_form_data, name='dashboard_form'),
     path('fee', views.dashboard_fee_payment_data, name='fee_payment_form'),
     path('biodata', views.dashboard_bio_data, name='bio-data_form'),
+    path('biodata-download', views.render_student_info, name='bio-data_downoad'),
     path('accept-admission', views.accept_admission, name='accept-admission'),
     path('admission-invoice', views.admission_invoice, name='admission_invoice'),
     path('invoice', views.dashboard_generate_invoice_view, name='invoice_page'),
@@ -19,5 +20,4 @@ urlpatterns = [
     path('about', views.about, name='about-page'),
     path('contact', views.contact, name='contact-page'),
     path('admission-download', views.render_admission, name='admission_letter'),
-    path('gen-invoice', views.render_pdf, name='render pdf'),
 ]
