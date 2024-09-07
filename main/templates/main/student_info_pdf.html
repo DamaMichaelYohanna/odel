@@ -3,65 +3,107 @@
 {% load static %}
 
 <!-- the content block-->
-{% block head %} ACCEPTANCE FEE PAYMENT RECEIPT {% endblock %} {% block content
-%}
-
+{% block head %} Student's Information Form {% endblock %} {% block content %}
+<style>
+  #invoice-table,
+  table,
+  td,
+  th,
+  tr {
+    border: none;
+    padding: 0.4%;
+  }
+</style>
 <div class="content">
-  <ol>
-    <li>
-      I am pleased to inform you that you have been offered provisional
-      admission into the Degree Programme of Nasarawa State University, Keffi
-      for the 2022/2023 Academic Session Stream A as detailed below.
-    </li>
-    <table>
-      <tr>
-        <th>Full Name:</th>
-        <td>{{user.student.get_fullname}}</td>
-        <th>Applicant ID:</th>
-        <td>{{user.student.app_id}}</td>
-      </tr>
-      <tr>
-        <th>State of Origin</th>
-        <td>{{user.student.state}}</td>
-        <th>Mode of Entry:</th>
-        <td>{{user.student.mode_of_entry}}</td>
-      </tr>
-      <tr>
-        <th>Mode of Studey:</th>
-        <td>Part Time</td>
-        <th>Faculty:</th>
-        <td>Administration</td>
-      </tr>
-      <tr>
-        <th>Department</th>
-        <td>Public Administration</td>
-      </tr>
-      <tr>
-        <th>Programme</th>
-        <td>B.Sc Public Administration</td>
-      </tr>
+  <p style="margin:0px;font-weight: bold;">Student Information</p>
+  <hr style="color: rgba(240, 248, 255, 0.347);">
+  <table id="invoice-table">
+    <tr>
+      <th>Matric No:</th>
+      <td>{{user.student.mat_no}}</td>
+      <th>Names:</th>
+      <td>{{user.student.get_fullname}}</td>
+    </tr>
+    <tr>
+      <th>Faculty:</th>
+      <td>{{user.student.Faculty}} Administration</td>
+      <th>Department:</th>
+      <td>{{user.student.department}}</td>
+    </tr>
+    <tr>
+      <th>Level:</th>
+      <td>{{user.student.level}}</td>
+      <th>Study Type:</th>
+      <td>{{user.student.study_type}}</td>
+    </tr>
     </table>
-    <li>
-      Please note that the duration of this programme in the university is 3
-      years
-    </li>
-    <li>
-      Registration commences from 7th March, 2024 to 31st December, 2024. And
-      you are required to come along with the following:
-    </li>
-    <ol>
-      <li>. Original copies of all your certificates.</li>
-      <li>
-        Original copies of JAMB Admission Letter, (Candidate and Institutional)
-      </li>
-      <li>The sum of 97,415.00 as registration fee.</li>
-      <li>
-        A medical certificate of fitness from Nasarawa State University, Keffi
-        Clinic
-      </li>
-      <li>Four recent passport-sized photographs.</li>
-    </ol>
-    <h3>Congratulations</h3>
-  </ol>
+    <br>
+    <p style="margin:0px;font-weight: bold;">Personal Information</p>
+    <hr style="color: rgba(240, 248, 255, 0.347);">
+    <table>
+      <th>DOB:</th>
+      <td>{{user.student.date_of_birth}}</td>
+      <th>Gender:</th>
+      <td>{{user.student.gender}}</td>
+    </tr>
+    <tr>
+      <th>Marital Status:</th>
+      <td>{{user.student.marital_status}}</td>
+      <th>Place Of Birth</th>
+      <td>{{user.student.place_of_birth}}</td>
+    </tr>
+
+    <tr>
+      <th>Country:</th>
+      <td>{{user.student.country}}</td>
+      <th>State:</th>
+      <td>{{ user.student.state }}</td>
+    </tr>
+    <tr>
+      <th>LGA/City:</th>
+      <td>{{user.student.lga}}</td>
+      <th>extra:</th>
+      <td>{{ user.student.state }}</td>
+    </tr>
+    
+  </table>
+  <br>
+  <p style="margin:0px;font-weight: bold;">Contact Information</p>
+  <hr style="color: rgba(240, 248, 255, 0.347);">
+  <table>
+    <tr>
+      <th>Phone</th>
+      <td>{{user.phone}}</td>
+      <th>Email:</th>
+      <td>{{ user.email }}</td>
+    </tr>
+    <tr>
+      <th>State</th>
+      <td>{{user.student.state}}</td>
+      <th>LGA/City</th>
+      <td>{{user.student.lga}}</td>
+    </tr>
+    <tr>
+      <th>Contact Address</th>
+      <td colspan="2">{{user.student.contact_address}}</td>
+    </tr>
+  </table>
+  <br>
+  <p style="margin:0px;font-weight: bold;">Next of Kin</p>
+  <hr style="color: rgba(240, 248, 255, 0.347);">
+  <table id="invoice-table">
+    <tr>
+      <th>Name:</th>
+      <td>{{user.student.kin_name}}</td>
+      <th>Phone:</th>
+      <td>{{user.student.kin_phone}}</td>
+    </tr>
+    <tr>
+      <th>Address:</th>
+      <td>{{user.student.kin_address}} Administration</td>
+      <th>Relation:</th>
+      <td>{{user.student.kin_relation}}</td>
+    </tr>
+    </table>
 </div>
 {% endblock %}
