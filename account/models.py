@@ -41,6 +41,8 @@ class Student(models.Model):
     level = models.IntegerField(null=True, blank=True)
     year_of_admission = models.IntegerField(null=True, blank=True)
     programme_type = models.CharField(max_length=20, null=True, blank=True, default="Part Time")
+    mode_of_entry = models.CharField(max_length=20, null=True, blank=True, default="Direct Entry")
+
     # contact address for user
     contact_address = models.TextField(null=True, blank=True)
     contact_country = models.CharField(max_length=15, null=True, blank=True)

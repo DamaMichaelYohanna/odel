@@ -17,29 +17,30 @@
             style="border-bottom: 3px solid #007343; color: #fff"
           >
             <div class="card-title" style="color: rgb(41, 187, 48)">
-              <h4>Document</h4>
+              <h4>Documents</h4>
             </div>
           </div>
           <div class="container mt-3">
             <ul class="list-group">
               <li class="list-group-item text-light" style="background-color: rgb(233, 247, 219);">...</li>
-                         <div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-6">
-      <p>Lorem ipsum...</p>
-    </div>
-    <div class="col-sm-6">
-      <a href="index.html" class="logo">
-              <img
-                src="{% static '/main/assets/img/download.svg'%}"
-                alt="navbar brand"
-                class="navbar-brand"
-                height="20"
-              />
-            </a>
-    </div>
-  </div>
-</div
+              <div class="container-fluid">
+              <div style="display: flex;justify-content: space-between;align-items: center;">
+                <div class="">
+                  <p>Admission Letter</p>
+                </div>
+                <div class="">
+                  <a href="{% url 'admission_letter' %}" class="logo">
+                          <img
+                            src="{% static '/main/assets/img/download.svg'%}"
+                            alt="navbar brand"
+                            class="navbar-brand"
+                            height="20"
+                          />
+                        </a>
+                </div>
+              </div>
+              <hr style="margin: 0px;">
+            </div
             </ul>
           </div>
 
@@ -53,4 +54,3 @@
     </div>
   </div>
   {% endblock content %}
-</div>

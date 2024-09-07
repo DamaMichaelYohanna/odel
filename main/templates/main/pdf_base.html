@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{%block title %}Admission Letter {%endblock%}</title>
+    <style>
+      .heading {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      .heading-text {
+        text-align: center;
+      }
+      .heading-text h3 {
+        font-size: 1.5rem;
+        text-align: center;
+      }
+      table {
+        text-align: left;
+        width: 100%;
+        border-collapse: collapse;
+      }
+      table,
+      tr,
+      th,
+      td {
+        border: 1px solid grey;
+      }
+      td,
+      th {
+        padding: 1%;
+      }
+      .content {
+        line-height: 25px;
+      }
+      @media only print {
+        .heading-text h3 {
+          font-size: 2rem;
+        }
+        .heading-logo img {
+          width: 100px;
+        }
+      }
+      @media screen {
+        body {
+          padding: 2%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="heading">
+      <div class="heading-logo">
+        <img
+          src="{% static 'main/img/nsuk-logo.png' %}"
+          alt="NSUK LOGO"
+          style="width: 120px"
+        />
+      </div>
+      <div class="heading-text">
+        <h3 style="color: rgb(58, 127, 156)">
+          NASARAWA STATE UNIVERSITY,<br />
+          KEFFI
+        </h3>
+        <p style="color: rgb(58, 127, 156)">P.M.B 2024</p>
+      </div>
+      <div class="heading-logo">
+        <img
+          src="{% static 'main/img/nsuk-logo.png' %}"
+          alt="NSUK LOGO"
+          style="width: 120px"
+        />
+      </div>
+    </div>
+    <!-- <hr /> -->
+    <div style="text-align: center">
+      <h3 style="color: rgb(58, 127, 156); margin: 5px">UNDERGRADUATE</h3>
+      {% block head %}
+      <h3 style="color: rgb(58, 127, 156); margin: 0px">
+        PROVISIONAL ADMISSION LETTER
+      </h3>
+      {% endblock%}
+    </div>
+    {% block content %} {% endblock content %}
+  </body>
+</html>

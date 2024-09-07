@@ -3,9 +3,10 @@ import datetime
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from django.template.loader import get_template
+from django.template.loader import get_template, render_to_string
 from django.urls import reverse
 from xhtml2pdf import pisa
+from weasyprint import HTML, CSS
 
 from account.models import Student
 from odel import renderers
@@ -120,30 +121,21 @@ def contact(request):
 
 
 def render_admission(request):
-    """view for the about us page"""
-    return render(request, "main/admission.html", )
+    """view to render the admission letter for the user."""
+    context = {"user": request.user}
+    html_content = render_to_string('main/admission.html', context)
+    pdf_file = HTML(string=html_content, base_url=request.build_absolute_uri()).write_pdf()
+    response = HttpResponse(pdf_file, content_type='application/pdf')
+    response['Content-Disposition'] = 'filename="home_page.pdf"'
+    return response
 
 
 def render_pdf(request, *args, **kwargs):
-    template_path = 'main/invoice.html'
-    static_file_name = '/static/main/img/about.jpg'
-    absolute_path = request.build_absolute_uri(static_file_name)
-    context = {'myvar': 'this is your template context', 'u': absolute_path}
-
-    # Create a Django response object, and specify content_type as pdf
-    response = HttpResponse(content_type='application/pdf')
-    # response['Content-Disposition'] = 'attachment; filename="report.pdf"'
-    # find the template and render it.
-    template = get_template(template_path)
-    html = template.render(context)
-
-    # create a pdf
-    pisa_status = pisa.CreatePDF(
-        html, dest=response)
-    # if error then show some funny view
-    print(request.META)
-    if pisa_status.err:
-        return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    context = {"user": request.user}
+    html_content = render_to_string('main/student_info.html', context)
+    pdf_file = HTML(string=html_content, base_url=request.build_absolute_uri()).write_pdf()
+    response = HttpResponse(pdf_file, content_type='application/pdf')
+    response['Content-Disposition'] = 'filename="home_page.pdf"'
     return response
 
 
@@ -155,3 +147,13 @@ def accept_admission(request):
         student.save()
         return redirect('/dashboard')
     return render(request, 'main-dashboard/accept_admission.html')
+
+
+@login_required
+def admission_invoice(request):
+    context = {"user": request.user}
+    html_content = render_to_string('main/admission_invoice_pdf.html', context)
+    pdf_file = HTML(string=html_content, base_url=request.build_absolute_uri()).write_pdf()
+    response = HttpResponse(pdf_file, content_type='application/pdf')
+    response['Content-Disposition'] = 'filename="admission_invoice.pdf"'
+    return response

@@ -1,0 +1,73 @@
+{% extends 'main/pdf_base.html'%}
+<!-- Static file loader -->
+{% load static %} >{% block title %}Admission Invoice {%endblock%}
+
+<!-- the content block-->
+{% block head %} <b> ACCEPTANCE FEE PAYMENT RECEIPT </b>
+{% endblock %} {%block content%}
+<style>
+  #invoice-table,
+  table,
+  td,
+  th,
+  tr {
+    border: none;
+    padding: 0.5%;
+  }
+</style>
+<div class="content">
+  <table id="invoice-table">
+    <tr>
+      <th>Matric/Reg No:</th>
+      <td>{{user.student.app_id}}</td>
+      <th>Names:</th>
+      <td>{{user.student.get_fullname}}</td>
+    </tr>
+    <tr>
+      <th>Faculty:</th>
+      <td>{{user.student.Faculty}}</td>
+      <th>Department:</th>
+      <td>{{user.student.department}}</td>
+    </tr>
+    <tr>
+      <th>Level:</th>
+      <td>{{user.student.level}}</td>
+      <th>Programme:</th>
+      <td>{{user.student.programme}}</td>
+    </tr>
+    <tr>
+      <th>Session:</th>
+      <td>2024/2025</td>
+      <th>Trans. ID:</th>
+      <td>.......</td>
+    </tr>
+    <tr>
+      <th>Date:</th>
+      <td>2024/2025</td>
+      <th>invoice:</th>
+      <td>124566874</td>
+    </tr>
+
+    <tr>
+      <th>Status:</th>
+      <td>Pending</td>
+      <th>State:</th>
+      <td>{{ user.student.state }}</td>
+    </tr>
+  </table>
+  <hr />
+  <table>
+    <tr>
+      <th>S/N</th>
+      <th>Fee Item</th>
+      <th>Amount</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Acceptance fee</td>
+      <td>₦ 10,315.00</td>
+    </tr>
+  </table>
+  <h4 style="text-align: right">Total for invoice: 10,315.00</h4>
+</div>
+{% endblock %}
