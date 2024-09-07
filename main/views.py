@@ -130,12 +130,12 @@ def render_admission(request):
     return response
 
 
-def render_pdf(request, *args, **kwargs):
+def render_student_info(request, *args, **kwargs):
     context = {"user": request.user}
-    html_content = render_to_string('main/student_info.html', context)
+    html_content = render_to_string('main/student_info_pdf.html', context)
     pdf_file = HTML(string=html_content, base_url=request.build_absolute_uri()).write_pdf()
     response = HttpResponse(pdf_file, content_type='application/pdf')
-    response['Content-Disposition'] = 'filename="home_page.pdf"'
+    response['Content-Disposition'] = 'filename="Student_info.pdf"'
     return response
 
 
