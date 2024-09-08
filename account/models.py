@@ -3,6 +3,7 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
+from programme.models import Programme
 from .managers import CustomUserManager
 
 
@@ -40,8 +41,9 @@ class Student(models.Model):
     has_accepted = models.BooleanField(null=True, blank=True, default=False)
     level = models.IntegerField(null=True, blank=True)
     year_of_admission = models.IntegerField(null=True, blank=True)
-    programme_type = models.CharField(max_length=20, null=True, blank=True, default="Part Time")
     mode_of_entry = models.CharField(max_length=20, null=True, blank=True, default="Direct Entry")
+    programme_type = models.CharField(max_length=20, null=True, blank=True, default="Part Time")
+    programme = models.OneToOneField(Programme, on_delete=models.DO_NOTHING)
 
     # contact address for user
     contact_address = models.TextField(null=True, blank=True)
