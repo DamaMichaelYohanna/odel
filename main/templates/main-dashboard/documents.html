@@ -4,6 +4,8 @@
 
 <!-- the content block-->
 {% block content %}
+{% if user.student.has_accepted %}
+        
 <div class="container">
   <div class="page-inner">
     <div class="row">
@@ -39,6 +41,22 @@
                         </a>
                 </div>
               </div>
+              <hr style="color: rgba(13, 136, 243, 0.829);">
+              <div style="display: flex;justify-content: space-between;align-items: center;">
+                <div class="">
+                  <p>Acceptance Invoice</p>
+                </div>
+                <div class="">
+                  <a href="{% url 'admission_letter' %}" class="logo">
+                          <img
+                            src="{% static '/main/assets/img/download.svg'%}"
+                            alt="navbar brand"
+                            class="navbar-brand"
+                            height="20"
+                          />
+                        </a>
+                </div>
+              </div>
               <hr style="margin: 0px;">
             </div
             </ul>
@@ -53,4 +71,7 @@
       </div>
     </div>
   </div>
+  {% endif %}
+
+
   {% endblock content %}
