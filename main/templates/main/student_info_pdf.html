@@ -1,0 +1,108 @@
+{% extends 'main/pdf_base.html'%}
+<!-- Static file loader -->
+{% load static %}
+{% block title %}Student Information {%endblock%}
+{% block head %} Student's Information Form {% endblock %} {% block content %}
+<style>
+  #invoice-table,
+  table,
+  td,
+  th,
+  tr {
+    border: none;
+    padding: 0.4%;
+  }
+</style>
+<div class="content">
+  <p style="margin:0px;font-weight: bold;">Student Information</p>
+  <hr style="color: rgba(240, 248, 255, 0.347);">
+  <table id="invoice-table">
+    <tr>
+      <th>Matric No:</th>
+      <td>{{user.student.mat_no}}</td>
+      <th>Names:</th>
+      <td>{{user.student.get_fullname}}</td>
+    </tr>
+    <tr>
+      <th>Faculty:</th>
+      <td>{{user.student.Faculty}} Administration</td>
+      <th>Department:</th>
+      <td>{{user.student.department}}</td>
+    </tr>
+    <tr>
+      <th>Level:</th>
+      <td>{{user.student.level}}</td>
+      <th>Study Type:</th>
+      <td>{{user.student.study_type}}</td>
+    </tr>
+    </table>
+    <br>
+    <p style="margin:0px;font-weight: bold;">Personal Information</p>
+    <hr style="color: rgba(240, 248, 255, 0.347);">
+    <table>
+      <th>DOB:</th>
+      <td>{{user.student.date_of_birth}}</td>
+      <th>Gender:</th>
+      <td>{{user.student.gender}}</td>
+    </tr>
+    <tr>
+      <th>Marital Status:</th>
+      <td>{{user.student.marital_status}}</td>
+      <th>Place Of Birth</th>
+      <td>{{user.student.place_of_birth}}</td>
+    </tr>
+
+    <tr>
+      <th>Country:</th>
+      <td>{{user.student.country}}</td>
+      <th>State:</th>
+      <td>{{ user.student.state }}</td>
+    </tr>
+    <tr>
+      <th>LGA/City:</th>
+      <td>{{user.student.lga}}</td>
+      <th>extra:</th>
+      <td>{{ user.student.state }}</td>
+    </tr>
+    
+  </table>
+  <br>
+  <p style="margin:0px;font-weight: bold;">Contact Information</p>
+  <hr style="color: rgba(240, 248, 255, 0.347);">
+  <table>
+    <tr>
+      <th>Phone</th>
+      <td>{{user.phone}}</td>
+      <th>Email:</th>
+      <td>{{ user.email }}</td>
+    </tr>
+    <tr>
+      <th>State</th>
+      <td>{{user.student.state}}</td>
+      <th>LGA/City</th>
+      <td>{{user.student.lga}}</td>
+    </tr>
+    <tr>
+      <th>Contact Address</th>
+      <td colspan="2">{{user.student.contact_address}}</td>
+    </tr>
+  </table>
+  <br>
+  <p style="margin:0px;font-weight: bold;">Next of Kin</p>
+  <hr style="color: rgba(240, 248, 255, 0.347);">
+  <table id="invoice-table">
+    <tr>
+      <th>Name:</th>
+      <td>{{user.student.kin_name}}</td>
+      <th>Phone:</th>
+      <td>{{user.student.kin_phone}}</td>
+    </tr>
+    <tr>
+      <th>Address:</th>
+      <td>{{user.student.kin_address}} Administration</td>
+      <th>Relation:</th>
+      <td>{{user.student.kin_relation}}</td>
+    </tr>
+    </table>
+</div>
+{% endblock %}
