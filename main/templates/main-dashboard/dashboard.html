@@ -61,7 +61,7 @@
                 </tr>
                 <tr>
                 <td>Year of admission</td>
-                <td>{{ user.year }}2024</td>
+                <td>{{ user.year_of_admission }}</td>
                 </tr>
                 <tr>
                 <td>Program Type</td>
@@ -69,15 +69,15 @@
                 </tr>
                 <tr>
                 <td>Faculty</td>
-                <td>{{ user.student.faculty }}Administration</td>
+                <td>{{ user.student.programme.department.faculty }}</td>
                 </tr>
                 <tr>
                 <td>Department</td>
-                <td>{{ user.student.faculty }}Public Administration</td>
+                <td>{{ user.student.programme.department }}</td>
                 </tr>
                 <tr>
                 <td>Programme</td>
-                <td>{{ user.student.programme }}B.Sc Public Administration</td>
+                <td>{{ user.student.programme }}</td>
                 </tr>
             </tbody>
             </table>
