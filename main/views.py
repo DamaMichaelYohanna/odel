@@ -9,6 +9,7 @@ from xhtml2pdf import pisa
 from weasyprint import HTML, CSS
 
 from account.models import Student
+from fee.models import AcceptanceFee, SchoolFee
 from odel import renderers
 
 
@@ -122,7 +123,8 @@ def contact(request):
 
 def render_admission(request):
     """view to render the admission letter for the user."""
-    context = {"user": request.user}
+    school_fee = SchoolFee.objects.all()[0]
+    context = {"user": request.user, 'school_fee': school_fee}
     html_content = render_to_string('main/admission_letter_pdf.html', context)
     pdf_file = HTML(string=html_content, base_url=request.build_absolute_uri()).write_pdf()
     response = HttpResponse(pdf_file, content_type='application/pdf')
@@ -151,7 +153,8 @@ def accept_admission(request):
 
 @login_required
 def admission_invoice(request):
-    context = {"user": request.user}
+    acceptance_fee = AcceptanceFee.objects.all()[0]
+    context = {"user": request.user, 'acceptance_fee': acceptance_fee}
     html_content = render_to_string('main/admission_invoice_pdf.html', context)
     pdf_file = HTML(string=html_content, base_url=request.build_absolute_uri()).write_pdf()
     response = HttpResponse(pdf_file, content_type='application/pdf')

@@ -25,9 +25,9 @@
     </tr>
     <tr>
       <th>Faculty:</th>
-      <td>{{user.student.Faculty}}</td>
+      <td>{{user.student.programme.department.faculty}}</td>
       <th>Department:</th>
-      <td>{{user.student.department}}</td>
+      <td>{{user.student.programme.department}}</td>
     </tr>
     <tr>
       <th>Level:</th>
@@ -65,9 +65,9 @@
     <tr>
       <td>1</td>
       <td>Acceptance fee</td>
-      <td>₦ 10,315.00</td>
+      <td>₦ {{ acceptance_fee.amount }}</td>
     </tr>
   </table>
-  <h4 style="text-align: right">Total for invoice: 10,315.00</h4>
+  <h4 style="text-align: right">Total for invoice: ₦{{ acceptance_fee.amount }}</h4>
 </div>
 {% endblock %}

@@ -1,3 +1,4 @@
+
 {%load static%}
 <!DOCTYPE html>
 <html lang="en">
@@ -13,8 +14,7 @@
       href="{% static '/main/assets/img/nsuk-logo.png'%}"
       type="image/x-icon"
       />
-
-
+      
       <!-- Fonts and icons -->
       <script src="{% static '/main/assets/js/plugin/webfont/webfont.min.js'%}"></script>
       <script>
@@ -101,7 +101,7 @@
     <div class="sidebar-wrapper scrollbar scrollbar-inner">
       <div class="sidebar-content">
         <ul class="nav nav-secondary">
-          <li class="nav-item btn-success">
+          <li class="nav-item">
                   <a href="{% url 'dashboard_page'%}">
                     <span class="sub-item text-light">Dashboard</span>
                   </a>
@@ -110,12 +110,6 @@
             <span class="sidebar-mini-icon">
               <i class="fa fa-ellipsis-h"></i>
             </span>
-            <!-- <h4 class="text-section">Components</h4> -->
-          </li>
-          <li class="nav-item ">
-            <a href="{% url 'bio-data_form'%}">
-              <span class="sub-item text-light">Bio Data</span>
-            </a>
           </li>
         {% if user.student.done_biodata %}
             {% if user.student.has_accepted %}
@@ -125,12 +119,12 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="{% url 'payments_page'%}">
+                    <a href="{% url 'dashboard_form'%}">
                       <span class="sub-item text-light">Other payment</span>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="{% url 'documents_page' %}">
+                    <a href="{% url 'payments_page'%}">
                       <span class="sub-item text-light">My Document</span>
                     </a>
                   </li>
@@ -148,13 +142,17 @@
             {% endif %}
 
         {% else %}
-           
+            <li class="nav-item btn-biodata">
+            <a href="{% url 'bio-data_form'%}">
+              <span class="sub-item text-light">Bio Data</span>
+            </a>
+          </li>
         {% endif %}
         </ul>
       </div>
       <ul class="nav nav-secondary">
         <li class="nav">
-            <a class="btn btn-success" href="/logout">Logout-></a>
+          <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal"> Logout-></button>
         </li>
       </ul>
     </div>
@@ -535,7 +533,7 @@
           </nav>
           <!-- End Navbar -->
         </div>
-
+     
       {% block content %} {% endblock content %}
     <!--   Core JS Files   -->
     <script src="{% static '/main/assets/js/core/jquery-3.7.1.min.js'%}"></script>
@@ -574,33 +572,16 @@
     <script src="{% static '/main/assets/js/setting-demo.js'%}"></script>
     <script src="{% static '/main/assets/js/demo.js'%}"></script>
     <script src="{% static '/main/assets/js/multi-step-form.js'%}"></script>
-    <script>
-      $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
-        type: "line",
-        height: "70",
-        width: "100%",
-        lineWidth: "2",
-        lineColor: "#177dff",
-        fillColor: "rgba(23, 125, 255, 0.14)",
-      });
 
-      $("#lineChart2").sparkline([99, 125, 122, 105, 110, 124, 115], {
-        type: "line",
-        height: "70",
-        width: "100%",
-        lineWidth: "2",
-        lineColor: "#f3545d",
-        fillColor: "rgba(243, 84, 93, .14)",
-      });
-
-      $("#lineChart3").sparkline([105, 103, 123, 100, 95, 105, 115], {
-        type: "line",
-        height: "70",
-        width: "100%",
-        lineWidth: "2",
-        lineColor: "#ffa534",
-        fillColor: "rgba(255, 165, 52, .14)",
-      });
+ <script>
+   var curent = location.pathname;
+   $('.nav li a').each(function(){
+     var $this = $(this);
+     if ($this.attr('href').indexOf(curent) !==-1){
+       $this.addClass('btn-success')
+      }
+    });
+    
     </script>
   </body>
 </html>
