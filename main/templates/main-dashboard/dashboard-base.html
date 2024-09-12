@@ -108,13 +108,13 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="{% url 'documents_page'%}">
+                    <a href="{% url 'payments_page'%}">
                       <i class="fas fa-th-list"></i>
                       <span class="sub-item text-light">Other payment</span>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="{% url 'payments_page'%}">
+                    <a href="{% url 'documents_page'%}">
                       <i class="fas fa-file"></i>
                       <span class="sub-item text-light">My Document</span>
                     </a>
@@ -146,9 +146,9 @@
       </div>
       <ul class="nav nav-secondary" style="margin-top: 100px;">
         <li class="nav">
-          <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal"> Logout-></button>
+          <!-- <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal"> Logout-></button> -->
         </li>
-        <li class="nav-item btn-biodata" data-bs-toggle="modal" data-bs-target="#myModal">
+        <li class="nav-item" style="background-color: #252525;"  data-bs-toggle="modal" data-bs-target="#myModal">
             <a>
             <i class="fa-solid fa-user"></i>
               <span class="sub-item text-light">Logout</span>
@@ -165,7 +165,7 @@
       <!-- Modal Header -->
       <div class="modal-header">
         <h4 class="modal-title">Confirmation</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
       </div>
 
       <!-- Modal body -->
@@ -327,7 +327,7 @@
     <script src="{% static '/main/assets/js/setting-demo.js'%}"></script>
     <script src="{% static '/main/assets/js/demo.js'%}"></script>
     <script src="{% static '/main/assets/js/multi-step-form.js'%}"></script>
-
+ 
  <script>
    var curent = location.pathname;
    $('.nav li a').each(function(){
@@ -336,7 +336,6 @@
        $this.addClass('btn-success')
       }
     });
-    
     </script>
   </body>
 </html>

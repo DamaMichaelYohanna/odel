@@ -19,7 +19,7 @@ def register_one(request):
             user = CustomUser.objects.create(email=email)
             user.set_password(password1)
             messages.success(request, "Account created Sucessfully.")
-            return redirect("/application")
+            return redirect("/login")
         except IntegrityError:
             messages.error(request, "Email address already used!")
             return render(request, 'main/registration_form.html')
