@@ -30,21 +30,21 @@
             <hr />
 
             <div class="row">
-              <div class="d-none d-lg-block col-sm-2">
-                <div class="avatar-sm">
+              <div class="d-lg-block col-sm-3 card" style="height: fit-content;">
                   <img
                     src="{% static '/main/assets/img/avatar.png'%}"
                     alt="..."
                     class="avatar-img rounded-circle"
                     style="width: 130px; height: 130px"
                   />
-                </div>
+                  <div class="card-title"><p>Upload Photo</p></div>
+                  <input type="file" class="btn btn-" placeholder="Upload Photo"/>
               </div>
 
               <!--  -->
               <div class="col-sm-8">
                 <div class="container-fluid">
-                  <div class="mb-3 text-muted"><h5>Basic</h5></div>
+                  <div class="mb-3 text-muted"><h5>Basic</h5>
                   <hr />
                   <form action="/biodata" method="POST">
                     {% csrf_token %}
