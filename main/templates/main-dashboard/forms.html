@@ -6,83 +6,68 @@
 {% block content %}
 <div class="container">
   <div class="page-inner">
-    <div class="row">
-      <div class="col-md-12">
-        <div
-          class="card"
-          style="border-top: 2px solid rgb(41, 187, 48); color: #000"
-        >
-          <div
-            class="card-header"
-            style="border-bottom: 3px solid #007343; color: #000"
-          >
-            <div class="row">
-              <div class="col-4">
-                <div class="card-title" style="color: rgb(41, 187, 48)">
-                  Registration Form
-                </div>
-                <div class="input-group"></div>
-              </div>
-              <!--  -->
-              <div class="col-5">
-                <div class="input-group"></div>
-              </div>
-              <div class="col-4">
-                <div class="input-group">
-                  <select
-                    class="form-control"
-                    id="entrymode"
-                    name="session"
-                    required
-                  >
-                    <option hidden>
-                      <span style="color: #ccc">Select Session</span>
-                    </option>
-                    <option value="100">..</option>
-                  </select>
-                </div>
-              </div>
-              <hr />
-            </div>
-            <!-- multi step form start -->
-            <form action="#" class="form">
+    <!-- <div class="row"> -->
+      <div class="container">
+            <ul class="list-group" style="border: 1px solid #ddd;">
+              <li class="list-group-item text-dark" style="background-color: rgb(233, 247, 219);">Application Form</li>
+              <div class="container-fluid">
+              <div style="display: flex;justify-content: space-between;align-items: center;">
+                 <div class="table-responsive">
+                   <form action="#" class="form">
               <!-- <h1 class="text-center">Registration Form</h1> -->
               <!-- Progress bar -->
-              <div class="progressbars">
+              <!-- <div class="progressbars">
                 <div class="progress" id="progress"></div>
 
-                <div
-                  class="progress-step progress-step-active"
-                  data-title="Intro"
-                ></div>
-                <div class="progress-step" data-title="Contact"></div>
-                <div class="progress-step" data-title="ID"></div>
-                <div class="progress-step" data-title="Password"></div>
-              </div>
+                <div class="progress-step progress-step-active"data-title=""></div>
+                <div class="progress-step" data-title=""></div>
+                <div class="progress-step" data-title=""></div>
+                <div class="progress-step" data-title=""></div>
+              </div> -->
 
               <!-- Steps -->
               <div class="form-step form-step-active">
                 <div class="row">
-                  <div class="col-4">
+                  <div class="col-sm-3">
+                    <div class="input-group">
+                      <!-- <span class="input-group-text">Person</span> -->
+                      <label for="username">Application Type :</label>
+                     
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="col-sm-9">
                     <div class="input-group">
                       <!-- <label for="username">Username</label> -->
                       <input
                         type="text"
-                        name="username"
-                        id="surname"
-                        placeholder="Surname"
+                        name="application-type"
+                        id="application-type"
+                        class="form-control input-sm"
+                        value="Distance Learning Institute"
+                        disabled
                       />
                     </div>
                   </div>
+                  <!-- cccc -->
+                </div>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <div class="input-group">
+                      <!-- <span class="input-group-text">Person</span> -->
+                      <label for="username">Surname :</label>
+                     
+                    </div>
+                  </div>
                   <!--  -->
-                  <div class="col-4">
+                  <div class="col-sm-9">
                     <div class="input-group">
                       <!-- <label for="username">Username</label> -->
                       <input
                         type="text"
                         name="firstname"
                         id="firstname"
-                        placeholder="Firstname"
+                        class="form-control input-sm"
                       />
                     </div>
                   </div>
@@ -91,267 +76,465 @@
                 <!-- Another section -->
                 <div class="row">
                   <!--  -->
-                  <div class="col-sm-4">
+                  <div class="col-sm-3">
+                    <div class="input-group">
+                      <label for="position">First Name: </label>
+                    
+                    </div>
+                  </div>
+                  <!-- cccc -->
+                  <div class="col-sm-9">
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        name="dob"
+                        id="position"
+                        class="form-control input-sm-3"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <!-- Another section -->
+                <div class="row">
+                  <!--  -->
+                  <div class="col-sm-3">
+                    <div class="input-group">
+                      <label for="position">Middle Name: </label>
+                
+                    </div>
+                  </div>
+                  <!-- cccc -->
+                  <div class="col-sm-9">
                     <div class="input-group">
                       <!-- <label for="position">Position</label> -->
                       <input
                         type="text"
-                        name="middlename"
+                        name="pob"
                         id="position"
-                        placeholder="Middlename"
+                        class="form-control input-sm"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <div class="input-group">
+                      <label for="username">Mobile No :</label>
+                    
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="col-sm-9">
+                    <div class="input-group">
+                      <!-- <label for="username">Username</label> -->
+                      <input
+                        type="text"
+                        name="firstname"
+                        id="firstname"
+                        class="form-control input-sm"
+                        class="form-control input-sm"
                       />
                     </div>
                   </div>
                   <!-- cccc -->
-                  <div class="col-sm-4">
+                </div>
+                <div class="row">
+                  <div class="col-sm-3">
                     <div class="input-group">
-                      <!-- <label for="position">Position</label> -->
+                      <label for="username">Email:</label>
+                    
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="col-sm-9">
+                    <div class="input-group">
+                      <!-- <label for="username">Username</label> -->
+                      <input
+                        type="text"
+                        name="email"
+                        id="email"
+                        class="form-control input-sm"
+                        disabled
+                      />
+                    </div>
+                  </div>
+                  <!-- cccc -->
+                </div>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <div class="input-group">
+                    
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="col-sm-4">
+                  <a href="#" class="btn btn-success btn-next">Next</a>
+                    
+                  </div>
+                </div>
+                <!--  -->
+                <!-- <div class="">
+                  <a href="#" class="btns btn-next width-50 ml-auto">Next</a>
+                </div> -->
+              </div>
+              <div class="form-step">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <div class="input-group">
+                      <!-- <span class="input-group-text">Person</span> -->
+                      <label for="username">Place of Birth :</label>
+                     
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="col-sm-9">
+                    <div class="input-group">
+                      <!-- <label for="username">Username</label> -->
+                      <input
+                        type="text"
+                        name="pob"
+                        id="pob"
+                        class="form-control input-sm"
+                 
+                      />
+                    </div>
+                  </div>
+                  <!-- cccc -->
+                </div>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <div class="input-group">
+                      <!-- <span class="input-group-text">Person</span> -->
+                      <label for="Dob">Dob :</label>
+                     
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="col-sm-3">
+                    <div class="input-group">
                       <input
                         type="date"
                         name="dob"
-                        id="position"
-                        placeholder="DOB"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <!-- Another section -->
-                <div class="row">
-                  <!--  -->
-                  <div class="col-sm-4">
-                    <div class="input-group">
-                      <!-- <label for="position">Position</label> -->
-                      <input
-                        type="text"
-                        name="gender"
-                        id="position"
-                        placeholder="Gender"
+                        id="dob"
+                        class="form-control input-sm"
                       />
                     </div>
                   </div>
                   <!-- cccc -->
-                  <div class="col-sm-4">
-                    <div class="input-group">
-                      <!-- <label for="position">Position</label> -->
-                      <input
-                        type="text"
-                        name="pob"
-                        id="position"
-                        placeholder="Place of Birth"
-                      />
-                    </div>
-                  </div>
                 </div>
                 <!-- Another section -->
                 <div class="row">
                   <!--  -->
-                  <div class="col-sm-4">
+                  <div class="col-sm-3">
                     <div class="input-group">
-                      <!-- <label for="position">Position</label> -->
-                      <input
-                        type="text"
-                        name="middlename"
-                        id="position"
-                        placeholder="Home Town"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div class="">
-                  <a href="#" class="btn btn-next width-50 ml-auto">Next</a>
-                </div>
-              </div>
-              <div class="form-step">
-                <!-- Another section -->
-                <div class="row">
-                  <!--  -->
-                  <div class="col-sm-4">
-                    <div class="input-group">
-                      <!-- <label for="position">Position</label> -->
-                      <textarea
-                        name="contact_address"
-                        id="position"
-                        cols="20"
-                        rows="2"
-                        placeholder="Contact Address"
-                      ></textarea>
+                      <label for="status">Marital Status: </label>
+                    
                     </div>
                   </div>
                   <!-- cccc -->
-                  <div class="col-sm-4">
+                  <div class="col-sm-9">
                     <div class="input-group">
-                      <!-- <label for="position">Position</label> -->
                       <input
                         type="text"
-                        name="phone_no"
-                        id="position"
-                        placeholder="Phone Number"
+                        name="marital_status"
+                        id="marital_status"
+                        class="form-control input-sm"
                       />
                     </div>
                   </div>
                 </div>
-                <!-- Another section CONTACT -->
+                <!-- Another section -->
                 <div class="row">
                   <!--  -->
-                  <div class="col-sm-4">
+                  <div class="col-sm-3">
                     <div class="input-group">
-                      <!-- <label for="position">Position</label> -->
+                      <label for="country">Country: </label>
+                
+                    </div>
+                  </div>
+                  <!-- cccc -->
+                  <div class="col-sm-9">
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        name="country"
+                        id="country"
+                        class="form-control input-sm"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <div class="input-group">
+                      <label for="state">State :</label>
+                    
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="col-sm-9">
+                    <div class="input-group">
+                      <!-- <label for="username">Username</label> -->
                       <input
                         type="text"
                         name="state"
-                        id="position"
-                        placeholder="State"
+                        id="state"
+                        class="form-control input-sm"
                       />
                     </div>
                   </div>
                   <!-- cccc -->
-                  <div class="col-sm-4">
+                </div>
+                <div class="row">
+                  <div class="col-sm-3">
                     <div class="input-group">
-                      <!-- <label for="position">Position</label> -->
+                      <label for="lga">LGA:</label>
+                    
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="col-sm-9">
+                    <div class="input-group">
+                      <!-- <label for="username">Username</label> -->
                       <input
                         type="text"
                         name="lga"
-                        id="position"
-                        placeholder="LGA"
+                        id="lga"
+                        class="form-control input-sm"
                       />
                     </div>
                   </div>
                 </div>
-                <!-- Another section CONTACT -->
-                <div class="row">
-                  <!--  -->
-                  <div class="col-sm-4">
-                    <div class="input-group">
-                      <!-- <label for="position">Position</label> -->
-                      <input
-                        type="text"
-                        name="nokname"
-                        id="position"
-                        placeholder="Next of King (Name)"
-                      />
-                    </div>
-                  </div>
+            
                   <!-- cccc -->
-                  <div class="col-sm-4">
-                    <div class="input-group">
-                      <!-- <label for="position">Position</label> -->
-                      <input
-                        type="text"
-                        name="nokphone"
-                        id="position"
-                        placeholder="Next of King (Phone No)"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <!-- Another section CONTACT -->
-                <div class="row">
-                  <!--  -->
-                  <div class="col-sm-4">
-                    <div class="input-group">
-                      <!-- <label for="position">Position</label> -->
-                      <input
-                        type="text"
-                        name="nok_email"
-                        id="position"
-                        placeholder="Next of King (Email)"
-                      />
-                    </div>
-                  </div>
-                  <!-- cccc -->
-                  <div class="col-sm-4">
-                    <div class="input-group">
-                      <!-- <label for="position">Position</label> -->
-                      <input
-                        type="text"
-                        name="nok_address"
-                        id="position"
-                        placeholder="Next of King (Address)"
-                      />
-                    </div>
-                  </div>
-                </div>
+                  <div class="row">
+                  <div class="col-sm-3">
 
-                <div class="btns-group">
-                  <a href="#" class="btn btn-prev">Previous</a>
-                  <a href="#" class="btn btn-next">Save and continue</a>
-                </div>
-              </div>
-              <div class="form-step">
-                <!-- Another section -->
-                <div class="row">
+                  </div>
                   <!--  -->
-                  <div class="col-sm-4">
+                  <div class="col-sm-9">
+                   <a href="#" class="btn btn-success btn-prev">Previous</a>
+                  <!-- <a href="#" class="btns btn-next">Save and continue</a> -->
+                    
+                  <a href="#" class="btn btn-success btn-next">Save and continue</a>
+                    
+                  </div>
+             
+              </div>
+            </div>
+              <div class="form-step">
+                <div class="row">
+                  <div class="col-sm-3">
                     <div class="input-group">
-                      <!-- <label for="position">Position</label> -->
+                      <label for="contact_address">Contact Address :</label>
+                     
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="col-sm-9">
+                    <div class="input-group">
                       <input
                         type="text"
-                        name="gender"
-                        id="position"
-                        placeholder="Gender"
+                        name="contact_address"
+                        id="contact_address"
+                        class="form-control input-sm"
                       />
                     </div>
                   </div>
                   <!-- cccc -->
-                  <div class="col-sm-4">
+                </div>
+                <div class="row">
+                  <div class="col-sm-3">
                     <div class="input-group">
-                      <!-- <label for="position">Position</label> -->
+                      <!-- <span class="input-group-text">Person</span> -->
+                      <label for="Country">Country :</label>
+                     
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="col-sm-9">
+                    <div class="input-group">
+                      <!-- <label for="username">Username</label> -->
                       <input
                         type="text"
-                        name="pob"
-                        id="position"
-                        placeholder="Place of Birth"
+                        name="country"
+                        id="country"
+                        class="form-control input-sm"
+                      />
+                    </div>
+                  </div>
+                  <!-- cccc -->
+                </div>
+                <!-- Another section -->
+                <div class="row">
+                  <!--  -->
+                  <div class="col-sm-3">
+                    <div class="input-group">
+                      <label for="state">State: </label>
+                    
+                    </div>
+                  </div>
+                  <!-- cccc -->
+                  <div class="col-sm-9">
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        name="state"
+                        id="state"
+                        class="form-control input-sm"
                       />
                     </div>
                   </div>
                 </div>
                 <!-- Another section -->
                 <div class="row">
-                  <div class="col-sm-4">
+                  <!--  -->
+                  <div class="col-sm-3">
                     <div class="input-group">
-                      <!-- <label for="position">Position</label> -->
+                      <label for="lga">LGA: </label>
+                
+                    </div>
+                  </div>
+                  <!-- cccc -->
+                  <div class="col-sm-9">
+                    <div class="input-group">
                       <input
                         type="text"
-                        name="middlename"
-                        id="position"
-                        placeholder="Home Town"
+                        name="lga"
+                        id="lga"
+                        class="form-control input-sm"
                       />
                     </div>
                   </div>
                 </div>
-                <div class="input-group">
-                  <label for="ID">National ID</label>
-                  <input type="number" name="ID" id="ID" />
-                </div>
-                <div class="btns-group">
-                  <a href="#" class="btn btn-prev">Previous</a>
-                  <a href="#" class="btn btn-next">Save and continue</a>
-                </div>
+                
+            
+                  <!-- cccc -->
+                  <div class="row">
+                  <div class="col-sm-3">
+
+                  </div>
+                  <!--  -->
+                  <div class="col-sm-9">
+                   <a href="#" class="btn btn-success btn-prev">Previous</a>
+                  <!-- <a href="#" class="btns btn-next">Save and continue</a> -->
+                    
+                  <a href="#" class="btn btn-success btn-next">Save and continue</a>
+                    
+                  </div>
+             
               </div>
+            </div>
               <div class="form-step">
-                <div class="input-group">
-                  <label for="password">Password</label>
-                  <input type="password" name="password" id="password" />
+                <div class="row">
+                  <div class="col-sm-3">
+                    <div class="input-group">
+                      <!-- <span class="input-group-text">Person</span> -->
+                      <label for="kin_name">Next of Kin Name :</label>
+                     
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="col-sm-9">
+                    <div class="input-group">
+                      <!-- <label for="username">Username</label> -->
+                      <input
+                        type="text"
+                        name="kin_name"
+                        id="kin_name"
+                        class="form-control input-sm"
+                 
+                      />
+                    </div>
+                  </div>
+                  <!-- cccc -->
                 </div>
-                <div class="input-group">
-                  <label for="confirmPassword">Confirm Password</label>
-                  <input
-                    type="password"
-                    name="confirmPassword"
-                    id="confirmPassword"
-                  />
+                <div class="row">
+                  <div class="col-sm-3">
+                    <div class="input-group">
+                      <!-- <span class="input-group-text">Person</span> -->
+                      <label for="Phone">Next of Kin Phone :</label>
+                     
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="col-sm-9">
+                    <div class="input-group">
+                      <!-- <label for="username">Username</label> -->
+                      <input
+                        type="text"
+                        name="nokp"
+                        id="nokp"
+                        class="form-control input-sm"
+                      />
+                    </div>
+                  </div>
+                  <!-- cccc -->
                 </div>
-                <div class="btns-group">
-                  <a href="#" class="btn btn-prev">Previous</a>
-                  <input type="submit" value="Submit" class="btn" />
+                <!-- Another section -->
+                <div class="row">
+                  <!--  -->
+                  <div class="col-sm-3">
+                    <div class="input-group">
+                      <label for="Address">Next of Kin Address </label>
+                    
+                    </div>
+                  </div>
+                  <!-- cccc -->
+                  <div class="col-sm-9">
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        name="nokaddress"
+                        id="nokaddress"
+                        class="form-control input-sm"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <!-- Another section -->
+                <div class="row">
+                  <!--  -->
+                  <div class="col-sm-3">
+                    <div class="input-group">
+                      <label for="nokrelationship">Next of Kin Relationship: </label>
+                
+                    </div>
+                  </div>
+                  <!-- cccc -->
+                  <div class="col-sm-9">
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        name="nokrelationship"
+                        id="nokrelationship"
+                        class="form-control input-sm"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <!-- Another section -->
+                <div class="row">
+                   <div class="col-sm">
+
+                   </div>
+                
+                     <div class="col-sm-5">
+                    <div class="btn-group btn-group-xs">
+                      <a href="#" class="btn btn-success btn-prev">Previous</a>
+                    <input type="submit" value="Submit" class="btn btn-">
+                  </div>
+                  </div>
+                </div>
                 </div>
               </div>
             </form>
             <!-- End of muli step form -->
-
+              </div>
+            </div>
+            </ul>
+            </div>
             <div class="card-action">
-              <!-- <button class="btn btn-success">Submit</button>
-                      <button class="btn btn-danger">Cancel</button> -->
             </div>
           </div>
         </div>

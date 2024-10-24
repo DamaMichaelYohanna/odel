@@ -98,8 +98,8 @@
                   </a>
           </li>
           <!-- Classic family icons in available styles (Font Awesome Classic is the default) -->
-        {% if user.student.done_biodata %}
-            {% if user.student.has_accepted %}
+        <!-- { if user.student.done_biodata %} -->
+            <!-- { if user.student.has_accepted %} -->
                   <li class="nav-item">
                     <a href="{% url 'fee_payment_form'%}">
                       <!-- <i class="fas fa-th-list"></i> -->
@@ -125,23 +125,23 @@
                       <span class="sub-item text-light">Profile Settings</span>
                     </a>
                   </li>
-                {% else %}
+                <!-- { else %} -->
                   <li class="nav-item ">
                     <a href="{% url 'accept-admission'%}">
                       <i class="fas fa-desktop"></i>
                       <span class="sub-item text-light">Accept Admission</span>
                     </a>
                   </li>
-            {% endif %}
+            <!-- { endif %} -->
 
-        {% else %}
+        <!-- { else %} -->
             <li class="nav-item btn-biodata">
             <a href="{% url 'bio-data_form'%}">
             <i class="fa-solid fa-user"></i>
               <span class="sub-item text-light">Bio Data</span>
             </a>
           </li>
-        {% endif %}
+        <!-- { endif %} -->
         </ul>
       </div>
       <ul class="nav nav-secondary" style="margin-top: 100px;">
@@ -152,6 +152,12 @@
             <a>
             <i class="fa-solid fa-user"></i>
               <span class="sub-item text-light">Logout</span>
+                <img
+            src="{% static '/main/assets/img/log-out-outline.png'%}"
+            alt="navbar brand"
+            class="navbar-brand"
+            height="60"
+          />
             </a>
           </li>
       </ul>

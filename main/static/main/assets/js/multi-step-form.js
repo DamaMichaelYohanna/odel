@@ -10,7 +10,7 @@ nextBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     formStepsNum++;
     updateFormSteps();
-    updateProgressbar();
+    // updateProgressbar();
   });
 });
 
@@ -18,7 +18,7 @@ prevBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     formStepsNum--;
     updateFormSteps();
-    updateProgressbar();
+    // updateProgressbar();
   });
 });
 
