@@ -7,7 +7,8 @@ from django.template.loader import get_template, render_to_string
 from django.urls import reverse
 from xhtml2pdf import pisa
 from weasyprint import HTML, CSS
-
+from datetime import datetime
+import pandas as pd
 from account.models import Student
 from fee.models import AcceptanceFee, SchoolFee
 from odel import renderers
@@ -26,6 +27,9 @@ def dashboard(request):
 
 @login_required
 def dashboard_form_data(request):
+    
+    #Output
+    # [2017, 2018, 2019]
     return render(request, 'main-dashboard/forms.html')
 
 

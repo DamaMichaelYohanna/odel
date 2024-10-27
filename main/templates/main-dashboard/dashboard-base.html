@@ -14,21 +14,25 @@
       href="{% static '/main/assets/img/nsuk-logo.png'%}"
       type="image/x-icon"
       />
-      
+
       <!-- Fonts and icons -->
-      <script src="{% static '/main/assets/fonts/fontawesome-two/js/fontawesome.js'%}"></script>
-      <script src="{% static '/main/assets/fonts/fontawesome-two/js/fontawesome.min.js'%}"></script>
-      <script src="{% static '/main/assets/js/plugin/webfont/webfont.min.js'%}"></script>
 
     <!-- CSS Files -->
+    <link
+    rel="stylesheet"
+    href="{% static '/main/assets/a/css/jquery-ui.css'%}"
+    />
+    <link
+    rel="stylesheet"
+    href="{% static '/main/assets/a/css/jquery-ui.min.css'%}"
+    />
+  
     <link
       rel="stylesheet"
       href="{% static '/main/assets/css/bootstrap.min.css'%}"
     />
-    <link
-    rel="stylesheet"
-    href="{% static '/main/assets/css/plugins.min.css'%}"
-    />
+
+
     <link
       rel="stylesheet"
       href="{% static '/main/assets/css/multi-step-form.css'%}"
@@ -37,6 +41,10 @@
     rel="stylesheet"
       href="{% static '/main/assets/css/kaiadmin.min.css'%}"
     />
+    <!-- <link
+    rel="stylesheet"
+      href="{% static '/main/assets/css/bootstrap.css'%}"
+    /> -->
     <link
     rel="stylesheet"
       href="{% static '/main/assets/fonts/fontawesome-two/css/all.min.css'%}"
@@ -152,12 +160,7 @@
             <a>
             <i class="fa-solid fa-user"></i>
               <span class="sub-item text-light">Logout</span>
-                <img
-            src="{% static '/main/assets/img/log-out-outline.png'%}"
-            alt="navbar brand"
-            class="navbar-brand"
-            height="60"
-          />
+          
             </a>
           </li>
       </ul>
@@ -265,9 +268,6 @@
                     </form>
                   </ul>
                 </li>
-                
-                
-
                 <li class="nav-item topbar-user dropdown hidden-caret">
                   <a
                     class="dropdown-toggle profile-pic"
@@ -297,42 +297,18 @@
      
       {% block content %} {% endblock content %}
     <!--   Core JS Files   -->
-    <script src="{% static '/main/assets/js/core/jquery-3.7.1.min.js'%}"></script>
-    <script src="{% static '/main/assets/js/core/popper.min.js'%}"></script>
     <script src="{% static '/main/assets/js/core/bootstrap.min.js'%}"></script>
+    <script src="{% static '/main/assets/js/core/jquery-3.7.1.min.js'%}"></script>
+     <script src="{% static '/main/assets/js/zebra_datepicker.min.js'%}"></script>
+    <!-- <script src="{% static '/main/assets/js/core/popper.min.js'%}"></script> -->
 
-    <!-- jQuery Scrollbar -->
-    <script src="{% static '/main/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js'%}"></script>
 
-    <!-- Chart JS -->
-    <script src="{% static '/main/assets/js/plugin/chart.js/chart.min.js'%}"></script>
+    <!-- DateTimePicker -->
+    <script src="{% static 'main/assets/js/plugin/moment/moment.min.js'%}"></script>
+    <script src="{% static 'main/assets/js/plugin/datepicker/bootstrap-datetimepicker.min.js'%}"></script>
 
-    <!-- jQuery Sparkline -->
-    <script src="{% static '/main/assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js'%}"></script>
 
-    <!-- Chart Circle -->
-    <script src="{% static '/main/assets/js/plugin/chart-circle/circles.min.js'%}"></script>
-
-    <!-- Datatables -->
-    <script src="{% static '/main/assets/js/plugin/datatables/datatables.min.js'%}"></script>
-
-    <!-- Bootstrap Notify -->
-    <script src="{% static '/main/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js'%}"></script>
-
-    <!-- jQuery Vector Maps -->
-    <script src="{% static '/main/assets/js/plugin/jsvectormap/jsvectormap.min.js'%}"></script>
-    <script src="{% static '/main/assets/js/plugin/jsvectormap/world.js'%}"></script>
-
-    <!-- Sweet Alert -->
-    <script src="{% static '/main/assets/js/plugin/sweetalert/sweetalert.min.js'%}"></script>
-
-    <!-- Kaiadmin JS -->
-    <script src="{% static '/main/assets/js/kaiadmin.min.js'%}"></script>
-
-    <!-- Kaiadmin DEMO methods, don't include it in your project! -->
-    <script src="{% static '/main/assets/js/setting-demo.js'%}"></script>
-    <script src="{% static '/main/assets/js/demo.js'%}"></script>
-    <script src="{% static '/main/assets/js/multi-step-form.js'%}"></script>
+  <script src="{% static '/main/assets/js/multi-step-form.js'%}"></script>
  
  <script>
    var curent = location.pathname;
@@ -342,6 +318,17 @@
        $this.addClass('btn-success')
       }
     });
+
+    $('#datepicker').datepicker({
+    format: 'MM/DD/YYYY',
+    });
+
+    $('#datetimepicker').datetimepicker('show');
+
+    $('#datepicker').Zebra_DatePicker();
+
+    
     </script>
+    
   </body>
 </html>

@@ -1,0 +1,31 @@
+<option value="COMMERCE">COMMERCE</option>
+<option value="FINANCIAL ACCOUNTING">FINANCIAL ACCOUNTING</option>
+<option value="CHRISTIAN RELIGIOUS STUDIES">CHRISTIAN RELIGIOUS STUDIES</option>
+<option value="ECONOMICS">ECONOMICS</option>
+<option value="GEOGRAPHY">GEOGRAPHY</option>
+<option value="GOVERNMENT">GOVERNMENT</option>
+<option value="ISLAMIC STUDIES">ISLAMIC STUDIES</option>
+<option value="LITERATURE IN ENGLISH">LITERATURE IN ENGLISH</option>
+<option value="CIVIC EDUCATION">CIVIC EDUCATION</option>
+<option value="ENGLISH LANGUAGE">ENGLISH LANGUAGE</option>
+<option value="HAUSA">HAUSA</option>
+<option value="IGBO">IGBO</option>
+<option value="YORUBA">YORUBA</option>
+<option value="FURTHER MATHEMATICS">FURTHER MATHEMATICS</option>
+<option value="GENERAL MATHEMATICS">GENERAL MATHEMATICS</option>
+<option value="AGRICULTURAL SCIENCE">AGRICULTURAL SCIENCE</option>
+<option value="BIOLOGY">BIOLOGY</option>
+<option value="CHEMISTRY">CHEMISTRY</option>
+<option value="PHYSICS">PHYSICS</option>
+
+<option
+
+<option value="A1">A1</option>
+<option value="B2">B2</option>
+<option value="B3">B3</option>
+<option value="C4">C4</option>
+<option value="C5">C5</option>
+<option value="C6">C6</option>
+<option value="D7">D7</option>
+<option value="E8">E8</option>
+<option value="F9">F9</option>
