@@ -1,0 +1,260 @@
+{% extends 'main-dashboard/url-link-base.html'%}
+<!-- Static file loader -->
+{% load static %}
+
+<!-- the content block-->
+{% block content %}
+<style>
+    body{
+        width:max-content;
+        background-color: #fff;
+    }
+
+    table, th, td{
+        background: #fdfffe;
+        border: 1px solid #eee;
+        font-size: 11px;
+        margin: 0;
+        padding: 0;
+    }
+    .cess{
+        border: none;
+        /* padding: 2px; */
+        background-color: #e6ece9;
+        width: 100%;
+    }
+
+
+     .heading {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      .heading-text {
+        text-align: center;
+      }
+      .heading-text h3 {
+        font-size: 1.5rem;
+        text-align: center;
+      }
+
+      
+      @media only print {
+        .heading-text h3 {
+          font-size: 2rem;
+        }
+        .heading-logo img {
+          width: 100px;
+        }
+      }
+      @media screen {
+        body {
+          padding: 100%;
+        }
+      }
+</style>
+<div class="heading">
+      <div class="heading-logo">
+        <img
+          src="{% static 'main/img/nsuk-logo.png' %}"
+          alt="NSUK LOGO"
+          style="width: 110px"
+        />
+      </div>
+      <div class="heading-text">
+        <h2 style="color: rgb(58, 127, 156); font-weight: 800; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
+          NASARAWA STATE UNIVERSITY,<br/>
+          KEFFI
+        </h2>
+        <h6 style="color: rgb(58, 127, 156); font-weight: 800;">P.M.B 1022, KEFFI</h6>
+      </div>
+      <div class="heading-logo">
+        <img
+          src="{% static 'main/img/nsuk-logo.png' %}"
+          alt="NSUK LOGO"
+          style="width: 110px"
+        />
+      </div>
+    </div>
+    <!-- <hr /> -->
+    <div style="text-align: center">
+      <h6 style="color: rgb(58, 127, 156); margin: 5px; font-weight: 800;">OPEN DISTANCE E-LEARNING PROGRAMME</h6>
+      {% block head %}
+      <h6 style="color: #000">
+        2024/2025 application details of Applicant with Id ODEL
+      </h6>
+      {% endblock%}
+    </div>
+    <!--  -->
+<div class="container-fluid mt-3"
+<ul class="list-group">
+  <li class="list-group-item text-dark cess text-center">Applicant Details</li>
+</ul>
+  <table class="table-sm" style="width: 100%;">
+    <tbody>
+      <tr>
+        <td><b>Name:</b></td>
+        <td>Josiah</td>
+        <td><b>Appl Date:</b></td>
+        <td>2024</td>
+    </tr>
+    <tr>
+        <td class="col-xl-10"><b>Email:</b></td>
+        <td>josiah@gmail.com</td>
+        <!--  -->
+        <td><b>Date Of Birth:</b></td>
+        <td>1992</td>
+    </tr>
+    <tr>
+        <td><b>Place Of Birth:</b></td>
+        <td>Ancho</td>
+        <td><b>Sex:</b></td>
+        <td>Maile</td>
+    </tr>
+    <tr>
+        <td><b>Marital Status:</b></td>
+        <td>Single</td>
+        <td><b>Phone:</b></td>
+        <td>0806088455</td>
+    </tr>
+    <tr>
+        <td><b>Country:</b></td>
+        <td>Nigeria</td>
+        <td><b>State:</b></td>
+        <td>Nasarawa</td>
+    </tr>
+    <tr>
+        <td><b>LGA:</b></td>
+        <td>Akwanga</td>
+        <td><b>Home Town:</b></td>
+        <td>Ancho</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<!--  -->
+<div class="container-fluid"
+<ul class="list-group">
+  <li class="list-group-item text-dark cess text-center">Contact Address</li>
+</ul>
+  <table class="table-borer" style="width: 100%;">
+    <tbody>
+      <tr>
+        <td><b>Address:</b></td>
+        <td>Shabu</td>
+        <td><b>Country:</b></td>
+        <td>Nigerian</td>
+    </tr>
+    <tr>
+        <td><b>State:</b></td>
+        <td>Nasarawa</td>
+        <!--  -->
+        <td><b>LGA:</b></td>
+        <td>Akwanga</td>
+    </tr>
+    
+    </tbody>
+  </table>
+</div>
+<div class="container-fluid"
+<ul class="list-group">
+  <li class="list-group-item text-dark cess text-center">Next of King Details</li>
+</ul>
+  <table class="table-borer" style="width: 100%;">
+    <tbody>
+      <tr>
+        <td><b>Name:</b></td>
+        <td>Livinus</td>
+        <td><b>Phone:</b></td>
+        <td>0806834533</td>
+    </tr>
+    <tr>
+        <td><b>Relationship:</b></td>
+        <td>Brother</td>
+        <!--  -->
+        <td><b>Address:</b></td>
+        <td>Shabu</td>
+    </tr>
+    
+    </tbody>
+  </table>
+</div>
+<!--  -->
+<div class="container-fluid"
+<ul class="list-group">
+  <li class="list-group-item text-dark cess text-center">Propose Programme of Study</li>
+</ul>
+  <table class="table-borer" style="width: 100%;">
+    <tbody>
+      <tr>
+        <td><b>Programme Type:</b></td>
+        <td>Distance Learning</td>
+      </tr>
+      <tr>
+        <td><b>Programme:</b></td>
+        <td>B.Sc Public Admin(ODEL)</td>
+      </tr>
+      <tr>
+        <td><b>Mode of Study:</b></td>
+        <td>Part Time</td>
+      </tr>
+      <tr>
+        <td><b>Mode of Entry:</b></td>
+        <td>100</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<!--  -->
+<div class="container-fluid"
+<ul class="list-group">
+  <li class="list-group-item text-dark cess text-center">SSCE Details</li>
+</ul>
+  <table class="table-borer" style="width: 100%;">
+    <tbody>
+      <tr>
+        <td><b>Numbers of result combination:</b></td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td><b>Organization:</b></td>
+        <td>WAEC</td>
+      </tr>
+      <tr>
+        <td><b>SSCE Exam Type:</b></td>
+        <td>May/Jun-WAEC</td>
+      </tr>
+      <tr>
+        <td><b>SSCE Exam Year:</b></td>
+        <td>2016</td>
+    </tr>
+      <tr>
+        <td><b>Subject:</b></td>
+        <td><b>Grade</b></td>
+      </tr>
+      <tr>
+        <td><b>English Language:</b></td>
+        <td><b>-</b></td>
+      </tr>
+      <tr>
+        <td><b>General Mathematic:</b></td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td><b>Economic:</b></td>
+        <td>-</td>
+    </tr>
+      <tr>
+        <td><b>Marketing:</b></td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td><b>Goverment:</b></td>
+        <td>-</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+{% endblock content %}

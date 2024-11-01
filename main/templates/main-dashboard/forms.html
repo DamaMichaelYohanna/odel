@@ -4,6 +4,56 @@
 
 <!-- the content block-->
 {% block content %}
+<style>
+  .profile-picture {
+    /* opacity: 0.75; */
+    height: 150px;
+    width: 200px;
+    position: relative;
+    overflow: hidden;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .profile-btn {
+    /* opacity: 0.75; */
+    height: 40px;
+    width: 200px;
+    position: relative;
+    overflow: hidden;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .file-uploader {
+  /* make it invisible */
+  opacity: 0;
+  /* make it take the full height and width of the parent container */
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  /* make it absolute */
+ 
+}
+.upload-icon {
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  -webkit-text-stroke-width: 1px;
+  
+  /* -webkit-text-stroke-color: #e9e9e9; */
+}
+
+
+/* toggle icon state */
+.profile-picture:hover .upload-icon {
+  opacity: 0;
+}
+
+</style>
 <div class="container">
   <div class="page-inner">
     <!-- <div class="row"> -->
@@ -18,626 +68,343 @@
                 <!-- Steps -->
                 <div class="form-step form-step-active">
                   <div class="row">
-                    <div class="col-sm-3">
-                      <div class="form-group">
-                        <label for="username" class="control-label">Application Type:</label>
-                        <!-- <span class="form-group-text">Person</span> -->
+                      {% static "/main/assets/img/" as baseUrl %}
+                      <img
+                    src="{{baseUrl}}avatar.png"
+                    alt="..."
+                    id="profile"
+                    class="profile-picture"
+                  />
+                  <div class="row">
 
+                    <div class="profile-btn btn btn-danger">
+                      
+                      <h6 class="upload-icon">
+                          <i class="fa fa-upload" aria-hidden="true"></i>
+                          Upload profile
+                        </h6>
+                        
+                        <input class="file-uploader" type="file" onchange="loadFile(event);" accept="image/*" />
                       </div>
                     </div>
-                    <!--  -->
-                    <div class="col-sm-9">
-                      <div class="form-group">
-                        <!-- <label for="username">Username</label> -->
-                        <input type="text" name="application-type" id="application-type" class="form-control p-1"
-                          value="Distance Learning Institute" disabled />
+                  </div>
+           
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <div class="form-group">
+                          <label for="username" class="control-label">Application Type:</label>
+                          <!-- <span class="form-group-text">Person</span> -->
+
+                        </div>
+                      </div>
+                      <!--  -->
+                      <div class="col-sm-9">
+                        <div class="form-group">
+                          <!-- <label for="username">Username</label> -->
+                          <input type="text" name="application-type" id="application-type" class="form-control p-1"
+                            value="Distance Learning Institute" disabled />
+                        </div>
+                      </div>
+                      <!-- cccc -->
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <div class="form-group">
+                          <!-- <span class="form-group-text">Person</span> -->
+                          <label for="username" class="control-label">Surname:</label>
+
+                        </div>
+                      </div>
+                      <!--  -->
+                      <div class="col-sm-9">
+                        <div class="form-group">
+                          <!-- <label for="username">Username</label> -->
+                          <input type="text" name="surname" id="surname" class="form-control p-1" required />
+                        </div>
+                      </div>
+                      <!-- cccc -->
+                    </div>
+                    <!-- Another section -->
+                    <div class="row">
+                      <!--  -->
+                      <div class="col-sm-3">
+                        <div class="form-group">
+                          <label for="firstname">First Name: </label>
+
+                        </div>
+                      </div>
+                      <!-- cccc -->
+                      <div class="col-sm-9">
+                        <div class="form-group">
+                          <input type="text" name="firstname" id="firstname" class="form-control p-1" />
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Another section -->
+                    <div class="row">
+                      <!--  -->
+                      <div class="col-sm-3">
+                        <div class="form-group">
+                          <label for="middlename">Middle Name: </label>
+                        </div>
+                      </div>
+                      <!-- cccc -->
+                      <div class="col-sm-9">
+                        <div class="form-group">
+                          <input type="text" name="middlename" id="middlename" class="form-control p-1" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <div class="form-group">
+                          <label for="mobile">Mobile No :</label>
+
+                        </div>
+                      </div>
+                      <!--  -->
+                      <div class="col-sm-9">
+                        <div class="form-group">
+                          <input type="text" name="mobile" id="mobile" class="form-control p-1"
+                            class="form-control p-1" />
+                        </div>
+                      </div>
+                      <!-- cccc -->
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <div class="form-group">
+                          <label for="email">Email:</label>
+
+                        </div>
+                      </div>
+                      <!--  -->
+                      <div class="col-sm-9">
+                        <div class="form-group">
+                          <input type="text" name="email" id="email" class="form-control p-1" disabled />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <div class="form-group">
+
+                        </div>
+                      </div>
+                      <div class="col-sm-9">
+                        <p></p>
+                        <button href="#" id="cont" class="btn btn-info btn-next">Continue</button>
+
+                        <p></p>
+                      </div>
+                      <!--  -->
+                    </div>
+                  </div>
+                  <div class="form-step">
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <div class="form-group">
+                          <!-- <span class="form-group-text">Person</span> -->
+                          <label for="username">Place of Birth :</label>
+
+                        </div>
+                      </div>
+                      <!--  -->
+                      <div class="col-sm-9">
+                        <div class="form-group">
+                          <!-- <label for="username">Username</label> -->
+                          <input type="text" name="pob" id="pob" class="form-control p-1" />
+                        </div>
+                      </div>
+                      <!-- cccc -->
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <div class="form-group">
+                          <!-- <span class="form-group-text">Person</span> -->
+                          <label for="Dob">Dob :</label>
+
+                        </div>
+                      </div>
+                      <!--  -->
+                      <div class="col-sm-3">
+                        <div class="form-group">
+                          <input type="date" class="form-control p-1" id="datetimepicker" name="datepicker">
+
+                        </div>
+                      </div>
+                      <!-- cccc -->
+                    </div>
+                    <!-- Another section -->
+                    <div class="row">
+                      <!--  -->
+                      <div class="col-sm-3">
+                        <div class="form-group">
+                          <label for="status">Marital Status: </label>
+
+                        </div>
+                      </div>
+                      <!-- cccc -->
+                      <div class="col-sm-9">
+                        <div class="form-group">
+                          <input type="text" name="marital_status" id="marital_status" class="form-control p-1" />
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Another section -->
+                    <div class="row">
+                      <!--  -->
+                      <div class="col-sm-3">
+                        <div class="form-group">
+                          <label for="country">Country: </label>
+
+                        </div>
+                      </div>
+                      <!-- cccc -->
+                      <div class="col-sm-9">
+                        <div class="form-group">
+                          <input type="text" name="country" id="country" class="form-control p-1" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <div class="form-group">
+                          <label for="state">State :</label>
+
+                        </div>
+                      </div>
+                      <!--  -->
+                      <div class="col-sm-9">
+                        <div class="form-group">
+                          <!-- <label for="username">Username</label> -->
+                          <input type="text" name="state" id="state" class="form-control p-1" />
+                        </div>
+                      </div>
+                      <!-- cccc -->
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <div class="form-group">
+                          <label for="lga">LGA:</label>
+
+                        </div>
+                      </div>
+                      <div class="col-sm-9">
+                        <div class="form-group">
+                          <!-- <label for="username">Username</label> -->
+                          <input type="text" name="lga" id="lga" class="form-control p-1" />
+                        </div>
                       </div>
                     </div>
                     <!-- cccc -->
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <div class="form-group">
-                        <!-- <span class="form-group-text">Person</span> -->
-                        <label for="username" class="control-label">Surname:</label>
+                    <div class="row">
+                      <div class="col-sm-3">
 
                       </div>
-                    </div>
-                    <!--  -->
-                    <div class="col-sm-9">
-                      <div class="form-group">
-                        <!-- <label for="username">Username</label> -->
-                        <input type="text" name="surname" id="surname" class="form-control p-1" required />
-                      </div>
-                    </div>
-                    <!-- cccc -->
-                  </div>
-                  <!-- Another section -->
-                  <div class="row">
-                    <!--  -->
-                    <div class="col-sm-3">
-                      <div class="form-group">
-                        <label for="firstname">First Name: </label>
+                      <div class="col-sm-9">
+                        <a href="#" class="btn btn-warning btn-prev">Previous</a>
+                        <!-- <a href="#" class="btns btn-next">Save and continue</a> -->
+
+                        <a href="#" class="btn btn-info btn-next">Save and continue</a>
 
                       </div>
-                    </div>
-                    <!-- cccc -->
-                    <div class="col-sm-9">
-                      <div class="form-group">
-                        <input type="text" name="firstname" id="firstname" class="form-control p-1" />
-                      </div>
+
                     </div>
                   </div>
-                  <!-- Another section -->
-                  <div class="row">
-                    <!--  -->
-                    <div class="col-sm-3">
-                      <div class="form-group">
-                        <label for="middlename">Middle Name: </label>
-                      </div>
-                    </div>
-                    <!-- cccc -->
-                    <div class="col-sm-9">
-                      <div class="form-group">
-                        <input type="text" name="middlename" id="middlename" class="form-control p-1" />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <div class="form-group">
-                        <label for="mobile">Mobile No :</label>
+                  <div class="form-step">
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <div class="form-group">
+                          <label for="contact_address">Contact Address :</label>
 
+                        </div>
                       </div>
-                    </div>
-                    <!--  -->
-                    <div class="col-sm-9">
-                      <div class="form-group">
-                        <input type="text" name="mobile" id="mobile" class="form-control p-1"
-                          class="form-control p-1" />
+                      <!--  -->
+                      <div class="col-sm-9">
+                        <div class="form-group">
+                          <input type="text" name="contact_address" id="contact_address" class="form-control p-1" />
+                        </div>
                       </div>
+                      <!-- cccc -->
                     </div>
-                    <!-- cccc -->
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <div class="form-group">
-                        <label for="email">Email:</label>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <div class="form-group">
+                          <!-- <span class="form-group-text">Person</span> -->
+                          <label for="Country">Country :</label>
 
+                        </div>
+                      </div>
+                      <!--  -->
+                      <div class="col-sm-9">
+                        <div class="form-group">
+                          <!-- <label for="username">Username</label> -->
+                          <input type="text" name="country" id="country" class="form-control p-1" />
+                        </div>
                       </div>
                     </div>
-                    <!--  -->
-                    <div class="col-sm-9">
-                      <div class="form-group">
-                        <input type="text" name="email" id="email" class="form-control p-1" disabled />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <div class="form-group">
+                    <!-- Another section -->
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <div class="form-group">
+                          <label for="state">State: </label>
 
+                        </div>
+                      </div>
+                      <!-- cccc -->
+                      <div class="col-sm-9">
+                        <div class="form-group">
+                          <input type="text" name="state" id="state" class="form-control p-1" />
+                        </div>
                       </div>
                     </div>
-                    <div class="col-sm-9">
-                      <p></p>
-                      <a href="#" id="cont" class="btn btn-info btn-next">Continue</a>
-
-                      <p></p>
-                    </div>
-                    <!--  -->
-                  </div>
-                </div>
-                <div class="form-step">
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <div class="form-group">
-                        <!-- <span class="form-group-text">Person</span> -->
-                        <label for="username">Place of Birth :</label>
-
+                    <!-- Another section -->
+                    <div class="row">
+                      <!--  -->
+                      <div class="col-sm-3">
+                        <div class="form-group">
+                          <label for="lga">LGA: </label>
+                        </div>
                       </div>
-                    </div>
-                    <!--  -->
-                    <div class="col-sm-9">
-                      <div class="form-group">
-                        <!-- <label for="username">Username</label> -->
-                        <input type="text" name="pob" id="pob" class="form-control p-1" />
+                      <!-- cccc -->
+                      <div class="col-sm-9">
+                        <div class="form-group">
+                          <input type="text" name="lga" id="lga" class="form-control p-1" />
+                        </div>
                       </div>
-                    </div>
-                    <!-- cccc -->
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <div class="form-group">
-                        <!-- <span class="form-group-text">Person</span> -->
-                        <label for="Dob">Dob :</label>
-
-                      </div>
-                    </div>
-                    <!--  -->
-                    <div class="col-sm-3">
-                      <div class="form-group">
-                        <input type="date" class="form-control p-1" id="datetimepicker" name="datepicker">
-
-                      </div>
-                    </div>
-                    <!-- cccc -->
-                  </div>
-                  <!-- Another section -->
-                  <div class="row">
-                    <!--  -->
-                    <div class="col-sm-3">
-                      <div class="form-group">
-                        <label for="status">Marital Status: </label>
-
-                      </div>
-                    </div>
-                    <!-- cccc -->
-                    <div class="col-sm-9">
-                      <div class="form-group">
-                        <input type="text" name="marital_status" id="marital_status" class="form-control p-1" />
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Another section -->
-                  <div class="row">
-                    <!--  -->
-                    <div class="col-sm-3">
-                      <div class="form-group">
-                        <label for="country">Country: </label>
-
-                      </div>
-                    </div>
-                    <!-- cccc -->
-                    <div class="col-sm-9">
-                      <div class="form-group">
-                        <input type="text" name="country" id="country" class="form-control p-1" />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <div class="form-group">
-                        <label for="state">State :</label>
-
-                      </div>
-                    </div>
-                    <!--  -->
-                    <div class="col-sm-9">
-                      <div class="form-group">
-                        <!-- <label for="username">Username</label> -->
-                        <input type="text" name="state" id="state" class="form-control p-1" />
-                      </div>
-                    </div>
-                    <!-- cccc -->
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <div class="form-group">
-                        <label for="lga">LGA:</label>
-
-                      </div>
-                    </div>
-                    <div class="col-sm-9">
-                      <div class="form-group">
-                        <!-- <label for="username">Username</label> -->
-                        <input type="text" name="lga" id="lga" class="form-control p-1" />
-                      </div>
-                    </div>
-                  </div>
-                  <!-- cccc -->
-                  <div class="row">
-                    <div class="col-sm-3">
-
-                    </div>
-                    <div class="col-sm-9">
-                      <a href="#" class="btn btn-warning btn-prev">Previous</a>
-                      <!-- <a href="#" class="btns btn-next">Save and continue</a> -->
-
-                      <a href="#" class="btn btn-info btn-next">Save and continue</a>
-
                     </div>
 
-                  </div>
-                </div>
-                <div class="form-step">
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <div class="form-group">
-                        <label for="contact_address">Contact Address :</label>
-
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <p></p>
                       </div>
-                    </div>
-                    <!--  -->
-                    <div class="col-sm-9">
-                      <div class="form-group">
-                        <input type="text" name="contact_address" id="contact_address" class="form-control p-1" />
-                      </div>
-                    </div>
-                    <!-- cccc -->
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <div class="form-group">
-                        <!-- <span class="form-group-text">Person</span> -->
-                        <label for="Country">Country :</label>
-
-                      </div>
-                    </div>
-                    <!--  -->
-                    <div class="col-sm-9">
-                      <div class="form-group">
-                        <!-- <label for="username">Username</label> -->
-                        <input type="text" name="country" id="country" class="form-control p-1" />
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Another section -->
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <div class="form-group">
-                        <label for="state">State: </label>
-
-                      </div>
-                    </div>
-                    <!-- cccc -->
-                    <div class="col-sm-9">
-                      <div class="form-group">
-                        <input type="text" name="state" id="state" class="form-control p-1" />
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Another section -->
-                  <div class="row">
-                    <!--  -->
-                    <div class="col-sm-3">
-                      <div class="form-group">
-                        <label for="lga">LGA: </label>
-                      </div>
-                    </div>
-                    <!-- cccc -->
-                    <div class="col-sm-9">
-                      <div class="form-group">
-                        <input type="text" name="lga" id="lga" class="form-control p-1" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <p></p>
-                    </div>
-                    <!--  -->
-                    <div class="col-sm-9">
-                      <a href="#" class="btn btn-warning btn-prev">Previous</a>
-                      <a href="#" class="btn btn-info btn-next">Save and continue</a>
-                    </div>
-                  </div>
-                </div>
-                <!-- Another section -->
-                <div class="form-step">
-                  <div class="row">
-                    <div class="col-sm-4">
-                      <div class="form-group-sm-2">
-                        <label for="month-picker">No of Result Combination</label>
-                        <select id="no_result_combination" name="no_result_combination" onChange="getOption()"
-                          class="form-control p-1" required>
-                          <option value=""></option>
-                          <!-- <optgroup> -->
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <!-- </optgroup> -->
-                        </select>
-                      </div>
-                    </div>
-                    <!--  -->
-                    <div class="col-sm-4">
-                      <div class="form-group-sm-2">
-                        <label for="month-picker">Organization:</label>
-                        <select id="organization" name="organization" class="form-control p-1" required>
-                          <option value=""></option>
-                          <!-- <optgroup> -->
-                          <option value="WAEC">WAEC</option>
-                          <option value="NECO">NECO</option>
-                          <option value="NABTEB">NABTEB</option>
-                          <!-- </optgroup> -->
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- cccc -->
-                  <div class="row">
-                    <div class="col-sm-4">
-                      <div class="form-group-sm-2">
-                        <label for="month-picker">SSCE Exam Type:</label>
-                        <select id="ssce_exam_type" name="ssce_exam_type" class="form-control p-1" required>
-                          <option value=""></option>
-                          <!-- <optgroup> -->
-                          <option value="May/June-WAEC">May/June-WAEC</option>
-                          <option value="Nov/Dec-WAEC">Nov/Dec-WAEC</option>
-                          <option value="May/June-WAEC">June/July-NECO</option>
-                          <option value="Nov/Dec-WAEC">Nov/Dec-NECO</option>
-                          <option value="May/June-WAEC">May/June-NABTEB</option>
-                          <option value="Nov/Dec-WAEC">Nov/Dec-NATEB</option>
-                          <!-- </optgroup> -->
-                        </select>
-                      </div>
-                    </div>
-                    <!--  -->
-                    <div class="col-sm-4">
-                      <div class="form-group-sm-2">
-                        <label for="year-picker">SSCE Exam Year:</label>
-                        <select id="ssce_exam_year" name="ssce_exam_year" class="form-control p-1" required>
-                          <option value=""></option>
-
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- ccc -->
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <div class="form-group-sm-2">
-                        <label for="Country"><b>Subject</b></label>
-                        <select id="ssce_exam_year" name="ssce_exam_year"
-                          class="form-control p-1" required>
-                          <option value=""></option>
-                          <!-- <optgroup> -->
-                          <option value="COMMERCE">COMMERCE</option>
-                          <option value="FINANCIAL ACCOUNTING">FINANCIAL ACCOUNTING</option>
-                          <option value="CHRISTIAN RELIGIOUS STUDIES">CHRISTIAN RELIGIOUS STUDIES</option>
-                          <option value="ECONOMICS">ECONOMICS</option>
-                          <option value="GEOGRAPHY">GEOGRAPHY</option>
-                          <option value="GOVERNMENT">GOVERNMENT</option>
-                          <option value="ISLAMIC STUDIES">ISLAMIC STUDIES</option>
-                          <option value="LITERATURE IN ENGLISH">LITERATURE IN ENGLISH</option>
-                          <option value="CIVIC EDUCATION">CIVIC EDUCATION</option>
-                          <option value="ENGLISH LANGUAGE">ENGLISH LANGUAGE</option>
-                          <option value="HAUSA">HAUSA</option>
-                          <option value="IGBO">IGBO</option>
-                          <option value="YORUBA">YORUBA</option>
-                          <option value="FURTHER MATHEMATICS">FURTHER MATHEMATICS</option>
-                          <option value="GENERAL MATHEMATICS">GENERAL MATHEMATICS</option>
-                          <option value="AGRICULTURAL SCIENCE">AGRICULTURAL SCIENCE</option>
-                          <option value="BIOLOGY">BIOLOGY</option>
-                          <option value="CHEMISTRY">CHEMISTRY</option>
-                          <option value="PHYSICS">PHYSICS</option>
-                          <!-- </optgroup> -->
-                        </select>
-                      </div>
-                    </div>
-                    <!--  -->
-                    <div class="col-sm-3">
-                      <div class="form-group-sm-2">
-                        <label for="username"><b>Grade</b></label>
-                        <select id="ssce_exam_year" name="ssce_exam_year" class="form-control p-1" required>
-                          <option value=""></option>
-                          <!-- <optgroup> -->
-                          <option value="A1">A1</option>
-                          <option value="B2">B2</option>
-                          <option value="B3">B3</option>
-                          <option value="C4">C4</option>
-                          <option value="C5">C5</option>
-                          <option value="C6">C6</option>
-                          <option value="D7">D7</option>
-                          <option value="E8">E8</option>
-                          <option value="F9">F9</option>
-                          <!-- </optgroup> -->
-                        </select>
+                      <!--  -->
+                      <div class="col-sm-9">
+                        <a href="#" class="btn btn-warning btn-prev">Previous</a>
+                        <a href="#" class="btn btn-info btn-next">Save and continue</a>
                       </div>
                     </div>
                   </div>
                   <!-- Another section -->
-                  <div class="row">
-                    <!--  -->
-                    <div class="col-sm-6">
-                      <div class="form-group-sm-2">
-                        <select id="ssce_exam_year" name="ssce_exam_year" class="form-control p-1" required>
-                          <option value=""></option>
-                          <!-- <optgroup> -->
-                          <option value="COMMERCE">COMMERCE</option>
-                          <option value="FINANCIAL ACCOUNTING">FINANCIAL ACCOUNTING</option>
-                          <option value="CHRISTIAN RELIGIOUS STUDIES">CHRISTIAN RELIGIOUS STUDIES</option>
-                          <option value="ECONOMICS">ECONOMICS</option>
-                          <option value="GEOGRAPHY">GEOGRAPHY</option>
-                          <option value="GOVERNMENT">GOVERNMENT</option>
-                          <option value="ISLAMIC STUDIES">ISLAMIC STUDIES</option>
-                          <option value="LITERATURE IN ENGLISH">LITERATURE IN ENGLISH</option>
-                          <option value="CIVIC EDUCATION">CIVIC EDUCATION</option>
-                          <option value="ENGLISH LANGUAGE">ENGLISH LANGUAGE</option>
-                          <option value="HAUSA">HAUSA</option>
-                          <option value="IGBO">IGBO</option>
-                          <option value="YORUBA">YORUBA</option>
-                          <option value="FURTHER MATHEMATICS">FURTHER MATHEMATICS</option>
-                          <option value="GENERAL MATHEMATICS">GENERAL MATHEMATICS</option>
-                          <option value="AGRICULTURAL SCIENCE">AGRICULTURAL SCIENCE</option>
-                          <option value="BIOLOGY">BIOLOGY</option>
-                          <option value="CHEMISTRY">CHEMISTRY</option>
-                          <option value="PHYSICS">PHYSICS</option>
-                          <!-- </optgroup> -->
-                        </select>
-                      </div>
-                    </div>
-                    <!-- cccc -->
-                    <div class="col-sm-3">
-                      <div class="form-group-sm-2">
-                        <select id="ssce_exam_year" name="ssce_exam_year" class="form-control p-1" required>
-                          <option value=""></option>
-                          <!-- <optgroup> -->
-                          <option value="A1">A1</option>
-                          <option value="B2">B2</option>
-                          <option value="B3">B3</option>
-                          <option value="C4">C4</option>
-                          <option value="C5">C5</option>
-                          <option value="C6">C6</option>
-                          <option value="D7">D7</option>
-                          <option value="E8">E8</option>
-                          <option value="F9">F9</option>
-                          <!-- </optgroup> -->
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Another section -->
-                  <div class="row">
-                    <!--  -->
-                    <div class="col-sm-6">
-                      <div class="form-group-sm-2">
-                        <select id="ssce_exam_year" name="ssce_exam_year" class="form-control p-1" required>
-                          <option value=""></option>
-                          <!-- <optgroup> -->
-                          <option value="COMMERCE">COMMERCE</option>
-                          <option value="FINANCIAL ACCOUNTING">FINANCIAL ACCOUNTING</option>
-                          <option value="CHRISTIAN RELIGIOUS STUDIES">CHRISTIAN RELIGIOUS STUDIES</option>
-                          <option value="ECONOMICS">ECONOMICS</option>
-                          <option value="GEOGRAPHY">GEOGRAPHY</option>
-                          <option value="GOVERNMENT">GOVERNMENT</option>
-                          <option value="ISLAMIC STUDIES">ISLAMIC STUDIES</option>
-                          <option value="LITERATURE IN ENGLISH">LITERATURE IN ENGLISH</option>
-                          <option value="CIVIC EDUCATION">CIVIC EDUCATION</option>
-                          <option value="ENGLISH LANGUAGE">ENGLISH LANGUAGE</option>
-                          <option value="HAUSA">HAUSA</option>
-                          <option value="IGBO">IGBO</option>
-                          <option value="YORUBA">YORUBA</option>
-                          <option value="FURTHER MATHEMATICS">FURTHER MATHEMATICS</option>
-                          <option value="GENERAL MATHEMATICS">GENERAL MATHEMATICS</option>
-                          <option value="AGRICULTURAL SCIENCE">AGRICULTURAL SCIENCE</option>
-                          <option value="BIOLOGY">BIOLOGY</option>
-                          <option value="CHEMISTRY">CHEMISTRY</option>
-                          <option value="PHYSICS">PHYSICS</option>
-                          <!-- </optgroup> -->
-                        </select>
-                      </div>
-                    </div>
-                    <!-- cccc -->
-                    <div class="col-sm-3">
-                      <div class="form-group-sm-2">
-                        <select id="ssce_exam_year" name="ssce_exam_year" class="form-control p-1" required>
-                          <option value=""></option>
-                          <!-- <optgroup> -->
-                          <option value="A1">A1</option>
-                          <option value="B2">B2</option>
-                          <option value="B3">B3</option>
-                          <option value="C4">C4</option>
-                          <option value="C5">C5</option>
-                          <option value="C6">C6</option>
-                          <option value="D7">D7</option>
-                          <option value="E8">E8</option>
-                          <option value="F9">F9</option>
-                          <!-- </optgroup> -->
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <!--  -->
-                    <div class="col-sm-6">
-                      <div class="form-group-sm-2">
-                        <select id="ssce_exam_year" name="ssce_exam_year" class="form-control p-1" required>
-                          <option value=""></option>
-                          <!-- <optgroup> -->
-                          <option value="COMMERCE">COMMERCE</option>
-                          <option value="FINANCIAL ACCOUNTING">FINANCIAL ACCOUNTING</option>
-                          <option value="CHRISTIAN RELIGIOUS STUDIES">CHRISTIAN RELIGIOUS STUDIES</option>
-                          <option value="ECONOMICS">ECONOMICS</option>
-                          <option value="GEOGRAPHY">GEOGRAPHY</option>
-                          <option value="GOVERNMENT">GOVERNMENT</option>
-                          <option value="ISLAMIC STUDIES">ISLAMIC STUDIES</option>
-                          <option value="LITERATURE IN ENGLISH">LITERATURE IN ENGLISH</option>
-                          <option value="CIVIC EDUCATION">CIVIC EDUCATION</option>
-                          <option value="ENGLISH LANGUAGE">ENGLISH LANGUAGE</option>
-                          <option value="HAUSA">HAUSA</option>
-                          <option value="IGBO">IGBO</option>
-                          <option value="YORUBA">YORUBA</option>
-                          <option value="FURTHER MATHEMATICS">FURTHER MATHEMATICS</option>
-                          <option value="GENERAL MATHEMATICS">GENERAL MATHEMATICS</option>
-                          <option value="AGRICULTURAL SCIENCE">AGRICULTURAL SCIENCE</option>
-                          <option value="BIOLOGY">BIOLOGY</option>
-                          <option value="CHEMISTRY">CHEMISTRY</option>
-                          <option value="PHYSICS">PHYSICS</option>
-                          <!-- </optgroup> -->
-                        </select>
-                      </div>
-                    </div>
-                    <!-- cccc -->
-                    <div class="col-sm-3">
-                      <div class="form-group-sm-2">
-                        <select id="ssce_exam_year" name="ssce_exam_year" class="form-control p-1" required>
-                          <option value=""></option>
-                          <!-- <optgroup> -->
-                          <option value="A1">A1</option>
-                          <option value="B2">B2</option>
-                          <option value="B3">B3</option>
-                          <option value="C4">C4</option>
-                          <option value="C5">C5</option>
-                          <option value="C6">C6</option>
-                          <option value="D7">D7</option>
-                          <option value="E8">E8</option>
-                          <option value="F9">F9</option>
-                          <!-- </optgroup> -->
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <!--  -->
-                    <div class="col-sm-6">
-                      <div class="form-group-sm-2">
-                        <select id="ssce_exam_year" name="ssce_exam_year" class="form-control p-1" required>
-                          <option value=""></option>
-                          <!-- <optgroup> -->
-                          <option value="COMMERCE">COMMERCE</option>
-                          <option value="FINANCIAL ACCOUNTING">FINANCIAL ACCOUNTING</option>
-                          <option value="CHRISTIAN RELIGIOUS STUDIES">CHRISTIAN RELIGIOUS STUDIES</option>
-                          <option value="ECONOMICS">ECONOMICS</option>
-                          <option value="GEOGRAPHY">GEOGRAPHY</option>
-                          <option value="GOVERNMENT">GOVERNMENT</option>
-                          <option value="ISLAMIC STUDIES">ISLAMIC STUDIES</option>
-                          <option value="LITERATURE IN ENGLISH">LITERATURE IN ENGLISH</option>
-                          <option value="CIVIC EDUCATION">CIVIC EDUCATION</option>
-                          <option value="ENGLISH LANGUAGE">ENGLISH LANGUAGE</option>
-                          <option value="HAUSA">HAUSA</option>
-                          <option value="IGBO">IGBO</option>
-                          <option value="YORUBA">YORUBA</option>
-                          <option value="FURTHER MATHEMATICS">FURTHER MATHEMATICS</option>
-                          <option value="GENERAL MATHEMATICS">GENERAL MATHEMATICS</option>
-                          <option value="AGRICULTURAL SCIENCE">AGRICULTURAL SCIENCE</option>
-                          <option value="BIOLOGY">BIOLOGY</option>
-                          <option value="CHEMISTRY">CHEMISTRY</option>
-                          <option value="PHYSICS">PHYSICS</option>
-                          <!-- </optgroup> -->
-                        </select>
-                      </div>
-                    </div>
-                    <!-- cccc -->
-                    <div class="col-sm-3">
-                      <div class="form-group-sm-2">
-                        <select id="ssce_exam_year" name="ssce_exam_year" class="form-control p-1" required>
-                          <option value=""></option>
-                          <!-- <optgroup> -->
-                          <option value="A1">A1</option>
-                          <option value="B2">B2</option>
-                          <option value="B3">B3</option>
-                          <option value="C4">C4</option>
-                          <option value="C5">C5</option>
-                          <option value="C6">C6</option>
-                          <option value="D7">D7</option>
-                          <option value="E8">E8</option>
-                          <option value="F9">F9</option>
-                          <!-- </optgroup> -->
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-
-
-                  <!-- another one -->
-                  <div id="hiddens_obj" style="display: none;">
-                    <hr />
-                    <div class="row ">
+                  <div class="form-step">
+                    <div class="row">
                       <div class="col-sm-4">
                         <div class="form-group-sm-2">
-                          <p></p>
+                          <label for="month-picker">No of Result Combination</label>
+                          <select id="no_result_combination" name="no_result_combination" onChange="getOption()"
+                            class="form-control p-1" required>
+                            <option value=""></option>
+                            <!-- <optgroup> -->
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <!-- </optgroup> -->
+                          </select>
+                        </div>
+                      </div>
+                      <!--  -->
+                      <div class="col-sm-4">
+                        <div class="form-group-sm-2">
                           <label for="month-picker">Organization:</label>
                           <select id="organization" name="organization" class="form-control p-1" required>
                             <option value=""></option>
@@ -669,67 +436,51 @@
                         </div>
                       </div>
                       <!--  -->
-                      <div class="col-sm-3">
+                      <div class="col-sm-4">
                         <div class="form-group-sm-2">
                           <label for="year-picker">SSCE Exam Year:</label>
-                          <select id="ssce_exam_year2" name="ssce_exam_year2" class="form-control p-1" required>
+                          <select id="ssce_exam_year" name="ssce_exam_year" class="form-control p-1" required>
                             <option value=""></option>
-                            <!-- <optgroup> -->
 
-
-                            <!-- </optgroup> -->
                           </select>
                         </div>
                       </div>
                     </div>
+                    <!-- ccc -->
                     <div class="row">
                       <div class="col-sm-6">
-                        <div class="form-group">
+                        <div class="form-group-sm-2">
                           <label for="Country"><b>Subject</b></label>
-
+                          <select id="ssce_exam_year" name="ssce_exam_year" class="form-control p-1" required>
+                            <option value=""></option>
+                            <!-- <optgroup> -->
+                            <option value="COMMERCE">COMMERCE</option>
+                            <option value="FINANCIAL ACCOUNTING">FINANCIAL ACCOUNTING</option>
+                            <option value="CHRISTIAN RELIGIOUS STUDIES">CHRISTIAN RELIGIOUS STUDIES</option>
+                            <option value="ECONOMICS">ECONOMICS</option>
+                            <option value="GEOGRAPHY">GEOGRAPHY</option>
+                            <option value="GOVERNMENT">GOVERNMENT</option>
+                            <option value="ISLAMIC STUDIES">ISLAMIC STUDIES</option>
+                            <option value="LITERATURE IN ENGLISH">LITERATURE IN ENGLISH</option>
+                            <option value="CIVIC EDUCATION">CIVIC EDUCATION</option>
+                            <option value="ENGLISH LANGUAGE">ENGLISH LANGUAGE</option>
+                            <option value="HAUSA">HAUSA</option>
+                            <option value="IGBO">IGBO</option>
+                            <option value="YORUBA">YORUBA</option>
+                            <option value="FURTHER MATHEMATICS">FURTHER MATHEMATICS</option>
+                            <option value="GENERAL MATHEMATICS">GENERAL MATHEMATICS</option>
+                            <option value="AGRICULTURAL SCIENCE">AGRICULTURAL SCIENCE</option>
+                            <option value="BIOLOGY">BIOLOGY</option>
+                            <option value="CHEMISTRY">CHEMISTRY</option>
+                            <option value="PHYSICS">PHYSICS</option>
+                            <!-- </optgroup> -->
+                          </select>
                         </div>
                       </div>
                       <!--  -->
-                      <div class="col-sm-6">
-                        <div class="form-group">
+                      <div class="col-sm-3">
+                        <div class="form-group-sm-2">
                           <label for="username"><b>Grade</b></label>
-
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <div class="form-group-sm-2">
-
-                          <select id="ssce_exam_year" name="ssce_exam_year" class="form-control p-1" required>
-                            <option value=""></option>
-                            <!-- <optgroup> -->
-                            <option value="COMMERCE">COMMERCE</option>
-                            <option value="FINANCIAL ACCOUNTING">FINANCIAL ACCOUNTING</option>
-                            <option value="CHRISTIAN RELIGIOUS STUDIES">CHRISTIAN RELIGIOUS STUDIES</option>
-                            <option value="ECONOMICS">ECONOMICS</option>
-                            <option value="GEOGRAPHY">GEOGRAPHY</option>
-                            <option value="GOVERNMENT">GOVERNMENT</option>
-                            <option value="ISLAMIC STUDIES">ISLAMIC STUDIES</option>
-                            <option value="LITERATURE IN ENGLISH">LITERATURE IN ENGLISH</option>
-                            <option value="CIVIC EDUCATION">CIVIC EDUCATION</option>
-                            <option value="ENGLISH LANGUAGE">ENGLISH LANGUAGE</option>
-                            <option value="HAUSA">HAUSA</option>
-                            <option value="IGBO">IGBO</option>
-                            <option value="YORUBA">YORUBA</option>
-                            <option value="FURTHER MATHEMATICS">FURTHER MATHEMATICS</option>
-                            <option value="GENERAL MATHEMATICS">GENERAL MATHEMATICS</option>
-                            <option value="AGRICULTURAL SCIENCE">AGRICULTURAL SCIENCE</option>
-                            <option value="BIOLOGY">BIOLOGY</option>
-                            <option value="CHEMISTRY">CHEMISTRY</option>
-                            <option value="PHYSICS">PHYSICS</option>
-                            <!-- </optgroup> -->
-                          </select>
-                        </div>
-                      </div>
-                      <!--  -->
-                      <div class="col-sm-3">
-                        <div class="form-group-sm-2">
                           <select id="ssce_exam_year" name="ssce_exam_year" class="form-control p-1" required>
                             <option value=""></option>
                             <!-- <optgroup> -->
@@ -947,180 +698,518 @@
                             <!-- </optgroup> -->
                           </select>
                         </div>
+                      </div>
+                    </div>
+
+
+                    <!-- another one -->
+                    <div id="hiddens_obj" style="display: none;">
+                      <hr />
+                      <div class="row ">
+                        <div class="col-sm-4">
+                          <div class="form-group-sm-2">
+                            <p></p>
+                            <label for="month-picker">Organization:</label>
+                            <select id="organization" name="organization" class="form-control p-1" required>
+                              <option value=""></option>
+                              <!-- <optgroup> -->
+                              <option value="WAEC">WAEC</option>
+                              <option value="NECO">NECO</option>
+                              <option value="NABTEB">NABTEB</option>
+                              <!-- </optgroup> -->
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- cccc -->
+                      <div class="row">
+                        <div class="col-sm-4">
+                          <div class="form-group-sm-2">
+                            <label for="month-picker">SSCE Exam Type:</label>
+                            <select id="ssce_exam_type" name="ssce_exam_type" class="form-control p-1" required>
+                              <option value=""></option>
+                              <!-- <optgroup> -->
+                              <option value="May/June-WAEC">May/June-WAEC</option>
+                              <option value="Nov/Dec-WAEC">Nov/Dec-WAEC</option>
+                              <option value="May/June-WAEC">June/July-NECO</option>
+                              <option value="Nov/Dec-WAEC">Nov/Dec-NECO</option>
+                              <option value="May/June-WAEC">May/June-NABTEB</option>
+                              <option value="Nov/Dec-WAEC">Nov/Dec-NATEB</option>
+                              <!-- </optgroup> -->
+                            </select>
+                          </div>
+                        </div>
+                        <!--  -->
+                        <div class="col-sm-3">
+                          <div class="form-group-sm-2">
+                            <label for="year-picker">SSCE Exam Year:</label>
+                            <select id="ssce_exam_year2" name="ssce_exam_year2" class="form-control p-1" required>
+                              <option value=""></option>
+                              <!-- <optgroup> -->
+
+
+                              <!-- </optgroup> -->
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="Country"><b>Subject</b></label>
+
+                          </div>
+                        </div>
+                        <!--  -->
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="username"><b>Grade</b></label>
+
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group-sm-2">
+
+                            <select id="ssce_exam_year" name="ssce_exam_year" class="form-control p-1" required>
+                              <option value=""></option>
+                              <!-- <optgroup> -->
+                              <option value="COMMERCE">COMMERCE</option>
+                              <option value="FINANCIAL ACCOUNTING">FINANCIAL ACCOUNTING</option>
+                              <option value="CHRISTIAN RELIGIOUS STUDIES">CHRISTIAN RELIGIOUS STUDIES</option>
+                              <option value="ECONOMICS">ECONOMICS</option>
+                              <option value="GEOGRAPHY">GEOGRAPHY</option>
+                              <option value="GOVERNMENT">GOVERNMENT</option>
+                              <option value="ISLAMIC STUDIES">ISLAMIC STUDIES</option>
+                              <option value="LITERATURE IN ENGLISH">LITERATURE IN ENGLISH</option>
+                              <option value="CIVIC EDUCATION">CIVIC EDUCATION</option>
+                              <option value="ENGLISH LANGUAGE">ENGLISH LANGUAGE</option>
+                              <option value="HAUSA">HAUSA</option>
+                              <option value="IGBO">IGBO</option>
+                              <option value="YORUBA">YORUBA</option>
+                              <option value="FURTHER MATHEMATICS">FURTHER MATHEMATICS</option>
+                              <option value="GENERAL MATHEMATICS">GENERAL MATHEMATICS</option>
+                              <option value="AGRICULTURAL SCIENCE">AGRICULTURAL SCIENCE</option>
+                              <option value="BIOLOGY">BIOLOGY</option>
+                              <option value="CHEMISTRY">CHEMISTRY</option>
+                              <option value="PHYSICS">PHYSICS</option>
+                              <!-- </optgroup> -->
+                            </select>
+                          </div>
+                        </div>
+                        <!--  -->
+                        <div class="col-sm-3">
+                          <div class="form-group-sm-2">
+                            <select id="ssce_exam_year" name="ssce_exam_year" class="form-control p-1" required>
+                              <option value=""></option>
+                              <!-- <optgroup> -->
+                              <option value="A1">A1</option>
+                              <option value="B2">B2</option>
+                              <option value="B3">B3</option>
+                              <option value="C4">C4</option>
+                              <option value="C5">C5</option>
+                              <option value="C6">C6</option>
+                              <option value="D7">D7</option>
+                              <option value="E8">E8</option>
+                              <option value="F9">F9</option>
+                              <!-- </optgroup> -->
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Another section -->
+                      <div class="row">
+                        <!--  -->
+                        <div class="col-sm-6">
+                          <div class="form-group-sm-2">
+                            <select id="ssce_exam_year" name="ssce_exam_year" class="form-control p-1" required>
+                              <option value=""></option>
+                              <!-- <optgroup> -->
+                              <option value="COMMERCE">COMMERCE</option>
+                              <option value="FINANCIAL ACCOUNTING">FINANCIAL ACCOUNTING</option>
+                              <option value="CHRISTIAN RELIGIOUS STUDIES">CHRISTIAN RELIGIOUS STUDIES</option>
+                              <option value="ECONOMICS">ECONOMICS</option>
+                              <option value="GEOGRAPHY">GEOGRAPHY</option>
+                              <option value="GOVERNMENT">GOVERNMENT</option>
+                              <option value="ISLAMIC STUDIES">ISLAMIC STUDIES</option>
+                              <option value="LITERATURE IN ENGLISH">LITERATURE IN ENGLISH</option>
+                              <option value="CIVIC EDUCATION">CIVIC EDUCATION</option>
+                              <option value="ENGLISH LANGUAGE">ENGLISH LANGUAGE</option>
+                              <option value="HAUSA">HAUSA</option>
+                              <option value="IGBO">IGBO</option>
+                              <option value="YORUBA">YORUBA</option>
+                              <option value="FURTHER MATHEMATICS">FURTHER MATHEMATICS</option>
+                              <option value="GENERAL MATHEMATICS">GENERAL MATHEMATICS</option>
+                              <option value="AGRICULTURAL SCIENCE">AGRICULTURAL SCIENCE</option>
+                              <option value="BIOLOGY">BIOLOGY</option>
+                              <option value="CHEMISTRY">CHEMISTRY</option>
+                              <option value="PHYSICS">PHYSICS</option>
+                              <!-- </optgroup> -->
+                            </select>
+                          </div>
+                        </div>
+                        <!-- cccc -->
+                        <div class="col-sm-3">
+                          <div class="form-group-sm-2">
+                            <select id="ssce_exam_year" name="ssce_exam_year" class="form-control p-1" required>
+                              <option value=""></option>
+                              <!-- <optgroup> -->
+                              <option value="A1">A1</option>
+                              <option value="B2">B2</option>
+                              <option value="B3">B3</option>
+                              <option value="C4">C4</option>
+                              <option value="C5">C5</option>
+                              <option value="C6">C6</option>
+                              <option value="D7">D7</option>
+                              <option value="E8">E8</option>
+                              <option value="F9">F9</option>
+                              <!-- </optgroup> -->
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Another section -->
+                      <div class="row">
+                        <!--  -->
+                        <div class="col-sm-6">
+                          <div class="form-group-sm-2">
+                            <select id="ssce_exam_year" name="ssce_exam_year" class="form-control p-1" required>
+                              <option value=""></option>
+                              <!-- <optgroup> -->
+                              <option value="COMMERCE">COMMERCE</option>
+                              <option value="FINANCIAL ACCOUNTING">FINANCIAL ACCOUNTING</option>
+                              <option value="CHRISTIAN RELIGIOUS STUDIES">CHRISTIAN RELIGIOUS STUDIES</option>
+                              <option value="ECONOMICS">ECONOMICS</option>
+                              <option value="GEOGRAPHY">GEOGRAPHY</option>
+                              <option value="GOVERNMENT">GOVERNMENT</option>
+                              <option value="ISLAMIC STUDIES">ISLAMIC STUDIES</option>
+                              <option value="LITERATURE IN ENGLISH">LITERATURE IN ENGLISH</option>
+                              <option value="CIVIC EDUCATION">CIVIC EDUCATION</option>
+                              <option value="ENGLISH LANGUAGE">ENGLISH LANGUAGE</option>
+                              <option value="HAUSA">HAUSA</option>
+                              <option value="IGBO">IGBO</option>
+                              <option value="YORUBA">YORUBA</option>
+                              <option value="FURTHER MATHEMATICS">FURTHER MATHEMATICS</option>
+                              <option value="GENERAL MATHEMATICS">GENERAL MATHEMATICS</option>
+                              <option value="AGRICULTURAL SCIENCE">AGRICULTURAL SCIENCE</option>
+                              <option value="BIOLOGY">BIOLOGY</option>
+                              <option value="CHEMISTRY">CHEMISTRY</option>
+                              <option value="PHYSICS">PHYSICS</option>
+                              <!-- </optgroup> -->
+                            </select>
+                          </div>
+                        </div>
+                        <!-- cccc -->
+                        <div class="col-sm-3">
+                          <div class="form-group-sm-2">
+                            <select id="ssce_exam_year" name="ssce_exam_year" class="form-control p-1" required>
+                              <option value=""></option>
+                              <!-- <optgroup> -->
+                              <option value="A1">A1</option>
+                              <option value="B2">B2</option>
+                              <option value="B3">B3</option>
+                              <option value="C4">C4</option>
+                              <option value="C5">C5</option>
+                              <option value="C6">C6</option>
+                              <option value="D7">D7</option>
+                              <option value="E8">E8</option>
+                              <option value="F9">F9</option>
+                              <!-- </optgroup> -->
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <!--  -->
+                        <div class="col-sm-6">
+                          <div class="form-group-sm-2">
+                            <select id="ssce_exam_year" name="ssce_exam_year" class="form-control p-1" required>
+                              <option value=""></option>
+                              <!-- <optgroup> -->
+                              <option value="COMMERCE">COMMERCE</option>
+                              <option value="FINANCIAL ACCOUNTING">FINANCIAL ACCOUNTING</option>
+                              <option value="CHRISTIAN RELIGIOUS STUDIES">CHRISTIAN RELIGIOUS STUDIES</option>
+                              <option value="ECONOMICS">ECONOMICS</option>
+                              <option value="GEOGRAPHY">GEOGRAPHY</option>
+                              <option value="GOVERNMENT">GOVERNMENT</option>
+                              <option value="ISLAMIC STUDIES">ISLAMIC STUDIES</option>
+                              <option value="LITERATURE IN ENGLISH">LITERATURE IN ENGLISH</option>
+                              <option value="CIVIC EDUCATION">CIVIC EDUCATION</option>
+                              <option value="ENGLISH LANGUAGE">ENGLISH LANGUAGE</option>
+                              <option value="HAUSA">HAUSA</option>
+                              <option value="IGBO">IGBO</option>
+                              <option value="YORUBA">YORUBA</option>
+                              <option value="FURTHER MATHEMATICS">FURTHER MATHEMATICS</option>
+                              <option value="GENERAL MATHEMATICS">GENERAL MATHEMATICS</option>
+                              <option value="AGRICULTURAL SCIENCE">AGRICULTURAL SCIENCE</option>
+                              <option value="BIOLOGY">BIOLOGY</option>
+                              <option value="CHEMISTRY">CHEMISTRY</option>
+                              <option value="PHYSICS">PHYSICS</option>
+                              <!-- </optgroup> -->
+                            </select>
+                          </div>
+                        </div>
+                        <!-- cccc -->
+                        <div class="col-sm-3">
+                          <div class="form-group-sm-2">
+                            <select id="ssce_exam_year" name="ssce_exam_year" class="form-control p-1" required>
+                              <option value=""></option>
+                              <!-- <optgroup> -->
+                              <option value="A1">A1</option>
+                              <option value="B2">B2</option>
+                              <option value="B3">B3</option>
+                              <option value="C4">C4</option>
+                              <option value="C5">C5</option>
+                              <option value="C6">C6</option>
+                              <option value="D7">D7</option>
+                              <option value="E8">E8</option>
+                              <option value="F9">F9</option>
+                              <!-- </optgroup> -->
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <!--  -->
+                        <div class="col-sm-6">
+                          <div class="form-group-sm-2">
+                            <select id="ssce_exam_year" name="ssce_exam_year" class="form-control p-1" required>
+                              <option value=""></option>
+                              <!-- <optgroup> -->
+                              <option value="COMMERCE">COMMERCE</option>
+                              <option value="FINANCIAL ACCOUNTING">FINANCIAL ACCOUNTING</option>
+                              <option value="CHRISTIAN RELIGIOUS STUDIES">CHRISTIAN RELIGIOUS STUDIES</option>
+                              <option value="ECONOMICS">ECONOMICS</option>
+                              <option value="GEOGRAPHY">GEOGRAPHY</option>
+                              <option value="GOVERNMENT">GOVERNMENT</option>
+                              <option value="ISLAMIC STUDIES">ISLAMIC STUDIES</option>
+                              <option value="LITERATURE IN ENGLISH">LITERATURE IN ENGLISH</option>
+                              <option value="CIVIC EDUCATION">CIVIC EDUCATION</option>
+                              <option value="ENGLISH LANGUAGE">ENGLISH LANGUAGE</option>
+                              <option value="HAUSA">HAUSA</option>
+                              <option value="IGBO">IGBO</option>
+                              <option value="YORUBA">YORUBA</option>
+                              <option value="FURTHER MATHEMATICS">FURTHER MATHEMATICS</option>
+                              <option value="GENERAL MATHEMATICS">GENERAL MATHEMATICS</option>
+                              <option value="AGRICULTURAL SCIENCE">AGRICULTURAL SCIENCE</option>
+                              <option value="BIOLOGY">BIOLOGY</option>
+                              <option value="CHEMISTRY">CHEMISTRY</option>
+                              <option value="PHYSICS">PHYSICS</option>
+                              <!-- </optgroup> -->
+                            </select>
+                          </div>
+                        </div>
+                        <!-- cccc -->
+                        <div class="col-sm-3">
+                          <div class="form-group-sm-2">
+                            <select id="ssce_exam_year" name="ssce_exam_year" class="form-control p-1" required>
+                              <option value=""></option>
+                              <!-- <optgroup> -->
+                              <option value="A1">A1</option>
+                              <option value="B2">B2</option>
+                              <option value="B3">B3</option>
+                              <option value="C4">C4</option>
+                              <option value="C5">C5</option>
+                              <option value="C6">C6</option>
+                              <option value="D7">D7</option>
+                              <option value="E8">E8</option>
+                              <option value="F9">F9</option>
+                              <!-- </optgroup> -->
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- cccc -->
+                    <div class="row p-12">
+
+                      <!--  -->
+                      <div class="col-sm-9">
+                        <a href="#" class="btn btn-warning btn-prev">Previous</a>
+                        <a href="#" class="btn btn-info btn-next">Save and continue</a>
                       </div>
                     </div>
                   </div>
+                </div>
+            </div>
 
-                  <!-- cccc -->
-                  <div class="row p-12">
+            <!--  -->
+            <!-- Another Section -->
+            <div class="form-step">
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <!-- <span class="form-group-text">Person</span> -->
+                    <label for="kin_name">Next of Kin Name :</label>
 
-                    <!--  -->
+                  </div>
+                </div>
+                <!--  -->
+                <div class="col-sm-9">
+                  <div class="form-group">
+                    <!-- <label for="username">Username</label> -->
+                    <input type="text" name="kin_name" id="kin_name" class="form-control p-1" />
+                  </div>
+                </div>
+                <!-- cccc -->
+              </div>
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <!-- <span class="form-group-text">Person</span> -->
+                    <label for="Phone">Next of Kin Phone :</label>
+
+                  </div>
+                </div>
+                <!--  -->
+                <div class="col-sm-9">
+                  <div class="form-group">
+                    <!-- <label for="username">Username</label> -->
+                    <input type="text" name="nokp" id="nokp" class="form-control p-1" />
+                  </div>
+                </div>
+              </div>
+              <!-- Another section -->
+              <div class="row">
+                <!--  -->
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <label for="Address">Next of Kin Address </label>
+
+                  </div>
+                </div>
+                <!-- cccc -->
+                <div class="col-sm-9">
+                  <div class="form-group">
+                    <input type="text" name="nokaddress" id="nokaddress" class="form-control p-1" />
+                  </div>
+                </div>
+              </div>
+              <!-- Another section -->
+              <div class="row">
+                <!--  -->
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <label for="nokrelationship">Next of Kin Relationship: </label>
+
+                  </div>
+                </div>
+                <!-- cccc -->
+                <div class="col-sm-9">
+                  <div class="form-group">
+                    <input type="text" name="nokrelationship" id="nokrelationship" class="form-control p-1" />
+                  </div>
+                </div>
+              </div>
+              <!-- Another section -->
+              <div class="row">
+                <div class="col-sm">
+
+                </div>
+
+                <div class="col-sm-5">
+                  <div class="d-flex flex-row">
                     <div class="col-sm-9">
                       <a href="#" class="btn btn-warning btn-prev">Previous</a>
-                      <a href="#" class="btn btn-info btn-next">Save and continue</a>
+
+                    </div>
+                    <div class="col-sm-">
+                      <input type="submit" value="Submit" class="btn btn-success">
+
                     </div>
                   </div>
-                </div>
-            </div>
-          </div>
-
-          <!--  -->
-          <!-- Another Section -->
-          <div class="form-step">
-            <div class="row">
-              <div class="col-sm-3">
-                <div class="form-group">
-                  <!-- <span class="form-group-text">Person</span> -->
-                  <label for="kin_name">Next of Kin Name :</label>
 
                 </div>
-              </div>
-              <!--  -->
-              <div class="col-sm-9">
-                <div class="form-group">
-                  <!-- <label for="username">Username</label> -->
-                  <input type="text" name="kin_name" id="kin_name" class="form-control p-1" />
-                </div>
-              </div>
-              <!-- cccc -->
-            </div>
-            <div class="row">
-              <div class="col-sm-3">
-                <div class="form-group">
-                  <!-- <span class="form-group-text">Person</span> -->
-                  <label for="Phone">Next of Kin Phone :</label>
-
-                </div>
-              </div>
-              <!--  -->
-              <div class="col-sm-9">
-                <div class="form-group">
-                  <!-- <label for="username">Username</label> -->
-                  <input type="text" name="nokp" id="nokp" class="form-control p-1" />
-                </div>
-              </div>
-            </div>
-            <!-- Another section -->
-            <div class="row">
-              <!--  -->
-              <div class="col-sm-3">
-                <div class="form-group">
-                  <label for="Address">Next of Kin Address </label>
-
-                </div>
-              </div>
-              <!-- cccc -->
-              <div class="col-sm-9">
-                <div class="form-group">
-                  <input type="text" name="nokaddress" id="nokaddress" class="form-control p-1" />
-                </div>
-              </div>
-            </div>
-            <!-- Another section -->
-            <div class="row">
-              <!--  -->
-              <div class="col-sm-3">
-                <div class="form-group">
-                  <label for="nokrelationship">Next of Kin Relationship: </label>
-
-                </div>
-              </div>
-              <!-- cccc -->
-              <div class="col-sm-9">
-                <div class="form-group">
-                  <input type="text" name="nokrelationship" id="nokrelationship" class="form-control p-1" />
-                </div>
-              </div>
-            </div>
-            <!-- Another section -->
-            <div class="row">
-              <div class="col-sm">
-
-              </div>
-
-              <div class="col-sm-5">
-                <div class="d-flex flex-row">
-                  <div class="col-sm-9">
-                    <a href="#" class="btn btn-warning btn-prev">Previous</a>
-
-                  </div>
-                  <div class="col-sm-">
-                    <input type="submit" value="Submit" class="btn btn-success">
-
-                  </div>
-                </div>
-
               </div>
             </div>
           </div>
+          </form>
+          <!-- End of muli step form -->
         </div>
-        </form>
-        <!-- End of muli step form -->
     </div>
+    </ul>
   </div>
-  </ul>
-</div>
-<div class="card-action">
-</div>
-<!-- DateTimePicker -->
-<script src="{% static 'main/assets/js/plugin/moment/moment.min.js'%}"></script>
-<script src="{% static 'main/assets/js/plugin/datepicker/bootstrap-datetimepicker.min.js'%}"></script>
+  <div class="card-action">
+  </div>
+   <script src="{% static '/main/assets/js/core/bootstrap.min.js'%}"></script>
+    <script src="{% static '/main/assets/js/core/jquery-3.7.1.min.js'%}"></script>
+     <script src="{% static '/main/assets/js/zebra_datepicker.min.js'%}"></script>
+    <!-- <script src="{% static '/main/assets/js/core/popper.min.js'%}"></script> -->
+
+  <!-- DateTimePicker -->
+  <script src="{% static 'main/assets/js/plugin/moment/moment.min.js'%}"></script>
+  <script src="{% static 'main/assets/js/plugin/datepicker/bootstrap-datetimepicker.min.js'%}"></script>
 
 
-<script>
-  function getOption() {
-    var obj = document.getElementById("no_result_combination");
-    var nos = obj.options[obj.selectedIndex].text;
-    if (nos == "2") {
-      document.getElementById("hiddens_obj").style.display = "block";
-    } else {
-      document.getElementById("hiddens_obj").style.display = "none";
+  <script>
+    function getOption() {
+      var obj = document.getElementById("no_result_combination");
+      var nos = obj.options[obj.selectedIndex].text;
+      if (nos == "2") {
+        document.getElementById("hiddens_obj").style.display = "block";
+      } else {
+        document.getElementById("hiddens_obj").style.display = "none";
+      }
     }
-  }
 
-  // var selectYear = document.querySelector("ssce_exam_year");
+    // var selectYear = document.querySelector("ssce_exam_year");
 
-  function generateArrayOfYears() {
-    var max = new Date().getFullYear();
-    var min = max - 46;
-    var years = [];
+    function generateArrayOfYears() {
+      var max = new Date().getFullYear();
+      var min = max - 46;
+      var years = [];
 
-    for (var i = max; i >= min; i--) {
-      years.push(i);
+      for (var i = max; i >= min; i--) {
+        years.push(i);
+      }
+      return years;
     }
-    return years;
-  }
 
-  var option = document.createElement('option');
-  // 
-  var years = generateArrayOfYears();
+    var option = document.createElement('option');
+    // 
+    var years = generateArrayOfYears();
 
 
-  for (var i = 0; i < years.length; i++) {
-    var txt = option.text = years[i]
-    var value = option.value = years[i]
-    var option = "<option value='" + value + "'>" + txt + "</option>"
-    document.getElementById('ssce_exam_year').innerHTML += option;
-  }
-  for (var i = 0; i < years.length; i++) {
-    var txt = option.text = years[i]
-    var value = option.value = years[i]
-    var option = "<option value='" + value + "'>" + txt + "</option>"
-    document.getElementById('ssce_exam_year2').innerHTML += option;
-  }
+    for (var i = 0; i < years.length; i++) {
+      var txt = option.text = years[i]
+      var value = option.value = years[i]
+      var option = "<option value='" + value + "'>" + txt + "</option>"
+      document.getElementById('ssce_exam_year').innerHTML += option;
+    }
+    for (var i = 0; i < years.length; i++) {
+      var txt = option.text = years[i]
+      var value = option.value = years[i]
+      var option = "<option value='" + value + "'>" + txt + "</option>"
+      document.getElementById('ssce_exam_year2').innerHTML += option;
+    }
 
 
-  var a = document.getElementById("surname").value;
-  var b = document.getElementById("firstname").value;
-  var d = document.getElementById("middlename").value;
-  var c = document.getElementById("mobile").value;
-  if ((a == null || a == "") && (b == null || b == "") && (c == null || c == "") && (d == null || d == "")) {
-    document.getElementById("cont").disabled = true;
-  } else {
-    document.getElementById("cont").disabled = false;
-  }
+    var loadFile = function (event) {
+      var image = document.getElementById("profile");
+      image.src = URL.createObjectURL(event.target.files[0]);
+    
+    };
 
-</script>
-{% endblock content %}
+    // var a = document.getElementById("surname").value;
+    // var b = document.getElementById("firstname").value;
+    // var c = document.getElementById("middlename").value;
+    // var d = document.getElementById("mobile").value;
+
+
+    // a = addEventListener("click", inputValidation);
+    // function inputValidation(){
+    //   if (a == ""){
+    //     document.getElementById("cont").disabled = true;
+    //   } else {
+    //     document.getElementById("cont").disabled = false;
+    //     alert("Heelo")
+
+    //   }
+    // }
+
+  </script>
+  {% endblock content %}
 
 </div>

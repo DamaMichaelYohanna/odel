@@ -164,3 +164,12 @@ def admission_invoice(request):
     response = HttpResponse(pdf_file, content_type='application/pdf')
     response['Content-Disposition'] = 'filename="admission_invoice.pdf"'
     return response
+
+
+def applicationForm(request):
+    html_content = render_to_string('main-dashboard/application_form.html', {})
+    pdf_file = HTML(string=html_content, base_url=request.build_absolute_uri()).write_pdf()
+    response = HttpResponse(pdf_file, content_type='application/pdf')
+    response['Content-Disposition'] = 'filename="application_form.pdf"'
+    return response
+    # return render(request, 'main-dashboard/application_form.html')
