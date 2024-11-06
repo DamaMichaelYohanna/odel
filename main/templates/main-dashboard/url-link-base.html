@@ -57,8 +57,21 @@
   </head>
   <html>
     <body>
-      {% block content %} {% endblock content %}
-      <!--   Core JS Files   -->
+      <nav class="navbar navbar-expand-sm bg-success navbar-dark">
+  <div class="container-fluid">
+     <a href="{% url 'index_page'%}" class="logo">
+          <img
+            src="{% static '/main/assets/img/nsuk_12px.png'%}"
+            alt="navbar brand"
+            class="navbar-brand"
+            height="60"
+          />
+        </a>
+  </div>
+</nav>
+
+        
+          {% block content %} {% endblock content %}
       <script src="{% static '/main/assets/js/core/jquery-3.7.1.min.js'%}"></script>
       <script src="{% static '/main/assets/js/core/popper.min.js'%}"></script>
       <script src="{% static '/main/assets/js/core/bootstrap.min.js'%}"></script>

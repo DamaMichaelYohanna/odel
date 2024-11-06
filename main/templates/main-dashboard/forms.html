@@ -1,4 +1,4 @@
-{% extends 'main-dashboard/dashboard-base.html'%}
+{% extends 'main-dashboard/url-link-base.html'%}
 <!-- Static file loader -->
 {% load static %}
 
@@ -7,8 +7,8 @@
 <style>
   .profile-picture {
     /* opacity: 0.75; */
-    height: 150px;
-    width: 200px;
+    height: 160px;
+    width: 180px;
     position: relative;
     overflow: hidden;
     background-position: center;
@@ -68,26 +68,29 @@
                 <!-- Steps -->
                 <div class="form-step form-step-active">
                   <div class="row">
+                    <div class="col-sm-3">
+
                       {% static "/main/assets/img/" as baseUrl %}
                       <img
-                    src="{{baseUrl}}avatar.png"
+                      src="{{baseUrl}}avatar.png"
                     alt="..."
                     id="profile"
-                    class="profile-picture"
+                    class="profile-picture rounded-circle"
                   />
                   <div class="row">
 
                     <div class="profile-btn btn btn-danger">
                       
                       <h6 class="upload-icon">
-                          <i class="fa fa-upload" aria-hidden="true"></i>
-                          Upload profile
-                        </h6>
-                        
-                        <input class="file-uploader" type="file" onchange="loadFile(event);" accept="image/*" />
-                      </div>
+                        <i class="fa fa-upload" aria-hidden="true"></i>
+                        Upload profile
+                      </h6>
+                      
+                      <input class="file-uploader" type="file" onchange="loadFile(event);" accept="image/*" />
                     </div>
                   </div>
+                </div>
+              </div>
            
                     <div class="row">
                       <div class="col-sm-3">
