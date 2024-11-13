@@ -7,6 +7,7 @@ urlpatterns = [
     path('', views.index, name='index_page'),
     path('dashboard', views.dashboard, name='dashboard_page'),
     path('form', views.dashboard_form_data, name='dashboard_form'),
+    path('application-form', views.applicationForm, name='application_form'),
     path('fee', views.dashboard_fee_payment_data, name='fee_payment_form'),
     path('biodata', views.dashboard_bio_data, name='bio-data_form'),
     path('biodata-download', views.render_student_info, name='bio-data_downoad'),

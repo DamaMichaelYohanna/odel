@@ -21,40 +21,110 @@
             </div>
           </div>
           {% if user.student.has_accepted %}
-          <div style="padding: 3%">
-            <p>You have already accepted your admission.</p>
+          <div
+            class="modal fade"
+            id="staticBackdrop"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            tabindex="-1"
+            aria-labelledby="staticBackdropLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">
+                    <b>{{user.student.get_fullname}}</b>Jane Doe
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <p>You have already accepted your admission.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-success" data-bs-dismiss="modal">
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-
           {% else %}
-          <div style="padding: 3%">
-            <p>
-              Congratulations dear <b>{{user.student.get_fullname}}</b>, You
-              have been offered admission.
-            </p>
-            <form action="/accept-admission" method="POST">
-              <input type="hidden" value="=paid" name="admission" />
-              <button class="btn btn-success">Pay And Accept</button>
-              {% csrf_token %}
-            </form>
-            <div class="row pt-3">
-              <div class="col-sm-6">
-                <a href="{% url 'admission_invoice' %}" class="btn"
+          
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="staticBackdrop"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            tabindex="-1"
+            aria-labelledby="staticBackdropLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">
+                    <b>{{user.student.get_fullname}}</b>Jane Doe
+                  </h5>
+                  <!-- <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button> -->
+                </div>
+                <div class="modal-body">
+                  <p>Congratulations, You have been offered admission.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-success" data-bs-dismiss="modal">
+                    Accept
+                  </button>
+                  <button type="button" class="btn btn-danger">Reject</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end modal section -->
+            {% endif %}
+            <!-- End of muli step form -->
+              <div class="row d-flex justify-content-center">
+              <!-- <div class="card-action"></div> -->
+              <div class="col-sm-3 p-3">
+                <a href="{% url 'admission_invoice' %}" class="btn btn-secondary"
                   >Generate Invoice</a
                 >
               </div>
-              <div class="col-sm-6"><a href="" class="btn">Pay Now</a></div>
+              <div class="col-sm-3 p-3">
+                <a href="" class="btn btn-primary">Pay Now</a>
+              </div>
             </div>
-          </div>
-          {% endif %}
-          <!-- End of muli step form -->
+        </div>
+          <!-- Button trigger modal -->
+     
 
-          <div class="card-action">
-            <!-- <button class="btn btn-success">Submit</button>
-                      <button class="btn btn-danger">Cancel</button> -->
+            <script>
+              var myModal = document.getElementById("myModal");
+              var myInput = document.getElementById("myInput");
+              myModal.addEventListener("shown.bs.modal", function () {
+                myInput.focus();
+              });
+
+              window.onload = () => {
+                const myModal = new bootstrap.Modal("#staticBackdrop");
+                myModal.show();
+              };
+            </script>
+            {% endblock content %}
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-{% endblock content %}
