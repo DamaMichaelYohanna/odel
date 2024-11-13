@@ -10,7 +10,7 @@ nextBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     formStepsNum++;
     updateFormSteps();
-    updateProgressbar();
+    // updateProgressbar();
   });
 });
 
@@ -18,7 +18,7 @@ prevBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     formStepsNum--;
     updateFormSteps();
-    updateProgressbar();
+    // updateProgressbar();
   });
 });
 
@@ -45,3 +45,4 @@ function updateProgressbar() {
   progress.style.width =
     ((progressActive.length - 1) / (progressSteps.length - 1)) * 100 + "%";
 }
+
