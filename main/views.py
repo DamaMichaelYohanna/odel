@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 from django.template.loader import get_template, render_to_string
 from django.urls import reverse
 from xhtml2pdf import pisa
-from weasyprint import HTML, CSS
+#from weasyprint import HTML, CSS
 from datetime import datetime
 import pandas as pd
 from account.models import Student
