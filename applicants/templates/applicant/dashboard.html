@@ -1,0 +1,174 @@
+{% extends "applicant/applicant_base.html" %} {% load static %} {% block content%}
+<style>
+  body{
+    background-color: white;
+  }
+     .dashboard-container {
+     margin-top: 40px;
+   }
+   
+   @media (max-width: 767px) {
+     .dashboard-container {
+       margin: 20px 10px;
+     }
+     
+     .bio-data-section {
+       /* padding: 15px; */
+       /* margin: 10px 0; */
+     }
+     
+     .table-responsive {
+       overflow-x: auto;
+       white-space: nowrap;
+     }
+     
+     .table td {
+       padding: 15px 10px !important;
+       font-size: 14px;
+     }
+     
+     .bio-label {
+       font-size: 14px;
+     }
+   }
+  .profile-pic {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #007bff;
+  }
+  .bio-label {
+    font-weight: bold;
+    color: #555;
+  }
+  .status-box {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  .status-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #007bff;
+  }
+     .status-value {
+     font-size: 1.5rem;
+     font-weight: bold;
+     margin-top: 10px;
+   }
+   
+   .progress-container {
+     background: #f8f9fa;
+     border-radius: 10px;
+     padding: 25px;
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+   }
+   
+   .progress-item {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 15px 0;
+     border-bottom: 1px solid #e0e0e0;
+   }
+   
+   .progress-item:last-child {
+     border-bottom: none;
+   }
+   
+   .progress-label {
+     font-weight: bold;
+     color: #016b4b;
+     font-size: 1.1rem;
+   }
+   
+   .progress-value {
+     color: #555;
+     font-size: 1rem;
+     text-align: right;
+   }
+ </style>
+<div class="container-fluid">
+  <div class="dashboard-container container" style="text-align: left;background-color: white;padding: 0%;box-shadow: 0px 0px 4px 0px rgba(41, 132, 81, 0.401);">
+    <h3
+      class="mb-4"
+      style="
+        background-color: #016b4b16;
+        text-align: left;
+        padding: 1.5%;
+        color: #016b4b;
+      "
+    >
+    <img src="{% static '/main/img/dashboard.png' %}"  width="25px" alt="">
+      Dashboard
+    </h3>
+    <div class="row">
+      <!-- Headshot -->
+      <div
+        class="col-md-3 d-flex flex-column align-items-center justify-content-center"
+      >
+        <img
+          src="{% static '/main/img/default_profile.jpg' %}"
+          alt="Profile Picture"
+          class="profile-pic mb-3"
+        />
+        <span class="bio-label">Applicant ID:</span>
+        <div>{{student.app_id}}</div>
+      </div>
+           <!-- Bio Data -->
+       <div class="col-md-6 bio-data-section">
+         <div class="table-responsive">
+           <table class="table table-borderless">
+                   <tr style="border-bottom: 1px solid #e0e0e0; padding: 20px 0;">
+             <td class="bio-label" style="padding: 20px 0;">Name</td>
+             <td style="padding: 20px 0;">{{student.get_fullname}}</td>
+           </tr>
+           <tr style="border-bottom: 1px solid #e0e0e0; padding: 20px 0;">
+             <td class="bio-label" style="padding: 20px 0;">Phone</td>
+             <td style="padding: 20px 0;">{{student.user.phone}}</td>
+           </tr>
+           <tr style="border-bottom: 1px solid #e0e0e0; padding: 20px 0;">
+             <td class="bio-label" style="padding: 20px 0;">Year of Admission</td>
+             <td style="padding: 20px 0;">{{student.year_of_admission}}</td>
+           </tr>
+           <tr style="border-bottom: 1px solid #e0e0e0; padding: 20px 0;">
+             <td class="bio-label" style="padding: 20px 0;">Programme Type</td>
+             <td style="padding: 20px 0;">{{student.programme_type}}</td>
+           </tr>
+           <tr style="border-bottom: 1px solid #e0e0e0; padding: 20px 0;">
+             <td class="bio-label" style="padding: 20px 0;">Faculty</td>
+             <td style="padding: 20px 0;">{{student.programme.faculty}}</td>
+           </tr>
+           <tr style="border-bottom: 1px solid #e0e0e0; padding: 20px 0;">
+             <td class="bio-label" style="padding: 20px 0;">Department</td>
+             <td style="padding: 20px 0;">{{student.programme.department}}</td>
+           </tr>
+           <tr style="border-bottom: 1px solid #e0e0e0; padding: 20px 0;">
+             <td class="bio-label" style="padding: 20px 0;">Programme</td>
+             <td style="padding: 20px 0;">{{student.programme.name}}</td>
+           </tr>
+           <tr style="border-bottom: 1px solid #e0e0e0; padding: 20px 0;">
+             <td class="bio-label" style="padding: 20px 0;">Mode of Entry</td>
+                        <td style="padding: 20px 0;">{{student.mode_of_entry}}</td>
+           </tr>
+         </table>
+         </div>
+       </div>
+      <!-- Registration Status -->
+      <div class="col-md-3">
+        <div class="status-box">
+          <div class="status-title">Registration Status</div>
+          <div class="status-value text-success">Active</div>
+          <!-- You can use Django template tags to show dynamic status -->
+           <hr>
+          <a href="{% url 'applicants:download_slip' %}" class="btn btn-primary">Download Application Form</a>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

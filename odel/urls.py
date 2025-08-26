@@ -23,10 +23,11 @@ from main import urls as main_url
 
 urlpatterns = [
     path('', include(main_url)), # link for main app request
-    path('registration', views.register_one, name='registration_page'),
-    path('login', views.student_login, name='login_page'),
-    path('logout', views.logout_view, name='logout_page'),
     path('admin/', admin.site.urls),
+    path('applicant/', include('applicants.urls')),  # link for applicant app request
+    path('account/', include('account.urls')),  # link for account app request
+    # path("student/", include('students.urls')),  # link for student app request
+    # path("staff/", include('staff.urls')),  # link for staff app request
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 # + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

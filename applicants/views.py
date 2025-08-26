@@ -1,0 +1,90 @@
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.hashers import make_password
+from django.db.utils import IntegrityError
+from django.shortcuts import render, redirect
+
+from account.models import CustomUser, Student
+
+
+def applicant_register(request):
+    if request.method == 'POST':
+        entry_mode = request.POST.get("entry_mode")
+        email = request.POST.get("email")
+        password1 = request.POST.get("password")
+        password2 = request.POST.get("confirm-password")
+        if password1 != password2:
+            messages.error(request, "Password Mismatch!")
+            return render(request, 'applicant/registration_form.html')
+        try:
+            user = CustomUser.objects.create(email=email)
+            user.set_password(password1)
+            user.save()
+            student = Student.objects.create(user=user, mode_of_entry=entry_mode)
+            student.save()
+            messages.success(request, "Account created Sucessfully.")
+            return redirect("/applicant/login")
+        except IntegrityError:
+            messages.error(request, "Email address already used!")
+            return render(request, 'applicant/registration_form.html')
+        except Exception as e:
+            import traceback
+            traceback.print_exc()
+            messages.error(request, f"Error: {e}")
+            return render(request, 'applicant/registration_form.html')
+
+
+
+    else:
+        return render(request, 'applicant/registration_form.html')
+
+
+def applicant_login(request):
+    if request.method == 'POST':
+        student_id = request.POST.get("student_id")
+        password = request.POST.get("password")
+        if not student_id or not password:
+            messages.error(request, "Fields can't be empty!")
+            return render(request, 'applicant/login_form.html')
+        try:
+            user = authenticate(request, username=student_id, password=password)
+            if not user:
+                messages.error(request, "Invalid Credentials!")
+                return render(request, 'applicant/login_form.html')
+
+
+            if user.student.mat_number and student_id != user.student.mat_number:
+                messages.error(request, f"Use {user.student.mat_number} as your matric number")
+                return render(request, 'applicant/login_form.html')
+            # user.set_password(password1)
+            messages.success(request, "Login Sucessfully.")
+            login(request, user)
+            if user.student.applicant_status == "applicant":
+                return redirect("/applicant/dashboard")
+            elif (user.student.applicant_status == "offered_admission" or
+             user.student.applicant_status=="accepted_admission" or 
+             user.student.applicant_status=='rejected admission'):
+                return redirect("/applicant/dashboard")
+
+            return redirect("/dashboard")
+        except IntegrityError:
+            messages.error(request, "Email address already used!")
+            return render(request, 'applicant/login_form.html')
+
+
+    else:
+        return render(request, 'applicant/login_form.html')
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('/login')
+
+
+def applicant_dashboard(request):
+    if request.user.is_authenticated:
+        student = request.user.student
+        return render(request, 'applicant/dashboard.html', {'student': student})
+    else:
+        messages.error(request, "You need to login first.")
+        return redirect('/applicant/login')

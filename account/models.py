@@ -43,7 +43,11 @@ class Student(models.Model):
     year_of_admission = models.IntegerField(null=True, blank=True)
     mode_of_entry = models.CharField(max_length=20, null=True, blank=True, default="Direct Entry")
     programme_type = models.CharField(max_length=20, null=True, blank=True, default="Part Time")
-    programme = models.OneToOneField(Programme, on_delete=models.DO_NOTHING)
+    programme = models.OneToOneField(Programme, on_delete=models.DO_NOTHING, null=True, blank=True)
+    applicant_status = models.CharField(max_length=20, default='applicant',
+     choices=(("applicant", "applicant"), ('offered_admission', "offered_admission"),
+     ("accepted_admission", "accepted_admission"), ("rejected_admission", "rejected_admission",),
+     ("paid_acceptance", "paid_acceptance"), ("student", "student"), ("graduate", "graduate")))
 
     # contact address for user
     contact_address = models.TextField(null=True, blank=True)

@@ -1,8 +1,8 @@
-{% extends 'main/navbar.html' %} {%load static%} {%block content %}
+{% extends 'applicant/applicant_base.html' %} {%load static%} {%block content %}
 
 <div class="registration-container">
   <h3 style="text-align: left">Login</h3>
-  <form method="POST" action="/login">
+  <form method="POST" action="/applicant/login">
     {% if messages %} {% for message in messages %}
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
       {{message}}
@@ -38,7 +38,7 @@
       <p style="text-align: left">
         Forgot password?
         <span style="color: #007bff; cursor: pointer"
-          ><a href="{% url 'registration_page'%}">Click here</a></span
+          ><a href="{% url 'account:password_reset'%}">Click here</a></span
         >
       </p>
     </div>

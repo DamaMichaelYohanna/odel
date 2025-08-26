@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'account',
+    'applicants',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,6 +42,8 @@ INSTALLED_APPS = [
     'main',
     'programme',
     'fee',
+    'students',
+    'staffs',
 ]
 
 MIDDLEWARE = [
@@ -59,7 +62,10 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'main', 'templates'),
-                 os.path.join(BASE_DIR, 'account', 'templates')],
+                 os.path.join(BASE_DIR, 'account', 'templates'),
+                 os.path.join(BASE_DIR, 'applicant', 'templates'),
+                 os.path.join(BASE_DIR, 'students', 'templates'),
+                 os.path.join(BASE_DIR, 'staffs', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,3 +139,7 @@ AUTHENTICATION_BACKENDS = [
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'main', 'static')]
+
+# settings.py
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
